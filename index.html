@@ -11,7 +11,7 @@ overview: true
 	if <span>(</span> Mnemonic.inUse() <span>)</span> <span>{</span>
 	<div class="ifbody">
 	  assert availMemory &gt;= sysMemory;<br/>
-	  assert nonVolatileObjectModal.takeEffect();<br/>
+	  assert DurableObjectModal.takeEffect();<br/>
 	  assert serDe.bypass();<br/>
 	  assert cache.bypass();<br/>
 	</div> 
