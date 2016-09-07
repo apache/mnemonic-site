@@ -21,13 +21,14 @@ MAINTAINER Gang Wang (garyw@apache.org)
 #set up your proxy below, refer to readme in the Docker folder
 # ENV proxy_host "172.17.42.1"
 # ENV proxy_port "8668"
-ENV proxy_host "172.17.42.1"
-ENV proxy_port "8668"
-ENV http_proxy "http://${proxy_host}:${proxy_port}"
-ENV https_proxy ${http_proxy}
-ENV HTTP_PROXY ${http_proxy}
-ENV HTTPS_PROXY ${http_proxy}
-ENV proxy ${http_proxy}
+ENV proxy_host ""
+ENV proxy_port ""
+
+#ENV http_proxy "http://${proxy_host}:${proxy_port}"
+#ENV https_proxy ${http_proxy}
+#ENV HTTP_PROXY ${http_proxy}
+#ENV HTTPS_PROXY ${http_proxy}
+#ENV proxy ${http_proxy}
 
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
