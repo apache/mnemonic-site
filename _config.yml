@@ -5,7 +5,7 @@ excerpt_separator: ""
 
 repository: https://github.com/apache/incubator-mnemonic
 destination: target
-exclude: [BUILD.md, Gemfile*]
+exclude: [docker, BUILD.md, README.md, Gemfile*]
 keep_files: [.git]
 highlight_color: "#199acf"
 
