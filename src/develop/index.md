@@ -22,6 +22,8 @@ Kai Zheng               | drankye        | Committer
 Rakesh Radhakrishnan Potty | rakeshr     | Committer
 Sean Zhong              | seanzhong      | Committer
 Hao Cheng               | chhao01        | Committer
+Debojyoti Dutta         | ddutta         | Committer, Release Mngr.
+Johnu George            | johnu          | Committer
 
 
 ## Mailing Lists
@@ -56,7 +58,7 @@ The important branches are:
 * [asf-site](https://github.com/apache/incubator-mnemonic/tree/asf-site) -
   The pages that are deployed to https://mnemonic.apache.org/
 
-Please check our [coding guidelines](/develop/coding.html).
+Please check our [coding guidelines](/src/develop/coding.html).
 
 ## Reviews
 

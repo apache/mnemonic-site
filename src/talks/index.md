@@ -7,6 +7,10 @@ Want to learn more about Mnemonic?
 
 Watch some presentations and read through some slide decks about mnemonic.
 
+ApacheCon Bigdata 16' [Slides](https://wiki.apache.org/incubator/MnemonicProposal?action=AttachFile&do=get&target=Project_Mnemonic_Pub1.0.pdf)
+
+ApacheCon Bigdata 17' [Slides](http://events.linuxfoundation.org/sites/events/files/slides/Mnemonic.pdf)
+
 ## Videos
 
 <!-- * Mnemonic [slides](https://apachebigdata2016.sched.org/speaker/yanping_wang.1uxngcr4)

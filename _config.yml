@@ -4,7 +4,8 @@ permalink: /news/:year/:month/:day/:title/
 excerpt_separator: ""
 
 repository: https://github.com/apache/incubator-mnemonic
-destination: target
+destination: public
+source: src
 exclude: [docker, BUILD.md, README.md, Gemfile*]
 keep_files: [.git]
 highlight_color: "#199acf"
