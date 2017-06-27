@@ -8,3 +8,5 @@ _site/
 src/assets/javascripts/bundle.js
 public/
 node_modules/
+site/
+/src/.jekyll-metadata
