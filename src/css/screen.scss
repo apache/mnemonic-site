@@ -19,7 +19,7 @@ body {
   font: 300 21px Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
   background-color: #fff;
-  border-top: 5px solid {{ site.highlight_color }};
+  /*border-top: 5px solid {{ site.highlight_color }};*/
   @include box-shadow(inset 0 3px 30px rgba(0,0,0,.3));
   text-shadow: 0 1px 1px rgba(0,0,0,.5);
   -webkit-font-feature-settings: "kern" 1;
@@ -95,6 +95,10 @@ nav {
 
 .main-nav {
   margin-top: 52px;
+
+  ul {
+    float: right;
+  }
 
   li {
     margin-right: 10px;
@@ -409,12 +413,11 @@ footer {
 
 article {
   background-color: #fff;
-  @include border-radius(10px);
+//  @include border-radius(10px);
   padding: 20px;
   margin: 0 10px;
 //  @include box-shadow(0 3px 10px rgba(0,0,0,.1));
-  border-left: thick double #199acf;
-  border-right: thick double #199acf;
+  border-right: thick solid #199acf;
   font-size: 16px;
 }
 
