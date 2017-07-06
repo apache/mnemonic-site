@@ -5,7 +5,6 @@
 @import "normalize";
 @import "gridism";
 @import "pygments";
-@import "font-awesome";
 
 /* Base */
 
@@ -34,7 +33,7 @@ body {
 }
 
 .clear:after {
-  content: " ";
+  content: "";
   display: block;
   height: 0;
   clear: both;
@@ -46,13 +45,13 @@ body {
 }
 
 .grid .titlehead {
-  background: #fff; 
+// background: #fff;
   padding: 40px 20px 50px; 
   text-align: left; 
   text-transform: none;
   font-size: 50px;
-  span {
-    color: #f1f1f1;
+  .codesym {
+    color: #e1e1e1;
     font-size: 60px;
     padding: 0 2px;
     position: relative;
@@ -212,7 +211,7 @@ footer {
   font-size: 16px;
   padding-bottom: 5px;
   color: #c0c0c0;
-  margin-top: 40px;
+  margin-top: 0px;
 
   a {
     color: #fff;
@@ -252,11 +251,25 @@ footer {
   }
 }
 
+
+@include keyframes(secfadein) {
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
+}
+
 /* Intro */
 
 .intro {
+  background-color: #558C89;
+  font-weight: bold;
+  @include animation(secfadein 2s);
 
-  .unit { padding: 10px 0 40px; }
+  color: white;
+  .unit { padding: 10px 0 0px; }
 
   p {
     font-size: 1.75em;
@@ -266,9 +279,55 @@ footer {
 }
 
 @media (min-width: 569px) {
-  .intro p { font-size: 3.2em; }
+  .intro p { font-size: 1.75em; }
 }
 
+/* Ingredients */
+
+.ingredients {
+  background-color: steelblue;
+  font-weight: bold;
+  text-align: center;
+  border: 5px solid white;
+  @include animation(secfadein 2s);
+
+  color: white;
+  .unit {
+    padding: 10px 0 40px;
+    border: 2px solid white;
+    &:hover {
+        background-color: lighten(steelblue, 5%);
+    }
+    padding-bottom: 100%;
+    margin-bottom: -100%;
+  }
+
+  .grid {
+    overflow: hidden;
+  }
+
+  h2 {
+    margin: 1em;
+  }
+
+  p {
+    font-size: 1.2em;
+    margin: 1em;
+  }
+
+  a {
+    line-height: 3em;
+    color: #aaa;
+    text-decoration: none;
+    @include transition(all .25s);
+    &:hover { color: #fff; }
+  }
+
+}
+
+@media (min-width: 569px) {
+  .ingredients p { font-size: 1.2em; }
+}
 /* Quickstart */
 
 .quickstart {
@@ -417,7 +476,7 @@ article {
   padding: 20px;
   margin: 0 10px;
 //  @include box-shadow(0 3px 10px rgba(0,0,0,.1));
-  border-right: thick solid #199acf;
+//  border-right: thick solid #199acf;
   font-size: 16px;
 }
 
@@ -440,13 +499,13 @@ article {
 
 aside {
   padding-top: 30px;
+  border-left: thick solid #199acf;
 
   h4 {
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 700;
-    padding: 0 0 10px 30px;
-    margin-left: -30px;
+    padding: 0 10px 10px 10px;
     display: inline-block;
     border-bottom: 1px solid #199ACF;
   }
@@ -458,6 +517,7 @@ aside {
   }
 
   li {
+    padding-left: 10px;
     list-style-type: none;
 
     a {
@@ -1024,3 +1084,52 @@ code.output {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+.inner-center {
+  display: table;
+  margin: 0 auto;
+}
+
+#return-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    width: 50px;
+    height: 50px;
+    display: block;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    left: 16px;
+    top: 13px;
+    font-size: 19px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+#return-to-top:hover i {
+    color: #fff;
+    top: 5px;
+}
+
+.highlight .lineno { color: #ccc; display:inline-block; padding: 0 5px; border-right:1px solid #ccc; }
+.highlight pre code { display: block; white-space: pre; overflow-x: auto; word-wrap: normal; font-size: 10px; }

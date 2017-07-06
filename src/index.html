@@ -7,36 +7,36 @@ overview: true
 <section class="intro">
   <div class="grid">
     <div class="unit whole center-on-mobiles">
-      <div class="first titlehead">
-	if <span>(</span> Mnemonic.inUse() <span>)</span> <span>{</span>
+      <div class="first titlehead inner-center">
+	if <span class="codesym">(</span> Mnemonic.inUse() <span class="codesym">)</span> <span class="codesym">{</span>
 	<div class="ifbody">
 	  assert availMemory &gt;= sysMemory;<br/>
 	  assert DurableObjectModal.takeEffect();<br/>
 	  assert serDe.bypass();<br/>
 	  assert cache.bypass();<br/>
 	</div> 
-	<span>}</span>
+	<span class="codesym">}</span>
       </div>
     </div>
   </div>
 </section>
-<section class="features">
-  <div class="grid">
-    <div class="unit one-third">
-      <h2>Multi-Device</h2>
-      <p>Leverages Off-heap, NVMe, SSD, SpinDisk and etc.</p>
-      <a href="/docs/devices.html">Devices &rarr;</a>
+<section class="ingredients">
+    <div class="grid">
+        <div class="unit one-third">
+            <h2>Durable Object Model</h2>
+            <p>Persist your linked objects without SerDe.</p>
+            <a href="/docs/arch.html">Architecture <i class="fa fa-arrow-circle-o-right"></i></a>
+        </div>
+        <div class="unit one-third">
+            <h2>Durable Computing Model</h2>
+            <p>Process your linked objects in native code.</p>
+            <a href="/docs/future.html">Future <i class="fa fa-arrow-circle-o-right"></i></a>
+        </div>
+        <div class="unit one-third">
+            <h2>Durable Memory Service</h2>
+            <p>Abstract storage as memory transparently</p>
+            <a href="/docs/devices.html">Devices <i class="fa fa-arrow-circle-o-right"></i></a>
+        </div>
+        <div class="clear"></div>
     </div>
-    <div class="unit one-third">
-      <h2>Speeds up the Apache Big Data Ecosystem</h2>
-      <p>Helps speed up big data applications including graphs.</p>
-      <a href="/docs/arch.html">Architecture &rarr;</a>
-    </div>
-    <div class="unit one-third">
-      <h2>Future Work</h2>
-      <p>Works on new features</p>
-      <a href="/docs/future.html">Future &rarr;</a>
-    </div>
-    <div class="clear"></div>
-  </div>
 </section>

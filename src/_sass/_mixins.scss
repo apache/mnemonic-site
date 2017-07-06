@@ -36,3 +36,18 @@
        -o-user-select: $select;
           user-select: $select;
 }
+
+@mixin keyframes($name) {
+  @-o-keyframes #{$name} { @content };
+  @-moz-keyframes #{$name} { @content };
+  @-webkit-keyframes #{$name} { @content };
+  @keyframes #{$name} { @content };
+}
+
+@mixin animation($animation...) {
+  -o-animation: $animation;
+  -moz-animation: $animation;
+  -webkit-animation: $animation;
+  animation: $animation;
+}
+
