@@ -548,7 +548,7 @@ body {
   display: block; }
 
 .clear:after {
-  content: " ";
+  content: "";
   display: block;
   height: 0;
   clear: both;
@@ -750,7 +750,7 @@ footer {
 
 @media (min-width: 569px) {
   .intro p {
-    font-size: 3.2em; } }
+    font-size: 1.75em; } }
 /* Ingredients */
 .ingredients {
   background-color: steelblue;
@@ -764,9 +764,13 @@ footer {
   color: white; }
   .ingredients .unit {
     padding: 10px 0 40px;
-    border: 2px solid white; }
+    border: 2px solid white;
+    padding-bottom: 100%;
+    margin-bottom: -100%; }
     .ingredients .unit:hover {
       background-color: #568ebd; }
+  .ingredients .grid {
+    overflow: hidden; }
   .ingredients h2 {
     margin: 1em; }
   .ingredients p {
