@@ -523,30 +523,6 @@ td, th {
     -o-user-select: none;
     user-select: none; }
 
-/*!
- *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
- *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
- */
-@font-face {
-  font-family: 'FontAwesome';
-  src: url("../fonts/fontawesome-webfont.eot?v=4.2.0");
-  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.2.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff?v=4.2.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.2.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-.fa {
-  display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-.fa-link:before {
-  content: "\f0c1"; }
-
-.fa-pencil:before {
-  content: "\f040"; }
-
 /* Base */
 * {
   -webkit-box-sizing: border-box;
@@ -582,13 +558,12 @@ body {
   padding-top: 8px; }
 
 .grid .titlehead {
-  background: #fff;
   padding: 40px 20px 50px;
   text-align: left;
   text-transform: none;
   font-size: 50px; }
-  .grid .titlehead span {
-    color: #f1f1f1;
+  .grid .titlehead .codesym {
+    color: #e1e1e1;
     font-size: 60px;
     padding: 0 2px;
     position: relative;
@@ -709,7 +684,7 @@ footer {
   font-size: 16px;
   padding-bottom: 5px;
   color: #c0c0c0;
-  margin-top: 40px; }
+  margin-top: 0px; }
   footer a {
     color: #fff; }
     footer a:hover img {
@@ -737,17 +712,79 @@ footer {
     margin-bottom: 0; }
   footer .two-thirds p {
     margin-top: -20px; } }
+@-o-keyframes secfadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-moz-keyframes secfadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-webkit-keyframes secfadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes secfadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
 /* Intro */
-.intro .unit {
-  padding: 10px 0 40px; }
-.intro p {
-  font-size: 1.75em;
-  line-height: 1em;
-  margin: 0; }
+.intro {
+  background-color: #558C89;
+  font-weight: bold;
+  -o-animation: secfadein 2s;
+  -moz-animation: secfadein 2s;
+  -webkit-animation: secfadein 2s;
+  animation: secfadein 2s;
+  color: white; }
+  .intro .unit {
+    padding: 10px 0 40px; }
+  .intro p {
+    font-size: 1.75em;
+    line-height: 1em;
+    margin: 0; }
 
 @media (min-width: 569px) {
   .intro p {
     font-size: 3.2em; } }
+/* Ingredients */
+.ingredients {
+  background-color: steelblue;
+  font-weight: bold;
+  text-align: center;
+  border: 5px solid white;
+  -o-animation: secfadein 2s;
+  -moz-animation: secfadein 2s;
+  -webkit-animation: secfadein 2s;
+  animation: secfadein 2s;
+  color: white; }
+  .ingredients .unit {
+    padding: 10px 0 40px;
+    border: 2px solid white; }
+    .ingredients .unit:hover {
+      background-color: #568ebd; }
+  .ingredients h2 {
+    margin: 1em; }
+  .ingredients p {
+    font-size: 1.2em;
+    margin: 1em; }
+  .ingredients a {
+    color: #aaa;
+    text-decoration: none;
+    -webkit-transition: all 0.25s;
+    -moz-transition: all 0.25s;
+    -o-transition: all 0.25s;
+    transition: all 0.25s; }
+    .ingredients a:hover {
+      color: #fff; }
+
+@media (min-width: 569px) {
+  .ingredients p {
+    font-size: 1.2em; } }
 /* Quickstart */
 .quickstart {
   background-color: #3F1F1F;
@@ -873,7 +910,6 @@ article {
   background-color: #fff;
   padding: 20px;
   margin: 0 10px;
-  border-right: thick solid #199acf;
   font-size: 16px; }
 
 @media (max-width: 480px) {
@@ -888,13 +924,13 @@ article {
     font-size: 21px; } }
 /* Right-side nav - used by both docs and news */
 aside {
-  padding-top: 30px; }
+  padding-top: 30px;
+  border-left: thick solid #199acf; }
   aside h4 {
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 700;
-    padding: 0 0 10px 30px;
-    margin-left: -30px;
+    padding: 0 10px 10px 10px;
     display: inline-block;
     border-bottom: 1px solid #199ACF; }
   aside ul {
@@ -902,6 +938,7 @@ aside {
     aside ul:first-child {
       margin-top: 0; }
   aside li {
+    padding-left: 10px;
     list-style-type: none; }
     aside li a {
       font-size: 16px;
@@ -1422,3 +1459,60 @@ code.output {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0; }
+
+.inner-center {
+  display: table;
+  margin: 0 auto; }
+
+#return-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: black;
+  background: rgba(0, 0, 0, 0.7);
+  width: 50px;
+  height: 50px;
+  display: block;
+  text-decoration: none;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  border-radius: 35px;
+  display: none;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
+
+#return-to-top i {
+  color: #fff;
+  margin: 0;
+  position: relative;
+  left: 16px;
+  top: 13px;
+  font-size: 19px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
+
+#return-to-top:hover {
+  background: rgba(0, 0, 0, 0.9); }
+
+#return-to-top:hover i {
+  color: #fff;
+  top: 5px; }
+
+.highlight .lineno {
+  color: #ccc;
+  display: inline-block;
+  padding: 0 5px;
+  border-right: 1px solid #ccc; }
+
+.highlight pre code {
+  display: block;
+  white-space: pre;
+  overflow-x: auto;
+  word-wrap: normal;
+  font-size: 10px; }
