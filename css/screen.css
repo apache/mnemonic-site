@@ -742,7 +742,7 @@ footer {
   animation: secfadein 2s;
   color: white; }
   .intro .unit {
-    padding: 10px 0 40px; }
+    padding: 10px 0 0px; }
   .intro p {
     font-size: 1.75em;
     line-height: 1em;
@@ -777,6 +777,7 @@ footer {
     font-size: 1.2em;
     margin: 1em; }
   .ingredients a {
+    line-height: 3em;
     color: #aaa;
     text-decoration: none;
     -webkit-transition: all 0.25s;
