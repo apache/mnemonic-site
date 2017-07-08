@@ -1,7 +1,16 @@
 - title: Overview
   docs:
   - arch
+  - features
+  - gcdata
+  - modes
+  - memsrvcmp
+  - integration
+
 
 - title: Usage
   docs:
-  - ui-usage
+  - build
+  - usage
+  - runtest
+  - docker

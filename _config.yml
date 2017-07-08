@@ -10,6 +10,9 @@ exclude: [docker, BUILD.md, Gemfile*]
 keep_files: [.git]
 highlight_color: "#199acf"
 
+sass:
+  style: compressed
+
 collections:
   docs:
     output: true
