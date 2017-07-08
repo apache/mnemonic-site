@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
   <meta charset="UTF-8">
-  <title>Future</title>
+  <title>Run Benchmark</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Jekyll v3.4.3">
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
@@ -514,8 +514,18 @@
 
       <div class="unit four-fifths">
         <article>
-          <h1>Future</h1>
-          
+          <h1>Run Benchmark</h1>
+          <h3 id="how-to-benchmark-">How to benchmark ?</h3>
+<p>To run sort bench workloads.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span><span class="c"># generate some input data files with a count parameter that indicates how many random numbers to be generated</span>
+  <span class="nv">$ </span>mnemonic-benches/mnemonic-sort-bench/bin/gen_data.py 20000
+  <span class="nv">$ </span><span class="c"># create a configure file that contains all the absolute paths of generated input data files to work on in a batch</span>
+  <span class="nv">$ </span><span class="c"># call the run.py to run the bench workloads with the configure file</span>
+  <span class="nv">$ </span>mnemonic-benches/mnemonic-sort-bench/bin/run.py ./sort-files.conf
+  <span class="nv">$ </span><span class="c"># after finished, you can find the result data from the sort_bench_result.log</span>
+  <span class="nv">$ </span>less mnemonic-benches/mnemonic-sort-bench/sort_bench_result.log
+</code></pre>
+</div>
 
           
 

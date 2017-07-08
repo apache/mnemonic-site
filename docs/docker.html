@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
   <meta charset="UTF-8">
-  <title>Future</title>
+  <title>Docker usage</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Jekyll v3.4.3">
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
@@ -514,8 +514,126 @@
 
       <div class="unit four-fifths">
         <article>
-          <h1>Future</h1>
-          
+          <h1>Docker usage</h1>
+          <p>This is the “Dockerfiles” that will automatically build the CentOS/Ubuntu environment of this project.</p>
+
+<hr />
+<h3 id="features">Features:</h3>
+
+<p><em>What does the Dockerfile do?</em></p>
+
+<ul>
+  <li>
+    <ol>
+      <li>Build from centos/ubuntu.</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>Default is not using proxy. Please see instruction below to set up http/https proxy.</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>Install dependency packages.</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>Set up environment variables of paths.</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>Create /ws folder.</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>Install pmalloc in /ws</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>Install nvml in /ws.</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>Set up maven proxy mvn.sh.</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>Clone mnemonic code then build/install.</li>
+    </ol>
+  </li>
+  <li>
+    <ol>
+      <li>Go to /ws fold and start bash.</li>
+    </ol>
+  </li>
+</ul>
+
+<h4 id="how-to-set-up-proxy">How to set up proxy?</h4>
+
+<p>Set the argument “http_proxy” for the docker option “–build-arg” as follows</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span>docker build -t NAME[:TAG] --build-arg <span class="nv">proxy_host</span><span class="o">=</span><span class="s2">"&lt;proxy_host&gt;"</span> <span class="nv">proxy_port</span><span class="o">=</span><span class="s2">"&lt;proxy_port&gt;"</span> .
+</code></pre>
+</div>
+
+<p>For old version docker v1.10 below, Please replace ARG with ENV and set its value as proxy strings in Dockerfile instead</p>
+
+<h3 id="how-to-build-the-docker-image-from-dockerfile-in-host-os">How to build the docker image from Dockerfile in host OS?</h3>
+<p>Build from git repository</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span>docker build -t NAME[:TAG] https://github.com/apache/incubator-mnemonic.git#:docker/docker-CentOS
+  <span class="nv">$ </span>docker build -t NAME[:TAG] https://github.com/apache/incubator-mnemonic.git#:docker/docker-Ubuntu
+</code></pre>
+</div>
+
+<p>– OR –</p>
+
+<p>In the folder of Dockerfile, run:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span>docker build -t NAME[:TAG] .
+</code></pre>
+</div>
+
+<ul>
+  <li>More detials please refer to <a href="https://docs.docker.com/engine/reference/commandline/build/">Docker build reference</a></li>
+</ul>
+
+<h4 id="optional-after-build-push-image-to-dockerhub">Optional: After build, push image to dockerhub:</h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span>docker login <span class="o">[</span>OPTIONS] <span class="o">[</span>SERVER]  
+  <span class="nv">$ </span>docker push <span class="o">[</span>OPTIONS] NAME[:TAG]
+</code></pre>
+</div>
+
+<ul>
+  <li>More detials please refer to <a href="https://docs.docker.com/engine/reference/commandline/login/">Docker login reference</a>
+ and <a href="https://docs.docker.com/engine/reference/commandline/push/">Docker push reference</a></li>
+</ul>
+
+<h3 id="how-to-run-image-after-build">How to run image after build</h3>
+
+<p>Run image:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span>docker run --name CONTAINER_NAME -it NAME[:TAG]
+</code></pre>
+</div>
+
+<h3 id="sharing-host-project-folder-to-dock-container-for-ides-eg-eclipse-intellij-idea">Sharing host project folder to Dock container for IDEs e.g. Eclipse, Intellij IDEA</h3>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span>docker run -v &lt;hostdir&gt;/incubator-mnemonic:/ws/incubator-mnemonic -it NAME[:TAG]
+</code></pre>
+</div>
+<p>Note: this command will override the container’s project folder, you can use another name to avoid it.</p>
+
+<ul>
+  <li>More details please refer to <a href="https://docs.docker.com/engine/reference/run/">Docker run reference</a></li>
+</ul>
 
           
 
@@ -552,7 +670,22 @@
 
   
   
-
+    <div class="section-nav">
+      <div class="left align-right">
+          
+            
+            
+            <a href="/docs/runtest.html" class="prev">Back</a>
+          
+      </div>
+      <div class="right align-left">
+          
+            <span class="next disabled">Next</span>
+          
+      </div>
+    </div>
+    <div class="clear"></div>
+    
 
         </article>
       </div>
@@ -856,7 +989,7 @@
     
   
     
-      <li class=""><a href="http://localhost:4000/docs/docker.html">Docker usage</a></li>
+      <li class="current"><a href="http://localhost:4000/docs/docker.html">Docker usage</a></li>
       
 
 

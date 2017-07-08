@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
   <meta charset="UTF-8">
-  <title>Future</title>
+  <title>Durable Memory Service Comparison</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Jekyll v3.4.3">
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
@@ -514,8 +514,93 @@
 
       <div class="unit four-fifths">
         <article>
-          <h1>Future</h1>
-          
+          <h1>Durable Memory Service Comparison</h1>
+          <h4 id="durable-memory-service-comparison-table">Durable Memory Service Comparison Table</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Features</th>
+      <th style="text-align: center">NVML-VMEM</th>
+      <th style="text-align: center">PMALLOC</th>
+      <th style="text-align: center">NVML-PMEM</th>
+      <th style="text-align: center">SYS-VMEM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fixed   Durable K-V Store</td>
+      <td style="text-align: center">NA</td>
+      <td style="text-align: center">O</td>
+      <td style="text-align: center">O</td>
+      <td style="text-align: center">NA</td>
+    </tr>
+    <tr>
+      <td>Support DOM</td>
+      <td style="text-align: center">O</td>
+      <td style="text-align: center">O</td>
+      <td style="text-align: center">O</td>
+      <td style="text-align: center">O</td>
+    </tr>
+    <tr>
+      <td>Support DNCM</td>
+      <td style="text-align: center">O</td>
+      <td style="text-align: center">O</td>
+      <td style="text-align: center">O</td>
+      <td style="text-align: center">O</td>
+    </tr>
+    <tr>
+      <td>Support OS X</td>
+      <td style="text-align: center">NA</td>
+      <td style="text-align: center">O</td>
+      <td style="text-align: center">NA</td>
+      <td style="text-align: center">O</td>
+    </tr>
+    <tr>
+      <td>Memory Map Sync.</td>
+      <td style="text-align: center">NA</td>
+      <td style="text-align: center">O</td>
+      <td style="text-align: center">O</td>
+      <td style="text-align: center">NA</td>
+    </tr>
+    <tr>
+      <td>PM Flush</td>
+      <td style="text-align: center">NA</td>
+      <td style="text-align: center">NA</td>
+      <td style="text-align: center">O</td>
+      <td style="text-align: center">NA</td>
+    </tr>
+    <tr>
+      <td>PM Drain</td>
+      <td style="text-align: center">NA</td>
+      <td style="text-align: center">NA</td>
+      <td style="text-align: center">O</td>
+      <td style="text-align: center">NA</td>
+    </tr>
+    <tr>
+      <td>PM Persist</td>
+      <td style="text-align: center">NA</td>
+      <td style="text-align: center">NA</td>
+      <td style="text-align: center">O</td>
+      <td style="text-align: center">NA</td>
+    </tr>
+    <tr>
+      <td>PM Atomic Ops.</td>
+      <td style="text-align: center">NA</td>
+      <td style="text-align: center">NA</td>
+      <td style="text-align: center">O</td>
+      <td style="text-align: center">NA</td>
+    </tr>
+    <tr>
+      <td>Expected Performance</td>
+      <td style="text-align: center">Average</td>
+      <td style="text-align: center">Average</td>
+      <td style="text-align: center">Slow(on Disk)</td>
+      <td style="text-align: center">Fast</td>
+    </tr>
+  </tbody>
+</table>
+
 
           
 
@@ -537,22 +622,24 @@
 
   
   
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
+    <div class="section-nav">
+      <div class="left align-right">
+          
+            
+            
+            <a href="/docs/modes.html" class="prev">Back</a>
+          
+      </div>
+      <div class="right align-left">
+          
+            
+            
+            <a href="/docs/integration.html" class="next">Next</a>
+          
+      </div>
+    </div>
+    <div class="clear"></div>
+    
 
         </article>
       </div>
@@ -697,7 +784,7 @@
     
   
     
-      <li class=""><a href="http://localhost:4000/docs/memsrvcmp.html">Durable Memory Service Comparison</a></li>
+      <li class="current"><a href="http://localhost:4000/docs/memsrvcmp.html">Durable Memory Service Comparison</a></li>
       
 
 
