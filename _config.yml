@@ -9,6 +9,7 @@ source: src
 exclude: [docker, BUILD.md, Gemfile*]
 keep_files: [.git]
 highlight_color: "#199acf"
+highlight_color_hover: "#090a4f"
 
 sass:
   style: compressed

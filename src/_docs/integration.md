@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Mnemonic Integration with other projects
+title: Integration with other projects
 permalink: /docs/integration.html
 ---
 
