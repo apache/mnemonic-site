@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
   <meta charset="UTF-8">
-  <title>Run Benchmark</title>
+  <title>Development Setup</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Jekyll v3.4.3">
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
@@ -576,18 +576,48 @@
 
       <div class="unit four-fifths">
         <article>
-          <h1>Run Benchmark</h1>
-          <h3 id="how-to-benchmark-">How to benchmark ?</h3>
-<p>To run sort bench workloads.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span><span class="c"># generate some input data files with a count parameter that indicates how many random numbers to be generated</span>
-  <span class="nv">$ </span>mnemonic-benches/mnemonic-sort-bench/bin/gen_data.py 20000
-  <span class="nv">$ </span><span class="c"># create a configure file that contains all the absolute paths of generated input data files to work on in a batch</span>
-  <span class="nv">$ </span><span class="c"># call the run.py to run the bench workloads with the configure file</span>
-  <span class="nv">$ </span>mnemonic-benches/mnemonic-sort-bench/bin/run.py ./sort-files.conf
-  <span class="nv">$ </span><span class="c"># after finished, you can find the result data from the sort_bench_result.log</span>
-  <span class="nv">$ </span>less mnemonic-benches/mnemonic-sort-bench/sort_bench_result.log
+          <h1>Development Setup</h1>
+          <p>This document provides a best practice for general development setup, 
+we suggest to use this practice on your first try for code contribution.</p>
+
+<p>It is based on Docker and simple for preparation, no root privilege needed except for Docker and Git installation.</p>
+
+<ul>
+  <li>Install Git on your system <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">Git-scm</a></li>
+  <li><a href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup" target="_blank">First-Time Git Setup</a>
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git config --global user.name <span class="s2">"&lt;Your Name&gt;"</span>
+<span class="gp">$ </span>git config --global user.email <span class="s2">"&lt;Your Email Address&gt;"</span>
 </code></pre>
-</div>
+    </div>
+  </li>
+  <li>Install Docker on your system <a href="https://www.docker.com/" target="_blank">Docker Official Website</a></li>
+  <li>Install IDE on your Linux/MacOS/Windows box <a href="https://www.jetbrains.com/idea/" target="_blank">IntelliJ IDEA Official Website</a></li>
+  <li>Register an account on Github for yourself if not yet have one</li>
+  <li>Log into Github and fork <a href="https://github.com/apache/incubator-mnemonic" target="_blank">Apache Incubator Mnemonic repository</a>.
+<a href="https://help.github.com/articles/fork-a-repo/" target="_blank">Fork and Set up Git</a></li>
+  <li>Configure Apache incubator Mnemonic repo. as upstream remote in your local repository
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> &lt;your_project_folder&gt;
+<span class="gp">$ </span>git remote add upstream https://github.com/apache/incubator-mnemonic.git
+</code></pre>
+    </div>
+  </li>
+  <li>Prepare Mnemonic Docker image on you system
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker build -t mnedev https://github.com/apache/incubator-mnemonic.git#:docker/docker-CentOS
+<span class="gp">$ </span><span class="c"># --------- OR --------- </span>
+<span class="gp">$ </span>docker build -t mnedev https://github.com/apache/incubator-mnemonic.git#:docker/docker-Ubuntu
+</code></pre>
+    </div>
+  </li>
+  <li>Mount your host repo. to Docker container, this following command would hide the original Mnemonic project folder in container
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker run -it -v &lt;mnemonic_project_folder&gt;:/ws/incubator-mnemonic mnedev
+</code></pre>
+    </div>
+  </li>
+  <li>Open Mnemonic project in the IDE</li>
+</ul>
+
+<p>After setup, you are able to edit project code on your host while compiling and test your code in isolated Docker environment.
+Please leave enough space for docker based compiling and testing (&gt;30G for test running)</p>
 
           
 
@@ -615,19 +645,24 @@
 
   
   
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
+    <div class="section-nav">
+      <div class="left align-right">
+          
+            
+            
+            <a href="/docs/integration.html" class="prev">Back</a>
+          
+      </div>
+      <div class="right align-left">
+          
+            
+            
+            <a href="/docs/build.html" class="next">Next</a>
+          
+      </div>
+    </div>
+    <div class="clear"></div>
+    
 
         </article>
       </div>
@@ -844,7 +879,7 @@
     
   
     
-      <li class=""><a href="/docs/devsetup.html">Development Setup</a></li>
+      <li class="current"><a href="/docs/devsetup.html">Development Setup</a></li>
       
 
 
