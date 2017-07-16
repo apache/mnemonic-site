@@ -37,9 +37,10 @@ There are several development mailing lists for mnemonic
 * [commits@mnemonic.incubator.apache.org](mailto:commits@mnemonic.incubator.apache.org) - Git tracking
   with archive [here](https://mail-archives.apache.org/mod_mbox/incubator-mnemonic-commits/)
 
-You can subscribe to the lists by sending email to
-*list*-subscribe@mnemonic.incubator.apache.org and unsubscribe by sending email to
-*list*-unsubscribe@mnemonic.incubator.apache.org.
+You can subscribe to the lists by sending email to<br/>
+*list*-subscribe@mnemonic.incubator.apache.org<br/>
+and unsubscribe by sending email to<br/>
+*list*-unsubscribe@mnemonic.incubator.apache.org.<br/>
 
 ## Source code
 
