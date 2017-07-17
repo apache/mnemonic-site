@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
   <meta charset="UTF-8">
-  <title>Features</title>
+  <title>Submit Changes</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Jekyll v3.4.3">
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
@@ -642,33 +642,76 @@
 
       <div class="unit four-fifths">
         <article>
-          <h1>Features</h1>
-          <p>Apache Mnemonic is an advanced hybrid memory storages oriented library, it proposed a non-volatile/durable Java object model and durable computing service that bring several advantages to significantly improve the performance of massive real-time data processing/analytics. developers are able to use this library to design their cache-less and SerDe-less high performance applications.</p>
-
-<h3 id="features">Features:</h3>
+          <h1>Submit Changes</h1>
+          <p>After <a href="devsetup.html">Development Setup</a>, you can follow the steps below to
+submit your code/comments and document changes.</p>
 
 <ul>
-  <li>In-place data storage on local non-volatile memory</li>
-  <li>Durable Object Model (DOM)</li>
-  <li>Durable Native Computing Model (DNCM)</li>
-  <li>Object graphs lazy loading &amp; sharing</li>
-  <li>Auto-reclaim memory resources and Mnemonic objects</li>
-  <li>Hierarchical cache pool for massive data caching</li>
-  <li>Extensible memory services for new device adoption and allocation optimization</li>
-  <li>Durable data structure collection(WIP)</li>
-  <li>Durable computing service</li>
-  <li>Minimize memory footprint of on-heap</li>
-  <li>Reduce GC Overheads as the following chart shown (collected from Apache Spark experiments)</li>
-  <li>Drop-in Hadoop MapReduce support</li>
-  <li>DurableRDD for Apache Spark</li>
+  <li>Make sure the changes are linked to your <a href="https://issues.apache.org/jira/projects/MNEMONIC" target="_blank">Apache JIRA</a> ticket</li>
+  <li>Review your changes according to the JIRA ticket in question</li>
+  <li>Building project in the Docker container
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># cd /ws/incubator-mnemonic</span>
+<span class="c"># mvn clean install</span>
+</code></pre>
+    </div>
+  </li>
+  <li>Resolve any problems found by building process</li>
+  <li>Run your test cases specific to your changes, please refer to bin/test.conf</li>
+  <li>Resolve any problems found by your test cases</li>
+  <li>Add your test cases to <em>bin/test.conf</em></li>
+  <li>Commit the changes to your local repository in IDE<br />
+for Intellij IDEA, please refer to <a href="https://www.jetbrains.com/help/idea/committing-changes-to-a-local-git-repository.html" target="_blank">Committing Changes to a Local Git Repository</a><br />
+Please use JIRA id and title to fill up the comment of commit<br />
+for example
+    <div class="highlighter-rouge"><pre class="highlight"><code> MNEMONIC-301: Improve the documentation of architecture page
+</code></pre>
+    </div>
+  </li>
+  <li>Run all test cases if your changes could impact existing functionalities<br />
+Note: Please make sure enough available space for test data generation (&gt;30G)
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># cd /ws/incubator-mnemonic</span>
+<span class="c"># bin/runall.sh</span>
+</code></pre>
+    </div>
+  </li>
+  <li>Resolve any problems found by test cases and then <strong>amend</strong> your previous commit in IDE<br />
+for Intellij IDEA, please refer to <a href="https://www.jetbrains.com/help/idea/committing-changes-to-a-local-git-repository.html" target="_blank">Committing Changes to a Local Git Repository</a></li>
+  <li>Make sure there is only 1 local commit for each JIRA ticket, otherwise please squash them into one</li>
+  <li>Rebase your codebase before pushing local commits to your remote repository
+    <ol>
+      <li>fetch update from remote <a href="https://www.jetbrains.com/help/idea/fetching-changes-from-a-remote-git-repository.html" target="_blank">Fetching Changes</a></li>
+      <li>Rebase your changes onto upstream/master <a href="https://www.jetbrains.com/help/idea/rebasing-branches.html" target="_blank">Rebasing Branches</a></li>
+    </ol>
+  </li>
+  <li>Push local commits to your remote repository <a href="https://www.jetbrains.com/help/idea/pushing-changes-to-the-upstream-git-push.html" target="_blank">Pushing Changes</a></li>
+  <li>Create a PR in Github <a href="https://help.github.com/articles/creating-a-pull-request/" target="_blank">Creating a pull request</a></li>
+  <li>Fix any issues come from community review</li>
+  <li>Change the JIRA ticket status to RESOLVED if the button exists</li>
 </ul>
-
 
           
 
 
 
 
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
 
   
   
@@ -680,14 +723,14 @@
           
             
             
-            <a href="/docs/arch.html" class="prev">Back</a>
+            <a href="/docs/devsetup.html" class="prev">Back</a>
           
       </div>
       <div class="right align-left">
           
             
             
-            <a href="/docs/gcdata.html" class="next">Next</a>
+            <a href="/docs/build.html" class="next">Next</a>
           
       </div>
     </div>
@@ -737,7 +780,7 @@
     
   
     
-      <li class="current"><a href="/docs/features.html">Features</a></li>
+      <li class=""><a href="/docs/features.html">Features</a></li>
       
 
 
@@ -953,7 +996,7 @@
     
   
     
-      <li class=""><a href="/docs/submitchanges.html">Submit Changes</a></li>
+      <li class="current"><a href="/docs/submitchanges.html">Submit Changes</a></li>
       
 
 
