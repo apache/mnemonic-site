@@ -11,6 +11,7 @@
 - title: Usage
   docs:
   - devsetup
+  - submitchanges
   - build
   - usage
   - runtest
