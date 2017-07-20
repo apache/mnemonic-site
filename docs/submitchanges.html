@@ -650,7 +650,8 @@ submit your code/comments and document changes.</p>
   <li>Make sure the changes are linked to your <a href="https://issues.apache.org/jira/projects/MNEMONIC" target="_blank">Apache JIRA</a> ticket</li>
   <li>Review your changes according to the JIRA ticket in question</li>
   <li>Building project in the Docker container
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># cd /ws/incubator-mnemonic</span>
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">## for Docker container</span>
+<span class="c"># cd /ws/incubator-mnemonic</span>
 <span class="c"># mvn clean install</span>
 </code></pre>
     </div>
@@ -663,27 +664,50 @@ submit your code/comments and document changes.</p>
 for Intellij IDEA, please refer to <a href="https://www.jetbrains.com/help/idea/committing-changes-to-a-local-git-repository.html" target="_blank">Committing Changes to a Local Git Repository</a><br />
 Please use JIRA id and title to fill up the comment of commit<br />
 for example
-    <div class="highlighter-rouge"><pre class="highlight"><code> MNEMONIC-301: Improve the documentation of architecture page
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">## for host</span>
+<span class="c"># git commit -m "MNEMONIC-301: Improve the documentation of architecture page"</span>
 </code></pre>
     </div>
   </li>
   <li>Run all test cases if your changes could impact existing functionalities<br />
 Note: Please make sure enough available space for test data generation (&gt;30G)
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># cd /ws/incubator-mnemonic</span>
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">## for Docker container</span>
+<span class="c"># cd /ws/incubator-mnemonic</span>
 <span class="c"># bin/runall.sh</span>
 </code></pre>
     </div>
   </li>
   <li>Resolve any problems found by test cases and then <strong>amend</strong> your previous commit in IDE<br />
-for Intellij IDEA, please refer to <a href="https://www.jetbrains.com/help/idea/committing-changes-to-a-local-git-repository.html" target="_blank">Committing Changes to a Local Git Repository</a></li>
+for Intellij IDEA, please refer to <a href="https://www.jetbrains.com/help/idea/committing-changes-to-a-local-git-repository.html" target="_blank">Committing Changes to a Local Git Repository</a>
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">## for host</span>
+<span class="c"># git commit --amend</span>
+</code></pre>
+    </div>
+  </li>
   <li>Make sure there is only 1 local commit for each JIRA ticket, otherwise please squash them into one</li>
   <li>Rebase your codebase before pushing local commits to your remote repository
     <ol>
-      <li>fetch update from remote <a href="https://www.jetbrains.com/help/idea/fetching-changes-from-a-remote-git-repository.html" target="_blank">Fetching Changes</a></li>
-      <li>Rebase your changes onto upstream/master <a href="https://www.jetbrains.com/help/idea/rebasing-branches.html" target="_blank">Rebasing Branches</a></li>
+      <li>fetch update from remote <a href="https://www.jetbrains.com/help/idea/fetching-changes-from-a-remote-git-repository.html" target="_blank">Fetching Changes</a>
+        <div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="c">## for host</span>
+  <span class="c"># git fetch -a</span>
+</code></pre>
+        </div>
+      </li>
+      <li>Rebase your changes onto upstream/master <a href="https://www.jetbrains.com/help/idea/rebasing-branches.html" target="_blank">Rebasing Branches</a>
+        <div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="c">## for host</span>
+  <span class="c"># git rebase upstream/master</span>
+</code></pre>
+        </div>
+      </li>
     </ol>
   </li>
-  <li>Push local commits to your remote repository <a href="https://www.jetbrains.com/help/idea/pushing-changes-to-the-upstream-git-push.html" target="_blank">Pushing Changes</a></li>
+  <li>Push local commits to your remote repository <a href="https://www.jetbrains.com/help/idea/pushing-changes-to-the-upstream-git-push.html" target="_blank">Pushing Changes</a>
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">## for host</span>
+<span class="c"># git push origin</span>
+<span class="c">## NOTE: use force push if your amended commit has already been pushed</span>
+</code></pre>
+    </div>
+  </li>
   <li>Create a PR in Github <a href="https://help.github.com/articles/creating-a-pull-request/" target="_blank">Creating a pull request</a></li>
   <li>Fix any issues come from community review</li>
   <li>Change the JIRA ticket status to RESOLVED if the button exists</li>
