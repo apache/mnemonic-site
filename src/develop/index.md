@@ -24,7 +24,7 @@ Sean Zhong              | seanzhong      | Committer
 Hao Cheng               | chhao01        | Committer
 Debojyoti Dutta         | ddutta         | Committer, Release Mngr.
 Johnu George            | johnu          | Committer
-
+Yanhui Zhao             | yzhao          | Committer
 
 ## Mailing Lists
 
