@@ -2,11 +2,11 @@
   docs:
   - arch
   - features
-  - gcdata
   - modes
   - memsrvcmp
   - integration
-
+  - domusecases
+  - gcdata
 
 - title: Usage
   docs:
