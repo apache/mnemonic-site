@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
   <meta charset="UTF-8">
-  <title>Submit Changes</title>
+  <title>DOM Use Cases</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Jekyll v3.4.3">
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic,900">
@@ -712,91 +712,40 @@
 
       <div class="unit four-fifths">
         <article>
-          <h1>Submit Changes</h1>
-          <p>After <a href="devsetup.html">Development Setup</a>, you can follow the steps below to
-submit your code/comments and document changes.</p>
+          <h1>DOM Use Cases</h1>
+          <hr />
+<p><img src="/img/durableplainobject.svg" alt="Durable_Plain_Object" /></p>
 
-<ul>
-  <li>Make sure the changes are linked to your <a href="https://issues.apache.org/jira/projects/MNEMONIC" target="_blank">Apache JIRA</a> ticket</li>
-  <li>Review your changes according to the JIRA ticket in question</li>
-  <li>Building project in the Docker container
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">## for Docker container</span>
-<span class="c"># cd /ws/incubator-mnemonic</span>
-<span class="c"># mvn clean install</span>
-</code></pre>
-    </div>
-  </li>
-  <li>Resolve any problems found by building process</li>
-  <li>Run your test cases specific to your changes, please refer to bin/test.conf</li>
-  <li>Resolve any problems found by your test cases</li>
-  <li>Add your test cases to <em>bin/test.conf</em></li>
-  <li>Commit the changes to your local repository in IDE<br />
-for Intellij IDEA, please refer to <a href="https://www.jetbrains.com/help/idea/committing-changes-to-a-local-git-repository.html" target="_blank">Committing Changes to a Local Git Repository</a><br />
-Please use JIRA id and title to fill up the comment of commit<br />
-for example
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">## for host</span>
-<span class="c"># git commit -m "MNEMONIC-301: Improve the documentation of architecture page"</span>
-</code></pre>
-    </div>
-  </li>
-  <li>Run all test cases if your changes could impact existing functionalities<br />
-Note: Please make sure enough available space for test data generation (&gt;30G)
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">## for Docker container</span>
-<span class="c"># cd /ws/incubator-mnemonic</span>
-<span class="c"># bin/runall.sh</span>
-</code></pre>
-    </div>
-  </li>
-  <li>Resolve any problems found by test cases and then <strong>amend</strong> your previous commit in IDE<br />
-for Intellij IDEA, please refer to <a href="https://www.jetbrains.com/help/idea/committing-changes-to-a-local-git-repository.html" target="_blank">Committing Changes to a Local Git Repository</a>
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">## for host</span>
-<span class="c"># git commit --amend</span>
-</code></pre>
-    </div>
-  </li>
-  <li>Make sure there is only 1 local commit for each JIRA ticket, otherwise please squash them into one</li>
-  <li>Rebase your codebase before pushing local commits to your remote repository
-    <ol>
-      <li>fetch update from remote <a href="https://www.jetbrains.com/help/idea/fetching-changes-from-a-remote-git-repository.html" target="_blank">Fetching Changes</a>
-        <div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="c">## for host</span>
-  <span class="c"># git fetch -a</span>
-</code></pre>
-        </div>
-      </li>
-      <li>Rebase your changes onto upstream/master <a href="https://www.jetbrains.com/help/idea/rebasing-branches.html" target="_blank">Rebasing Branches</a>
-        <div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="c">## for host</span>
-  <span class="c"># git rebase upstream/master</span>
-</code></pre>
-        </div>
-      </li>
-    </ol>
-  </li>
-  <li>Push local commits to your remote repository <a href="https://www.jetbrains.com/help/idea/pushing-changes-to-the-upstream-git-push.html" target="_blank">Pushing Changes</a>
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">## for host</span>
-<span class="c"># git push origin</span>
-<span class="c">## NOTE: use force push if your amended commit has already been pushed</span>
-</code></pre>
-    </div>
-  </li>
-  <li>Create a PR in Github <a href="https://help.github.com/articles/creating-a-pull-request/" target="_blank">Creating a pull request</a></li>
-  <li>Fix any issues come from community review</li>
-  <li>Change the JIRA ticket status to RESOLVED if the button exists</li>
-</ul>
+<hr />
+<p><img src="/img/durablegenericobject.svg" alt="Durable_Generic_Object" /></p>
+
+<hr />
+<p><img src="/img/durableobjectwithbuffer.svg" alt="Durable_Object_with_Buffer" /></p>
+
+<hr />
+<p><img src="/img/durableobjectwithchunk.svg" alt="Durable_Object_with_Chunk" /></p>
+
+<hr />
+<p><img src="/img/durableobjectwithobjects.svg" alt="Durable_Object_with_Objects" /></p>
+
+<hr />
+<p><img src="/img/durablelist.svg" alt="Durable_List" /></p>
+
+<hr />
+<p><img src="/img/durable1dchunkwithobjects.svg" alt="Durable_1d_Chunk_with_Objects" /></p>
+
+<hr />
+<p><img src="/img/durable2dbufferwithobjects.svg" alt="Durable_2d_Buffer_with_Objects" /></p>
+
+<hr />
+<p><img src="/img/durablechunkbuffers.svg" alt="Durable_Chunk_Buffers" /></p>
+
 
           
 
 
 
 
-
-  
-  
-
-  
-  
-
-  
-  
 
   
   
@@ -820,14 +769,14 @@ for Intellij IDEA, please refer to <a href="https://www.jetbrains.com/help/idea/
           
             
             
-            <a href="/docs/devsetup.html" class="prev">Back</a>
+            <a href="/docs/integration.html" class="prev">Back</a>
           
       </div>
       <div class="right align-left">
           
             
             
-            <a href="/docs/build.html" class="next">Next</a>
+            <a href="/docs/gcdata.html" class="next">Next</a>
           
       </div>
     </div>
@@ -1025,7 +974,7 @@ for Intellij IDEA, please refer to <a href="https://www.jetbrains.com/help/idea/
     
   
     
-      <li class=""><a href="/docs/domusecases.html">DOM Use Cases</a></li>
+      <li class="current"><a href="/docs/domusecases.html">DOM Use Cases</a></li>
       
 
 
@@ -1131,7 +1080,7 @@ for Intellij IDEA, please refer to <a href="https://www.jetbrains.com/help/idea/
     
   
     
-      <li class="current"><a href="/docs/submitchanges.html">Submit Changes</a></li>
+      <li class=""><a href="/docs/submitchanges.html">Submit Changes</a></li>
       
 
 
