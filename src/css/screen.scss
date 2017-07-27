@@ -293,18 +293,30 @@ footer {
   @include animation(secfadein 2s);
 
   color: white;
-  .unit {
-    padding: 10px 0 40px;
-    border: 2px solid white;
-    &:hover {
-        background-color: lighten(steelblue, 5%);
-    }
-    padding-bottom: 100%;
-    margin-bottom: -100%;
-  }
 
   .grid {
-    overflow: hidden;
+    display: table;
+    width: 100%;
+    .row {
+      display: table-row;
+      .tblunit1 {
+        display: table-cell;
+        padding: 10px 0 0px;
+        border-style: solid;
+        border-color: white;
+        border-width: 0px 2px;
+        &:hover {
+            background-color: lighten(steelblue, 5%);
+        }
+      }
+      .tblunit2 {
+        display: table-cell;
+        padding: 10px 0 0px;
+        border-style: solid;
+        border-color: white;
+        border-width: 0px 2px;
+      }
+    }
   }
 
   h2 {
