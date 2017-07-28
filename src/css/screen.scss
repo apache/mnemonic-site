@@ -277,6 +277,20 @@ footer {
     line-height: 1em;
     margin: 0;
   }
+
+  .introlinks {
+    text-align: right;
+    padding: 10px 16px;
+    a {
+      display: inline-block;
+      font-weight: bold;
+      padding: 0px 10px 0px;
+      color: #eee;
+      text-decoration: none;
+      @include transition(all .25s);
+      &:hover { color: #fff; }
+    }
+  }
 }
 
 @media (min-width: 569px) {

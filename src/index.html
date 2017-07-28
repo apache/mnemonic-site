@@ -7,16 +7,20 @@ overview: true
 <section class="intro">
   <div class="grid">
     <div class="unit whole center-on-mobiles">
-      <div class="first titlehead inner-center">
-	if <span class="codesym">(</span> Mnemonic.inUse() <span class="codesym">)</span> <span class="codesym">{</span>
-	<div class="ifbody">
-	  assert availMemory &gt;= sysMemory;<br/>
-	  assert DurableObjectModal.takeEffect();<br/>
-	  assert serDe.bypass();<br/>
-	  assert cache.bypass();<br/>
-	</div> 
-	<span class="codesym">}</span>
+      <div class="first titlehead inner-center" style="display:relative;">
+        if <span class="codesym">(</span> Mnemonic.inUse() <span class="codesym">)</span> <span class="codesym">{</span>
+        <div class="ifbody">
+          assert availMemory &gt;= sysMemory;<br/>
+          assert DurableObjectModal.takeEffect();<br/>
+          assert serDe.bypass();<br/>
+          assert cache.bypass();<br/>
+        </div>
+        <span class="codesym">}</span>
       </div>
+    </div>
+    <div class="introlinks">
+      <a href="/docs/features">Features <i class="fa fa-arrow-circle-o-right"></i></a>
+      <a href="/docs/arch">Architecture <i class="fa fa-arrow-circle-o-right"></i></a>
     </div>
   </div>
 </section>
