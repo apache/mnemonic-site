@@ -14,6 +14,12 @@
   box-sizing: border-box;
 }
 
+
+@include font-face(Lato, /assets/fonts/Lato/Lato-Light, 300, normal, eot wof2 woff);
+@include font-face(Lato, /assets/fonts/Lato/Lato-Regular, 400, normal, eot wof2 woff);
+@include font-face(Lato, /assets/fonts/Lato/Lato-Bold, 700, normal, eot wof2 woff);
+@include font-face(Lato, /assets/fonts/Lato/Lato-Black, 900, normal, eot wof2 woff);
+
 body {
   font: 300 21px Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
@@ -266,7 +272,7 @@ footer {
 
 .intro {
   background-color: #558C89;
-  font-weight: bold;
+  font-weight: 900;
   @include animation(secfadein 2s);
 
   color: white;
@@ -303,7 +309,7 @@ footer {
 
 .ingredients {
   background-color: steelblue;
-  font-weight: bold;
+  font-weight: 900;
   text-align: center;
   border: 5px solid white;
   @include animation(secfadein 2s);
