@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
   <meta charset="UTF-8">
-  <title>Project Build</title>
+  <title>MS Use Cases</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Jekyll v3.4.3">
   <link rel="stylesheet" href="/css/font-awesome.min.css">
@@ -815,88 +815,12 @@
 
       <div class="unit four-fifths">
         <article>
-          <h1>Project Build</h1>
-          <h3 id="how-to-build-it-">How to build it ?</h3>
+          <h1>MS Use Cases</h1>
+          <hr />
+<p><img src="/img/durablememsvrlayers.svg" alt="Durable_MemSvr_Layers" /></p>
 
-<p>Please see the file LICENSE for information on how this library is licensed.</p>
-
-<ul>
-  <li><strong>mnemonic-core</strong> – the submodule project for core</li>
-  <li><strong>mnemonic-collections</strong> – the submodule project for generic collections</li>
-  <li><strong>mnemonic-examples</strong> – the submodule project for examples, Please refer to the testcases of respective module as complete examples.</li>
-  <li><strong>mnemonic-memory-services/mnemonic-pmalloc-service</strong> – the submodule project for pmalloc memory service</li>
-  <li><strong>mnemonic-memory-services/mnemonic-nvml-vmem-service</strong> – the submodule project for vmem memory service</li>
-  <li><strong>mnemonic-memory-services/mnemonic-nvml-pmem-service</strong> – the submodule project for pmem memory service</li>
-  <li><strong>mnemonic-memory-services/mnemonic-sys-vmem-service</strong> – the submodule project for system vmem memory service</li>
-  <li><strong>mnemonic-memory-services/service-dist</strong> – the location of extensive memory services (auto-generated)</li>
-  <li><strong>mnemonic-computing-services/mnemonic-utilities-service</strong> – the submodule project for utilities computing service</li>
-  <li><strong>mnemonic-computing-services/service-dist</strong> – the location of extensive computing services (auto-generated)</li>
-  <li><strong>mnemonic-hadoop/mnemonic-hadoop-mapreduce</strong> – the submodule project for Apache Hadoop mapreduce computing</li>
-  <li><strong>mnemonic-spark/mnemonic-spark-core</strong> – the submodule project for Apache Spark durable computing</li>
-</ul>
-
-<p>To build this library, you may need to install some required packages on the build system:</p>
-
-<ul>
-  <li><strong>Maven</strong> – the building tool v3.2.1 or above [Required]</li>
-  <li><strong>NVML</strong> – the NVM library (Please compile this library that was revised with 630862e82f) (http://pmem.io) [Optional if mnemonic-nvml-vmem-service/mnemonic-nvml-pmem-service are excluded, e.g. on MacOSX]</li>
-  <li><strong>JDK</strong> – the Java Develop Kit 1.6 or above (please properly configure JAVA_HOME) [Required]</li>
-  <li><strong>PMFS</strong> – the PMFS should be properly installed and configured on Linux system if you want to simulate read latency [Optional]</li>
-  <li><strong>PMalloc</strong> – a supported durable memory native library(Latest) at https://github.com/NonVolatileComputing/pmalloc.git [Optional if mnemonic-pmalloc-service is excluded]</li>
-</ul>
-
-<p>Once the build system is setup, this Library is built using this command at the top level:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span>git clean -xdf <span class="c"># if pull from a git repo.</span>
-  <span class="nv">$ </span>mvn clean package install
-</code></pre>
-</div>
-
-<p>To exclude a customized memory service for your platform e.g. OSX, note that if you excluded one or both memory services, some or all testcases/examples will fail since their dependent memory services are unavailable.</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span>git clean -xdf <span class="c"># if pull from a git repo.</span>
-  <span class="nv">$ </span>mvn -pl <span class="s1">'!mnemonic-memory-services/mnemonic-nvml-vmem-service'</span> clean package install
-</code></pre>
-</div>
-
-<p>To install this package to local repository (required to run examples and testcases):</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span>mvn clean install
-</code></pre>
-</div>
-
-<p>To run an example:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span><span class="c"># requires 'vmem' memory service to run, please refer to the code of test cases for more examples.</span>
-  <span class="nv">$ </span>mvn <span class="nb">exec</span>:exec -Pexample -pl mnemonic-examples
-</code></pre>
-</div>
-
-<p>To run several test cases:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-core" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn -Dtest<span class="o">=</span>DurablePersonNGTest <span class="nb">test</span> -pl mnemonic-core -DskipTests<span class="o">=</span><span class="nb">false</span>
-  
-  <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-core" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn -Dtest<span class="o">=</span>NonVolatileMemAllocatorNGTest <span class="nb">test</span> -pl mnemonic-core -DskipTests<span class="o">=</span><span class="nb">false</span>
-  
-  <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-core" that requires 'vmem' memory service to pass</span>
-  <span class="nv">$ </span>mvn -Dtest<span class="o">=</span>VolatileMemAllocatorNGTest <span class="nb">test</span> -pl mnemonic-core -DskipTests<span class="o">=</span><span class="nb">false</span>
-  
-  <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-core" that requires 'vmem memory service to pass</span>
-  <span class="nv">$ </span>mvn -Dtest<span class="o">=</span>MemClusteringNGTest <span class="nb">test</span> -pl mnemonic-core -DskipTests<span class="o">=</span><span class="nb">false</span>
-  
-  <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-collection" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn -Dtest<span class="o">=</span>DurableSinglyLinkedListNGTest  <span class="nb">test</span> -pl mnemonic-collections -DskipTests<span class="o">=</span><span class="nb">false</span>
-  
-  <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-collection" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn -Dtest<span class="o">=</span>DurablePersonNGTest  <span class="nb">test</span> -pl mnemonic-collections -DskipTests<span class="o">=</span><span class="nb">false</span>
-  
-  <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-computing-services/mnemonic-utilities-service" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn -Dtest<span class="o">=</span>DurableSinglyLinkedListNGPrintTest <span class="nb">test</span> -pl mnemonic-computing-services/mnemonic-utilities-service -DskipTests<span class="o">=</span><span class="nb">false</span>
-  
-  <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-computing-services/mnemonic-utilities-service" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn -Dtest<span class="o">=</span>DurableSinglyLinkedListNGSortTest <span class="nb">test</span> -pl mnemonic-computing-services/mnemonic-utilities-service -DskipTests<span class="o">=</span><span class="nb">false</span>
-  
-  <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-hadoop/mnemonic-hadoop-mapreduce" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn -Dtest<span class="o">=</span>MneMapreducePersonDataTest <span class="nb">test</span> -pl mnemonic-hadoop/mnemonic-hadoop-mapreduce -DskipTests<span class="o">=</span><span class="nb">false</span>
-</code></pre>
-</div>
+<hr />
+<p><img src="/img/durablememsvrmapping.svg" alt="Durable_MemSvr_Mapping" /></p>
 
 
           
@@ -904,18 +828,6 @@
 
 
 
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
 
   
   
@@ -945,14 +857,14 @@
           
             
             
-            <a href="/docs/submitchanges.html" class="prev">Back</a>
+            <a href="/docs/dcmusecases.html" class="prev">Back</a>
           
       </div>
       <div class="right align-left">
           
             
             
-            <a href="/docs/runtest.html" class="next">Next</a>
+            <a href="/docs/gcdata.html" class="next">Next</a>
           
       </div>
     </div>
@@ -1224,7 +1136,7 @@
     
   
     
-      <li class=""><a href="/docs/msusecases.html">MS Use Cases</a></li>
+      <li class="current"><a href="/docs/msusecases.html">MS Use Cases</a></li>
       
 
 
@@ -1352,7 +1264,7 @@
     
   
     
-      <li class="current"><a href="/docs/build.html">Project Build</a></li>
+      <li class=""><a href="/docs/build.html">Project Build</a></li>
       
 
 
