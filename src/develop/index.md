@@ -9,22 +9,143 @@ developers working on the project. The project has created
 
 ## Project Members
 
-Name                    | Apache Id      | Role
-:---------------------- | :------------- | :---
-Patrick Hunt            | phunt          | Champion, Mentor
-Andrew Purtell          | apurtell       | Mentor
-James Taylor            | jamestaylor    | Mentor
-Henry Saputra           | hsaputra       | Mentor, Committer
-Yanping Wang            | yanpingw       | Committer
-Gang(Gary) Wang         | garyw          | Committer
-Uma Maheswara Rao G     | umamahesh      | Committer
-Kai Zheng               | drankye        | Committer
-Rakesh Radhakrishnan Potty | rakeshr     | Committer
-Sean Zhong              | seanzhong      | Committer
-Hao Cheng               | chhao01        | Committer
-Debojyoti Dutta         | ddutta         | Committer, Release Mngr.
-Johnu George            | johnu          | Committer
-Yanhui Zhao             | yzhao          | Committer
+
+<table>
+  <thead>
+    <tr>
+    <th style="text-align: center">Role</th>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Apache Id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="1" style="text-align: center; font-weight:700">Champion</td>
+      <td style="text-align: left">Patrick Hunt</td>
+      <td style="text-align: left">phunt</td>
+    </tr>
+    <tr>
+      <td rowspan="4" style="text-align: center; font-weight:700">Mentor</td>
+      <td style="text-align: left">Patrick Hunt</td>
+      <td style="text-align: left">phunt</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Andrew Purtell</td>
+      <td style="text-align: left">apurtell</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">James Taylor</td>
+      <td style="text-align: left">jamestaylor</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Henry Saputra</td>
+      <td style="text-align: left">hsaputra</td>
+    </tr>
+    <tr>
+      <td rowspan="12" style="text-align: center; font-weight:700">PPMC</td>
+      <td style="text-align: left">Patrick Hunt</td>
+      <td style="text-align: left">phunt</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Andrew Purtell</td>
+      <td style="text-align: left">apurtell</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">James Taylor</td>
+      <td style="text-align: left">jamestaylor</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Henry Saputra</td>
+      <td style="text-align: left">hsaputra</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Yanping Wang</td>
+      <td style="text-align: left">yanpingw</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Gang(Gary)Wang</td>
+      <td style="text-align: left">garyw</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Uma Maheswara Rao G</td>
+      <td style="text-align: left">umamahesh</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kai Zhang</td>
+      <td style="text-align: left">drankye</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Rakesh Radhakrishnan Potty</td>
+      <td style="text-align: left">rakeshr</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hao Cheng</td>
+      <td style="text-align: left">chhao01</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Debojyoti Dutta</td>
+      <td style="text-align: left">ddutta</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Johnu George</td>
+      <td style="text-align: left">johnu</td>
+    </tr>
+    <tr>
+      <td rowspan="1" style="text-align: center; font-weight:700">Release Mngr.</td>
+      <td style="text-align: left">Debojyoti Dutta</td>
+      <td style="text-align: left">ddutta</td>
+    </tr>
+    <tr>
+      <td rowspan="11" style="text-align: center; font-weight:700">Committer</td>
+      <td style="text-align: left">Henry Saputra</td>
+      <td style="text-align: left">hsaputra</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Yanping Wang</td>
+      <td style="text-align: left">yanpingw</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Gang(Gary)Wang</td>
+      <td style="text-align: left">garyw</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Uma Maheswara Rao G</td>
+      <td style="text-align: left">umamahesh</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kai Zhang</td>
+      <td style="text-align: left">drankye</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Rakesh Radhakrishnan Potty</td>
+      <td style="text-align: left">rakeshr</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Sean Zhong</td>
+      <td style="text-align: left">seanzhong</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Hao Cheng</td>
+      <td style="text-align: left">chhao01</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Debojyoti Dutta</td>
+      <td style="text-align: left">ddutta</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Johnu George</td>
+      <td style="text-align: left">johnu</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Yanhui Zhao</td>
+      <td style="text-align: left">yzhao</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
 
 ## Mailing Lists
 
