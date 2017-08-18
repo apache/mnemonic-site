@@ -143,6 +143,7 @@ developers working on the project. The project has created
   </tbody>
 </table>
 
+[Project Member Roles and Responsibilities](https://incubator.apache.org/policy/roles_and_responsibilities.html){:target="_blank"}
 
 
 
