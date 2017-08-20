@@ -5,7 +5,7 @@ title: Developing
 
 Information about the Mnemonic project that is most important for
 developers working on the project. The project has created
-[bylaws](bylaws.html) for itself.
+[bylaws](bylaws) for itself.
 
 ## Project Members
 
@@ -181,7 +181,7 @@ The important branches are:
 * [asf-site](https://github.com/apache/incubator-mnemonic/tree/asf-site) -
   The pages that are deployed to https://mnemonic.apache.org/
 
-Please check our [coding guidelines](/src/develop/coding.html).
+Please check our [coding guidelines](coding).
 
 ## Reviews
 
