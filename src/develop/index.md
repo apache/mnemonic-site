@@ -71,7 +71,7 @@ developers working on the project. The project has created
       <td style="text-align: left">umamahesh</td>
     </tr>
     <tr>
-      <td style="text-align: left">Kai Zhang</td>
+      <td style="text-align: left">Kai Zheng</td>
       <td style="text-align: left">drankye</td>
     </tr>
     <tr>
@@ -113,7 +113,7 @@ developers working on the project. The project has created
       <td style="text-align: left">umamahesh</td>
     </tr>
     <tr>
-      <td style="text-align: left">Kai Zhang</td>
+      <td style="text-align: left">Kai Zheng</td>
       <td style="text-align: left">drankye</td>
     </tr>
     <tr>
