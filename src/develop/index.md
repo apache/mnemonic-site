@@ -178,7 +178,7 @@ The important branches are:
 
 * [master](https://github.com/apache/incubator-mnemonic/tree/master) -
   The trunk for all developement
-* [asf-site](https://github.com/apache/incubator-mnemonic/tree/asf-site) -
+* [asf-site](https://git-wip-us.apache.org/repos/asf?p=incubator-mnemonic-site.git) -
   The pages that are deployed to https://mnemonic.apache.org/
 
 Please check our [coding guidelines](coding).
