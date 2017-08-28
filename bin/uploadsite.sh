@@ -41,6 +41,8 @@ pushd "$MNEMONIC_SITE_HOME" ||
 echo "Are you sure that the updated site has been generated to public folder ?"
 continueprompt
 
+git show-ref --quiet refs/heads/asf-site || git branch asf-site origin/asf-site
+
 git worktree add site asf-site 2>&1 > /dev/null 
 if [ $? -ne 0 ]; then
     echo "Purging the site folder..."
