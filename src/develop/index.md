@@ -161,7 +161,7 @@ There are several development mailing lists for mnemonic
 
 You can subscribe to the lists by sending email to<br/>
 *list*-subscribe@mnemonic.incubator.apache.org<br/>
-and unsubscribe by sending email to<br/>
+and un-subscribe by sending email to<br/>
 *list*-unsubscribe@mnemonic.incubator.apache.org.<br/>
 
 ## Source code
@@ -170,18 +170,16 @@ mnemonic uses git for version control. Get the source code:
 
 `% git clone https://git-wip-us.apache.org/repos/asf/incubator-mnemonic.git`
 
--- or --
-
-`% git clone https://github.com/apache/incubator-mnemonic.git`
-
 The important branches are:
 
-* [master](https://github.com/apache/incubator-mnemonic/tree/master) -
-  The trunk for all developement
-* [asf-site](https://git-wip-us.apache.org/repos/asf?p=incubator-mnemonic-site.git) -
+* [master](https://git-wip-us.apache.org/repos/asf/incubator-mnemonic.git){:target="_blank"} -
+  The trunk for all development, please find master branch marked in light green.
+* [asf-site](https://git-wip-us.apache.org/repos/asf/incubator-mnemonic-site.git){:target="_blank"} -
   The pages that are deployed to https://mnemonic.apache.org/
 
 Please check our [coding guidelines](coding).
+
+You can also find the mirrored repo. on [Github](https://github.com/apache/incubator-mnemonic.git){:target="_blank"}
 
 ## Reviews
 
