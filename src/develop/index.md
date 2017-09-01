@@ -91,9 +91,17 @@ developers working on the project. The project has created
       <td style="text-align: left">johnu</td>
     </tr>
     <tr>
-      <td rowspan="1" style="text-align: center; font-weight:700">Release Mngr.</td>
+      <td rowspan="3" style="text-align: center; font-weight:700">Release Mngr.</td>
+      <td style="text-align: left">Gang(Gary)Wang</td>
+      <td style="text-align: left">garyw</td>
+    </tr>
+    <tr>
       <td style="text-align: left">Debojyoti Dutta</td>
       <td style="text-align: left">ddutta</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Johnu George</td>
+      <td style="text-align: left">johnu*</td>
     </tr>
     <tr>
       <td rowspan="11" style="text-align: center; font-weight:700">Committer</td>
@@ -142,6 +150,8 @@ developers working on the project. The project has created
     </tr>
   </tbody>
 </table>
+
+*Current release manager
 
 [Project Member Roles and Responsibilities](https://incubator.apache.org/policy/roles_and_responsibilities.html){:target="_blank"}
 
