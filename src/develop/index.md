@@ -104,7 +104,7 @@ developers working on the project. The project has created
       <td style="text-align: left">johnu*</td>
     </tr>
     <tr>
-      <td rowspan="11" style="text-align: center; font-weight:700">Committer</td>
+      <td rowspan="12" style="text-align: center; font-weight:700">Committer</td>
       <td style="text-align: left">Henry Saputra</td>
       <td style="text-align: left">hsaputra</td>
     </tr>
@@ -147,6 +147,10 @@ developers working on the project. The project has created
     <tr>
       <td style="text-align: left">Yanhui Zhao</td>
       <td style="text-align: left">yzhao</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Peili Shen</td>
+      <td style="text-align: left">peili</td>
     </tr>
   </tbody>
 </table>
