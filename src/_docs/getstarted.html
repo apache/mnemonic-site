@@ -1,0 +1,111 @@
+---
+layout: docs
+title: Get Started
+permalink: /docs/getstarted.html
+---
+
+<section class="example">
+    <a class="title" href="https://github.com/apache/incubator-mnemonic/blob/master/mnemonic-collections/src/test/java/org/apache/mnemonic/collections/DurableHashMapNGTest.java" target="_blank"> Durable Map </a>
+    <div class="code">
+        <div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;">&nbsp<pre style="margin: 0; line-height: 125%">    <span style="color: #008800; font-style: italic; background-color: #0f140f">/* initialize a memory allocator */</span>
+    <span style="color: #ffffff">m_act</span> <span style="color: #ffffff">=</span> <span style="color: #fb660a; font-weight: bold">new</span> <span style="color: #ffffff">NonVolatileMemAllocator(</span>
+                <span class="tooltip" data-tooltip="a memory service instance"><span style="color: #ffffff">Utils.</span><span style="color: #ff0086; font-weight: bold">getNonVolatileMemoryAllocatorService</span><span style="color: #ffffff">(</span><span style="color: #0086d2">&quot;pmalloc&quot;</span><span style="color: #ffffff">)</span></span><span style="color: #ffffff">,</span>
+                <span class="tooltip" data-tooltip="the capacity"><span style="color: #0086f7; font-weight: bold">1024</span> <span style="color: #ffffff">*</span> <span style="color: #0086f7; font-weight: bold">1024</span> <span style="color: #ffffff">*</span> <span style="color: #0086f7; font-weight: bold">1024L</span></span><span style="color: #ffffff">,</span>
+                <span class="tooltip" data-tooltip="an uri associated with memory service"><span style="color: #0086d2">&quot;./pobj_hashmaps.dat&quot;</span></span><span style="color: #ffffff">,</span>
+                <span class="tooltip" data-tooltip="open a new memory space"><span style="color: #fb660a; font-weight: bold">true</span></span><span style="color: #ffffff">);</span>
+
+    <span style="color: #008800; font-style: italic; background-color: #0f140f">/* prepare generic types in order as an array for durable map</span>
+<span style="color: #008800; font-style: italic; background-color: #0f140f">       you can specify any durable type here </span>
+<span style="color: #008800; font-style: italic; background-color: #0f140f">       e.g. durable object, durable buffer/chunk, durable list/map/set */</span>
+    <span style="color: #ffffff">DurableType</span> <span style="color: #ffffff">gtypes[]</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">{</span><span class="tooltip" data-tooltip="map key is string type"><span style="color: #ffffff">DurableType.</span><span style="color: #ff0086; font-weight: bold">STRING</span></span><span style="color: #ffffff">,</span> <span class="tooltip" data-tooltip=" map value is integer type"><span style="color: #ffffff">DurableType.</span><span style="color: #ff0086; font-weight: bold">INTEGER</span></span><span style="color: #ffffff">};</span>
+
+    <span style="color: #008800; font-style: italic; background-color: #0f140f">/* create a new durable map through durable map factory,</span>
+<span style="color: #008800; font-style: italic; background-color: #0f140f">       the durable map store your objects on external memory-class storage</span>
+<span style="color: #008800; font-style: italic; background-color: #0f140f">       with no need to do serialization at all */</span>
+    <span style="color: #ffffff">DurableHashMap&lt;String,</span> <span style="color: #ffffff">Integer&gt;</span> <span style="color: #ffffff">map</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">DurableHashMapFactory.</span><span style="color: #ff0086; font-weight: bold">create</span><span style="color: #ffffff">(</span>
+                <span class="tooltip" data-tooltip="a memory allocator"><span style="color: #ffffff">m_act</span></span><span style="color: #ffffff">,</span> <span class="tooltip" data-tooltip="an array of generic type factory proxy for user durable generic object"><span style="color: #fb660a; font-weight: bold">null</span></span><span style="color: #ffffff">,</span> <span class="tooltip" data-tooltip="an array of generic types"><span style="color: #ffffff">gtypes</span></span><span style="color: #ffffff">,</span> <span class="tooltip" data-tooltip="initial capacity"><span style="color: #ffffff">mInitialCapacity</span></span><span style="color: #ffffff">,</span> <span class="tooltip" data-tooltip="autoclaim is disabled"><span style="color: #fb660a; font-weight: bold">false</span></span><span style="color: #ffffff">);</span>
+
+    <span style="color: #008800; font-style: italic; background-color: #0f140f">/* fetch the handler of the durable map, </span>
+<span style="color: #008800; font-style: italic; background-color: #0f140f">       it is just a long type value.</span>
+<span style="color: #008800; font-style: italic; background-color: #0f140f">       it is used for restore this durable map back later,</span>
+<span style="color: #008800; font-style: italic; background-color: #0f140f">       you can put this handler anywhere you like</span>
+<span style="color: #008800; font-style: italic; background-color: #0f140f">       e.g. durable key-value store, durable buffer */</span>
+    <span style="color: #ffffff">Long</span> <span style="color: #ffffff">handler</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">map.</span><span style="color: #ff0086; font-weight: bold">getHandler</span><span style="color: #ffffff">();</span>
+
+    <span style="color: #008800; font-style: italic; background-color: #0f140f">/* use this durable map as usual */</span>
+    <span style="color: #ffffff">Integer</span> <span style="color: #ffffff">val</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">map.</span><span style="color: #ff0086; font-weight: bold">put</span><span style="color: #ffffff">(</span><span style="color: #0086d2">&quot;hello&quot;</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">1</span><span style="color: #ffffff">);</span>
+    <span style="color: #ffffff">AssertJUnit.</span><span style="color: #ff0086; font-weight: bold">assertNull</span><span style="color: #ffffff">(val);</span>
+
+    <span style="color: #ffffff">val</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">map.</span><span style="color: #ff0086; font-weight: bold">put</span><span style="color: #ffffff">(</span><span style="color: #0086d2">&quot;hello&quot;</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">3</span><span style="color: #ffffff">);</span>
+    <span style="color: #ffffff">AssertJUnit.</span><span style="color: #ff0086; font-weight: bold">assertEquals</span><span style="color: #ffffff">(</span><span style="color: #0086f7; font-weight: bold">1</span><span style="color: #ffffff">,</span> <span style="color: #ffffff">val.</span><span style="color: #ff0086; font-weight: bold">intValue</span><span style="color: #ffffff">());</span>
+
+    <span style="color: #ffffff">val</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">map.</span><span style="color: #ff0086; font-weight: bold">put</span><span style="color: #ffffff">(</span><span style="color: #0086d2">&quot;world&quot;</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">2</span><span style="color: #ffffff">);</span>
+    <span style="color: #ffffff">AssertJUnit.</span><span style="color: #ff0086; font-weight: bold">assertNull</span><span style="color: #ffffff">(val);</span>
+
+    <span style="color: #ffffff">val</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">map.</span><span style="color: #ff0086; font-weight: bold">remove</span><span style="color: #ffffff">(</span><span style="color: #0086d2">&quot;world&quot;</span><span style="color: #ffffff">);</span>
+    <span style="color: #ffffff">AssertJUnit.</span><span style="color: #ff0086; font-weight: bold">assertEquals</span><span style="color: #ffffff">(</span><span style="color: #0086f7; font-weight: bold">2</span><span style="color: #ffffff">,</span> <span style="color: #ffffff">val.</span><span style="color: #ff0086; font-weight: bold">intValue</span><span style="color: #ffffff">());</span>
+
+    <span style="color: #008800; font-style: italic; background-color: #0f140f">/* restore the same durable map from the stored handler </span>
+<span style="color: #008800; font-style: italic; background-color: #0f140f">       with no need to do de-serializatoin */</span>
+    <span style="color: #ffffff">DurableHashMap&lt;String,</span> <span style="color: #ffffff">Integer&gt;</span> <span style="color: #ffffff">restoredMap</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">DurableHashMapFactory.</span><span style="color: #ff0086; font-weight: bold">restore</span><span style="color: #ffffff">(</span>
+                <span style="color: #ffffff">m_act,</span> <span style="color: #fb660a; font-weight: bold">null</span><span style="color: #ffffff">,</span> <span style="color: #ffffff">gtypes,</span> <span class="tooltip" data-tooltip="the handler used to restore durable map"><span style="color: #ffffff">handler</span></span><span style="color: #ffffff">,</span> <span style="color: #fb660a; font-weight: bold">false</span><span style="color: #ffffff">);</span>
+
+    <span style="color: #ffffff">val</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">restoredMap.</span><span style="color: #ff0086; font-weight: bold">get</span><span style="color: #ffffff">(</span><span style="color: #0086d2">&quot;hello&quot;</span><span style="color: #ffffff">);</span>
+    <span style="color: #ffffff">AssertJUnit.</span><span style="color: #ff0086; font-weight: bold">assertEquals</span><span style="color: #ffffff">(</span><span style="color: #0086f7; font-weight: bold">3</span><span style="color: #ffffff">,</span> <span style="color: #ffffff">val.</span><span style="color: #ff0086; font-weight: bold">intValue</span><span style="color: #ffffff">());</span>
+
+    <span style="color: #ffffff">val</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">restoredMap.</span><span style="color: #ff0086; font-weight: bold">get</span><span style="color: #ffffff">(</span><span style="color: #0086d2">&quot;world&quot;</span><span style="color: #ffffff">);</span>
+    <span style="color: #ffffff">AssertJUnit.</span><span style="color: #ff0086; font-weight: bold">assertNull</span><span style="color: #ffffff">(val);</span>
+
+    <span style="color: #ffffff">val</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">restoredMap.</span><span style="color: #ff0086; font-weight: bold">get</span><span style="color: #ffffff">(</span><span style="color: #0086d2">&quot;test&quot;</span><span style="color: #ffffff">);</span>
+    <span style="color: #ffffff">AssertJUnit.</span><span style="color: #ff0086; font-weight: bold">assertNull</span><span style="color: #ffffff">(val);</span>
+</pre></div>
+    </div>
+</section>
+
+<section class="example">
+    <a class="title" href="https://github.com/apache/incubator-mnemonic/blob/v0.9.0-incubating/mnemonic-benches/mnemonic-sort-bench/src/main/java/org/apache/mnemonic/bench/DNCSTextFileSort.java" target="_blank"> Durable Sorting </a>
+    <div class="code">
+        <div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .1em;padding:.2em .6em;">&nbsp<pre style="margin: 0; line-height: 125%">    <span style="color: #008800; font-style: italic; background-color: #0f140f">/* get sort service instance */</span>
+    <span style="color: #ffffff">GeneralComputingService</span> <span class="tooltip" data-tooltip="a general native computing instance"><span style="color: #ffffff">gcsvr</span></span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">Utils.</span><span style="color: #ff0086; font-weight: bold">getGeneralComputingService</span><span style="color: #ffffff">(</span><span style="color: #0086d2">&quot;sort&quot;</span><span style="color: #ffffff">);</span>
+
+    <span style="color: #008800; font-style: italic; background-color: #0f140f">/* instantiate a value info object */</span>
+    <span style="color: #ffffff">ValueInfo</span> <span class="tooltip" data-tooltip="an info object describes a single value or a set of values "><span style="color: #ffffff">vinfo</span></span> <span style="color: #ffffff">=</span> <span style="color: #fb660a; font-weight: bold">new</span> <span style="color: #ffffff">ValueInfo();</span>
+
+    <span style="color: #008800; font-style: italic; background-color: #0f140f">/* instantiate an object stack list */</span>
+    <span style="color: #ffffff">List&lt;</span><span style="color: #cdcaa9; font-weight: bold">long</span><span style="color: #ffffff">[][]&gt;</span> <span class="tooltip" data-tooltip="a stack of object info that could be retrieved from durable objects"><span style="color: #ffffff">objstack</span></span> <span style="color: #ffffff">=</span> <span style="color: #fb660a; font-weight: bold">new</span> <span style="color: #ffffff">ArrayList&lt;</span><span style="color: #cdcaa9; font-weight: bold">long</span><span style="color: #ffffff">[][]&gt;();</span>
+
+    <span style="color: #008800; font-style: italic; background-color: #0f140f">/* fill it up with durable object info in order */</span>
+    <span style="color: #ffffff">objstack.</span><span style="color: #ff0086; font-weight: bold">add</span><span style="color: #ffffff">(</span><span style="color: #fb660a; font-weight: bold">this</span><span style="color: #ffffff">.</span><span style="color: #ff0086; font-weight: bold">ostack</span><span style="color: #ffffff">);</span>
+
+    <span style="color: #008800; font-style: italic; background-color: #0f140f">/* configure the field id info stack to specify which field value</span>
+<span style="color: #008800; font-style: italic; background-color: #0f140f">       need to be sorted */</span>
+    <span style="color: #cdcaa9; font-weight: bold">long</span><span style="color: #ffffff">[][]</span> <span class="tooltip" data-tooltip="a stack of field info"><span style="color: #ffffff">fidinfostack</span></span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">{ {</span><span style="color: #0086f7; font-weight: bold">2L</span><span style="color: #ffffff">,</span> <span style="color: #0086f7; font-weight: bold">1L</span><span style="color: #ffffff">} };</span>
+
+    <span style="color: #008800; font-style: italic; background-color: #0f140f">/* assign the handler of a durable list to vinfo.handler */</span>
+    <span style="color: #ffffff">vinfo.</span><span style="color: #ff0086; font-weight: bold">handler</span> <span style="color: #ffffff">=</span> <span style="color: #fb660a; font-weight: bold">this</span><span style="color: #ffffff">.</span><span style="color: #ff0086; font-weight: bold">head</span><span style="color: #ffffff">;</span>
+
+    <span style="color: #008800; font-style: italic; background-color: #0f140f">/* set a translate table from handler&#39;s memory allocator */</span>
+    <span style="color: #ffffff">vinfo.</span><span style="color: #ff0086; font-weight: bold">transtable</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">m_act.</span><span style="color: #ff0086; font-weight: bold">getTranslateTable</span><span style="color: #ffffff">();</span>
+
+    <span style="color: #008800; font-style: italic; background-color: #0f140f">/* specify the durable type of value */</span>
+    <span style="color: #ffffff">vinfo.</span><span style="color: #ff0086; font-weight: bold">dtype</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">DurableType.</span><span style="color: #ff0086; font-weight: bold">LONG</span><span style="color: #ffffff">;</span>
+
+    <span style="color: #008800; font-style: italic; background-color: #0f140f">/* generate an array of frame from</span>
+<span style="color: #008800; font-style: italic; background-color: #0f140f">       object info stack and field info stack */</span>
+    <span style="color: #ffffff">vinfo.</span><span style="color: #ff0086; font-weight: bold">frames</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">Utils.</span><span style="color: #ff0086; font-weight: bold">genNativeParamForm</span><span style="color: #ffffff">(objstack,</span> <span style="color: #ffffff">fidinfostack);</span>
+
+    <span style="color: #008800; font-style: italic; background-color: #0f140f">/* wrap a set of value info as an array */</span>
+    <span style="color: #ffffff">ValueInfo[]</span> <span style="color: #ffffff">vinfos</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">{vinfo};</span>
+
+    <span style="color: #008800; font-style: italic; background-color: #0f140f">/* perform the sorting operation,</span>
+<span style="color: #008800; font-style: italic; background-color: #0f140f">       the durable list and its value are not marshaled or un-marshaled</span>
+<span style="color: #008800; font-style: italic; background-color: #0f140f">       across native boundary */</span>
+    <span style="color: #cdcaa9; font-weight: bold">long</span><span style="color: #ffffff">[]</span> <span style="color: #ffffff">ret</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">gcsvr.</span><span style="color: #ff0086; font-weight: bold">perform</span><span style="color: #ffffff">(</span><span style="color: #0086d2">&quot;1dlong_bubble&quot;</span><span style="color: #ffffff">,</span> <span style="color: #ffffff">vinfos);</span>
+
+    <span style="color: #008800; font-style: italic; background-color: #0f140f">/* return the handler of new head of sorted durable list */</span>
+    <span style="color: #fb660a; font-weight: bold">this</span><span style="color: #ffffff">.</span><span style="color: #ff0086; font-weight: bold">head</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">ret[</span><span style="color: #0086f7; font-weight: bold">0</span><span style="color: #ffffff">];</span>
+</pre></div>
+
+    </div>
+
+</section>

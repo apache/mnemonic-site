@@ -1,0 +1,39 @@
+    /* get sort service instance */
+    GeneralComputingService /*tooltip,a general native computing instance*/gcsvr/*tooltip*/ = Utils.getGeneralComputingService("sort");
+
+    /* instantiate a value info object */
+    ValueInfo /*tooltip,an info object describes a single value or a set of values */vinfo/*tooltip*/ = new ValueInfo();
+
+    /* instantiate an object stack list */
+    List<long[][]> /*tooltip,a stack of object info that could be retrieved from durable objects*/objstack/*tooltip*/ = new ArrayList<long[][]>();
+
+    /* fill it up with durable object info in order */
+    objstack.add(this.ostack);
+
+    /* configure the field id info stack to specify which field value
+       need to be sorted */
+    long[][] /*tooltip,a stack of field info*/fidinfostack/*tooltip*/ = { {2L, 1L} };
+
+    /* assign the handler of a durable list to vinfo.handler */
+    vinfo.handler = this.head;
+
+    /* set a translate table from handler's memory allocator */
+    vinfo.transtable = m_act.getTranslateTable();
+
+    /* specify the durable type of value */
+    vinfo.dtype = DurableType.LONG;
+
+    /* generate an array of frame from
+       object info stack and field info stack */
+    vinfo.frames = Utils.genNativeParamForm(objstack, fidinfostack);
+
+    /* wrap a set of value info as an array */
+    ValueInfo[] vinfos = {vinfo};
+
+    /* perform the sorting operation,
+       the durable list and its value are not marshaled or un-marshaled
+       across native boundary */
+    long[] ret = gcsvr.perform("1dlong_bubble", vinfos);
+
+    /* return the handler of new head of sorted durable list */
+    this.head = ret[0];

@@ -1,0 +1,52 @@
+    /* initialize a memory allocator */
+    m_act = new NonVolatileMemAllocator(
+                /*tooltip,a memory service instance*/Utils.getNonVolatileMemoryAllocatorService("pmalloc")/*tooltip*/,
+                /*tooltip,the capacity*/1024 * 1024 * 1024L/*tooltip*/,
+                /*tooltip,an uri associated with memory service*/"./pobj_hashmaps.dat"/*tooltip*/,
+                /*tooltip,open a new memory space*/true/*tooltip*/);
+
+    /* prepare generic types in order as an array for durable map
+       you can specify any durable type here
+       e.g. durable object, durable buffer/chunk, durable list/map/set */
+    DurableType gtypes[] = {/*tooltip,map key is string type*/DurableType.STRING/*tooltip*/, /*tooltip, map value is integer type*/DurableType.INTEGER/*tooltip*/};
+
+    /* create a new durable map through durable map factory,
+       the durable map store your objects on external memory-class storage
+       with no need to do serialization at all */
+    DurableHashMap<String, Integer> map = DurableHashMapFactory.create(
+                /*tooltip,a memory allocator*/m_act/*tooltip*/, /*tooltip,an array of generic type factory proxy for user durable generic object*/null/*tooltip*/, /*tooltip,an array of generic types*/gtypes/*tooltip*/, /*tooltip,initial capacity*/mInitialCapacity/*tooltip*/, /*tooltip,autoclaim is disabled*/false/*tooltip*/);
+
+    /* fetch the handler of the durable map,
+       it is just a long type value.
+       it is used for restore this durable map back later,
+       you can put this handler anywhere you like
+       e.g. durable key-value store, durable buffer */
+    Long handler = map.getHandler();
+
+    /* use this durable map as usual */
+    Integer val = map.put("hello", 1);
+    AssertJUnit.assertNull(val);
+
+    val = map.put("hello", 3);
+    AssertJUnit.assertEquals(1, val.intValue());
+
+    val = map.put("world", 2);
+    AssertJUnit.assertNull(val);
+
+    val = map.remove("world");
+    AssertJUnit.assertEquals(2, val.intValue());
+
+    /* restore the same durable map from the stored handler
+       with no need to do de-serializatoin */
+    DurableHashMap<String, Integer> restoredMap = DurableHashMapFactory.restore(
+                m_act, null, gtypes, /*tooltip,the handler used to restore durable map*/handler/*tooltip*/, false);
+
+    val = restoredMap.get("hello");
+    AssertJUnit.assertEquals(3, val.intValue());
+
+    val = restoredMap.get("world");
+    AssertJUnit.assertNull(val);
+
+    val = restoredMap.get("test");
+    AssertJUnit.assertNull(val);
+

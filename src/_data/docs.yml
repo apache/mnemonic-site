@@ -15,6 +15,7 @@
 
 - title: Usage
   docs:
+  - getstarted
   - devsetup
   - submitchanges
   - build
