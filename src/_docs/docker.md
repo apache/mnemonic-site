@@ -11,16 +11,16 @@ This is the "Dockerfiles" that will automatically build the CentOS/Ubuntu enviro
 
 *What does the Dockerfile do?* 
 
-- 1. Build from centos/ubuntu.
-- 2. Default is not using proxy. Please see instruction below to set up http/https proxy.
-- 3. Install dependency packages.
-- 4. Set up environment variables of paths.
-- 5. Create /ws folder.
-- 6. Install pmalloc in /ws
-- 7. Install nvml in /ws.
-- 8. Set up maven proxy mvn.sh.
-- 9. Clone mnemonic code then build/install.  
-- 10. Go to /ws fold and start bash.  
+-  Build from centos/ubuntu.
+-  Default is not using proxy. Please see instruction below to set up http/https proxy.
+-  Install dependency packages.
+-  Set up environment variables of paths.
+-  Create /ws folder.
+-  Install pmalloc in /ws
+-  Install nvml in /ws.
+-  Set up maven proxy mvn.sh.
+-  Clone mnemonic code then build/install.
+-  Go to /ws fold and start bash.
 
 #### How to set up proxy? 
 
