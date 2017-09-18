@@ -389,6 +389,8 @@ footer {
     .tooltip {
       position: relative;
       text-decoration: underline;
+      text-decoration-color: grey;
+      text-decoration-style: wavy;
       cursor: pointer;
       //Tooltip text container
       &::before {
