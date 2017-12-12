@@ -74,8 +74,8 @@ git commit -m "${CMT}" ||
 
 git push
 if [ $? -eq 0 ]; then
-    echo "Please visit the following website to publish"
-    echo "https://cms.apache.org/incubator/publish"
+    echo "The website has been published successfully!"
+    echo "Note: please clear your browser cache to view latest changes."
 else
     echo "Failed to push generated site to upstream"
 fi
