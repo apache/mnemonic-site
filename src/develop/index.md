@@ -166,18 +166,18 @@ developers working on the project. The project has created
 
 There are several development mailing lists for mnemonic
 
-* [dev@mnemonic.incubator.apache.org](mailto:dev@mnemonic.incubator.apache.org) - Development discussions
-  with archive [here](https://mail-archives.apache.org/mod_mbox/incubator-mnemonic-dev/)<br/>
-  subscribe:[dev-subscribe@mnemonic.incubator.apache.org](mailto:dev-subscribe@mnemonic.incubator.apache.org)<br/>
-  unsubscribe:[dev-unsubscribe@mnemonic.incubator.apache.org](mailto:dev-unsubscribe@mnemonic.incubator.apache.org)
-* [issues@mnemonic.incubator.apache.org](mailto:issues@mnemonic.incubator.apache.org) - Bug tracking
-  with archive [here](https://mail-archives.apache.org/mod_mbox/incubator-mnemonic-issues/)<br/>
-  subscribe: [issues-subscribe@mnemonic.incubator.apache.org](mailto:issues-subscribe@mnemonic.incubator.apache.org)<br/>
-  unsubscribe: [issues-unsubscribe@mnemonic.incubator.apache.org](mailto:issues-unsubscribe@mnemonic.incubator.apache.org)<br/>
-* [commits@mnemonic.incubator.apache.org](mailto:commits@mnemonic.incubator.apache.org) - Git tracking
-  with archive [here](https://mail-archives.apache.org/mod_mbox/incubator-mnemonic-commits/)<br/>
-  subscribe: [commits-subscribe@mnemonic.incubator.apache.org](mailto:commits@mnemonic.incubator.apache.org)<br/>
-  unsubscribe: [commits-unsubscribe@mnemonic.incubator.apache.org](mailto:commits@mnemonic.incubator.apache.org)<br/>
+* [dev@mnemonic.apache.org](mailto:dev@mnemonic.apache.org) - Development discussions
+  with archive [here](https://mail-archives.apache.org/mod_mbox/mnemonic-dev/)<br/>
+  subscribe:[dev-subscribe@mnemonic.apache.org](mailto:dev-subscribe@mnemonic.apache.org)<br/>
+  unsubscribe:[dev-unsubscribe@mnemonic.apache.org](mailto:dev-unsubscribe@mnemonic.apache.org)
+* [issues@mnemonic.apache.org](mailto:issues@mnemonic.apache.org) - Bug tracking
+  with archive [here](https://mail-archives.apache.org/mod_mbox/mnemonic-issues/)<br/>
+  subscribe: [issues-subscribe@mnemonic.apache.org](mailto:issues-subscribe@mnemonic.apache.org)<br/>
+  unsubscribe: [issues-unsubscribe@mnemonic.apache.org](mailto:issues-unsubscribe@mnemonic.apache.org)<br/>
+* [commits@mnemonic.apache.org](mailto:commits@mnemonic.apache.org) - Git tracking
+  with archive [here](https://mail-archives.apache.org/mod_mbox/mnemonic-commits/)<br/>
+  subscribe: [commits-subscribe@mnemonic.apache.org](mailto:commits@mnemonic.apache.org)<br/>
+  unsubscribe: [commits-unsubscribe@mnemonic.apache.org](mailto:commits@mnemonic.apache.org)<br/>
 
 
 
