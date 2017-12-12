@@ -25,7 +25,7 @@ developers working on the project. The project has created
       <td style="text-align: left">phunt</td>
     </tr>
     <tr>
-      <td rowspan="4" style="text-align: center; font-weight:700">Mentor</td>
+      <td rowspan="11" style="text-align: center; font-weight:700">PMC</td>
       <td style="text-align: left">Patrick Hunt</td>
       <td style="text-align: left">phunt</td>
     </tr>
@@ -36,27 +36,6 @@ developers working on the project. The project has created
     <tr>
       <td style="text-align: left">James Taylor</td>
       <td style="text-align: left">jamestaylor</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Henry Saputra</td>
-      <td style="text-align: left">hsaputra</td>
-    </tr>
-    <tr>
-      <td rowspan="12" style="text-align: center; font-weight:700">PPMC</td>
-      <td style="text-align: left">Patrick Hunt</td>
-      <td style="text-align: left">phunt</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Andrew Purtell</td>
-      <td style="text-align: left">apurtell</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">James Taylor</td>
-      <td style="text-align: left">jamestaylor</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Henry Saputra</td>
-      <td style="text-align: left">hsaputra</td>
     </tr>
     <tr>
       <td style="text-align: left">Yanping Wang</td>
@@ -156,10 +135,6 @@ developers working on the project. The project has created
 </table>
 
 *Current release manager
-
-[Project Member Roles and Responsibilities](https://incubator.apache.org/policy/roles_and_responsibilities.html){:target="_blank"}
-
-
 
 
 ## Mailing Lists
