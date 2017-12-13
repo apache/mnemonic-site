@@ -52,7 +52,7 @@
     <div class="unit one-third center-on-mobiles">
       <h1>
         <a href="/">
-          <span class="sr-only">Apache Incubator Mnemonic</span>
+          <span class="sr-only">Apache Mnemonic</span>
           <img src="/img/mnemonic_logo.png" width="289" alt="Mnemonic Logo" class="logo">
         </a>
       </h1>
@@ -156,13 +156,9 @@
   
     
   
-    
-  
 
   
 
-  
-    
   
     
   
@@ -257,8 +253,6 @@
     
   
     
-  
-    
       <option value="/docs/modes.html">Mnemonic Modes</option>
     
   
@@ -277,8 +271,6 @@
 
   
 
-  
-    
   
     
   
@@ -369,8 +361,6 @@
     
   
     
-  
-    
       <option value="/docs/integration.html">Integration with other projects</option>
     
   
@@ -393,8 +383,6 @@
 
   
 
-  
-    
   
     
   
@@ -504,13 +492,9 @@
   
     
   
-    
-  
 
   
 
-  
-    
   
     
   
@@ -613,8 +597,6 @@
     
   
     
-  
-    
       <option value="/docs/sparkusecases.html">Apache Spark Integration Use Cases</option>
     
   
@@ -625,8 +607,6 @@
 
   
 
-  
-    
   
     
   
@@ -683,8 +663,6 @@
 
   
 
-  
-    
   
     
   
@@ -785,8 +763,6 @@
     
   
     
-  
-    
       <option value="/docs/security.html">Security</option>
     
   
@@ -806,8 +782,6 @@
 
   
 
-  
-    
   
     
   
@@ -917,13 +891,9 @@
   
     
   
-    
-  
 
   
 
-  
-    
   
     
   
@@ -1033,13 +1003,9 @@
   
     
   
-    
-  
 
   
 
-  
-    
   
     
   
@@ -1096,8 +1062,6 @@
 
   
 
-  
-    
   
     
   
@@ -1178,23 +1142,23 @@ we suggest to use this practice on your first try for code contribution.</p>
   <li>Install Docker on your system <a href="https://www.docker.com/" target="_blank">Docker Official Website</a></li>
   <li>Install IDE on your Linux/MacOS/Windows box <a href="https://www.jetbrains.com/idea/" target="_blank">IntelliJ IDEA Official Website</a></li>
   <li>Register an account on Github for yourself if not yet have one</li>
-  <li>Log into Github and fork <a href="https://github.com/apache/incubator-mnemonic" target="_blank">Apache Incubator Mnemonic repository</a>.
+  <li>Log into Github and fork <a href="https://github.com/apache/mnemonic" target="_blank">Apache Mnemonic repository</a>.
 <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">Fork and Set up Git</a></li>
-  <li>Configure Apache incubator Mnemonic repo. as upstream remote in your local repository
+  <li>Configure Apache Mnemonic repo. as upstream remote in your local repository
     <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> &lt;your_project_folder&gt;
-<span class="gp">$ </span>git remote add upstream https://github.com/apache/incubator-mnemonic.git
+<span class="gp">$ </span>git remote add upstream https://github.com/apache/mnemonic.git
 </code></pre>
     </div>
   </li>
   <li>Prepare Mnemonic Docker image on you system
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker build -t mnedev https://github.com/apache/incubator-mnemonic.git#:docker/docker-CentOS
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker build -t mnedev https://github.com/apache/mnemonic.git#:docker/docker-CentOS
 <span class="gp">$ </span><span class="c"># --------- OR --------- </span>
-<span class="gp">$ </span>docker build -t mnedev https://github.com/apache/incubator-mnemonic.git#:docker/docker-Ubuntu
+<span class="gp">$ </span>docker build -t mnedev https://github.com/apache/mnemonic.git#:docker/docker-Ubuntu
 </code></pre>
     </div>
   </li>
   <li>Mount your host repo. to Docker container, this following command would hide the original Mnemonic project folder in container
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker run -it -v &lt;mnemonic_project_folder&gt;:/ws/incubator-mnemonic mnedev
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker run -it -v &lt;mnemonic_project_folder&gt;:/ws/mnemonic mnedev
 </code></pre>
     </div>
   </li>
@@ -1315,8 +1279,6 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
     
   
     
-  
-    
       <li class=""><a href="/docs/features.html">Features</a></li>
       
 
@@ -1325,8 +1287,6 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
 
   
 
-  
-    
   
     
   
@@ -1409,8 +1369,6 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
     
   
     
-  
-    
       <li class=""><a href="/docs/memsrvcmp.html">Durable Memory Service Comparison</a></li>
       
 
@@ -1419,8 +1377,6 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
 
   
 
-  
-    
   
     
   
@@ -1481,8 +1437,6 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
     
   
     
-  
-    
       <li class=""><a href="/docs/domusecases.html">DOM Use Cases</a></li>
       
 
@@ -1509,8 +1463,6 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
 
   
 
-  
-    
   
     
   
@@ -1605,8 +1557,6 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
     
   
     
-  
-    
       <li class=""><a href="/docs/sparkusecases.html">Apache Spark Integration Use Cases</a></li>
       
 
@@ -1615,8 +1565,6 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
 
   
 
-  
-    
   
     
   
@@ -1677,8 +1625,6 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
     
   
     
-  
-    
       <li class=""><a href="/docs/gcdata.html">Java GC data</a></li>
       
 
@@ -1687,8 +1633,6 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
 
   
 
-  
-    
   
     
   
@@ -1775,8 +1719,6 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
     
   
     
-  
-    
       <li class=""><a href="/docs/getstarted.html">Get Started</a></li>
       
 
@@ -1807,8 +1749,6 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
 
   
 
-  
-    
   
     
   
@@ -1921,8 +1861,6 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
     
   
     
-  
-    
       <li class=""><a href="/docs/runtest.html">Run tests</a></li>
       
 
@@ -1931,8 +1869,6 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
 
   
 
-  
-    
   
     
   
