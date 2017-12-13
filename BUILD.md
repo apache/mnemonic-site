@@ -5,7 +5,7 @@ This directory contains the code for the Apache mnemonic web site,
 
 ## Setup
 
-1. `git clone https://git-wip-us.apache.org/repos/asf/incubator-mnemonic.git -b asf-site target`
+1. `git clone https://git-wip-us.apache.org/repos/asf/mnemonic.git -b asf-site target`
 2. `sudo gem install bundler`
 3. `sudo gem install github-pages jekyll`
 4. `bundle install`

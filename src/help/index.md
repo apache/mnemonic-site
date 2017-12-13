@@ -8,11 +8,11 @@ Need help with mnemonic? Try these resources.
 ## Mailing Lists
 
 The best option is to send email to the user list
-[user@mnemonic.incubator.apache.org](mailto:user@mnemonic.incubator.apache.org), which is for user
+[user@mnemonic.apache.org](mailto:user@mnemonic.apache.org), which is for user
 discussions. All of the historic traffic is available in the
-[archive](http://mail-archives.apache.org/mod_mbox/incubator-mnemonic-user/). To
+[archive](http://mail-archives.apache.org/mod_mbox/mnemonic-user/). To
 subscribe to the user list, please send email to
-[user-subscribe@mnemonic.incubator.apache.org](mailto:user-subscribe@mnemonic.incubator.apache.org).
+[user-subscribe@mnemonic.apache.org](mailto:user-subscribe@mnemonic.apache.org).
 
 ## Bug Reports
 
@@ -29,4 +29,4 @@ your question.
 ## Browse the code
 
 One of the advantages of open source software is that you can browse the code.
-The code is available on [github](https://github.com/apache/incubator-mnemonic/tree/master).
+The code is available on [github](https://github.com/apache/mnemonic/tree/master).

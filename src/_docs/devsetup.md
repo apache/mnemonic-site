@@ -18,22 +18,22 @@ It is based on Docker and simple for preparation, no root privilege needed excep
 * Install Docker on your system [Docker Official Website](https://www.docker.com/){:target="_blank"}
 * Install IDE on your Linux/MacOS/Windows box [IntelliJ IDEA Official Website](https://www.jetbrains.com/idea/){:target="_blank"}
 * Register an account on Github for yourself if not yet have one
-* Log into Github and fork [Apache Incubator Mnemonic repository](https://github.com/apache/incubator-mnemonic){:target="_blank"}.
+* Log into Github and fork [Apache Mnemonic repository](https://github.com/apache/mnemonic){:target="_blank"}.
   [Fork and Set up Git](https://help.github.com/articles/fork-a-repo/){:target="_blank"}
-* Configure Apache incubator Mnemonic repo. as upstream remote in your local repository
+* Configure Apache Mnemonic repo. as upstream remote in your local repository
 ```bash
   $ cd <your_project_folder>
-  $ git remote add upstream https://github.com/apache/incubator-mnemonic.git
+  $ git remote add upstream https://github.com/apache/mnemonic.git
 ```
 * Prepare Mnemonic Docker image on you system
 ```bash
-  $ docker build -t mnedev https://github.com/apache/incubator-mnemonic.git#:docker/docker-CentOS
+  $ docker build -t mnedev https://github.com/apache/mnemonic.git#:docker/docker-CentOS
   $ # --------- OR --------- 
-  $ docker build -t mnedev https://github.com/apache/incubator-mnemonic.git#:docker/docker-Ubuntu
+  $ docker build -t mnedev https://github.com/apache/mnemonic.git#:docker/docker-Ubuntu
 ```
 * Mount your host repo. to Docker container, this following command would hide the original Mnemonic project folder in container 
 ```bash
-  $ docker run -it -v <mnemonic_project_folder>:/ws/incubator-mnemonic mnedev
+  $ docker run -it -v <mnemonic_project_folder>:/ws/mnemonic mnedev
 ```
 * Open Mnemonic project in the IDE 
 

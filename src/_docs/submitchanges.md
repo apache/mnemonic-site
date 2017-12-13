@@ -12,7 +12,7 @@ submit your code/comments and document changes.
 * Building project in the Docker container
 ```bash
   ## for Docker container
-  # cd /ws/incubator-mnemonic
+  # cd /ws/mnemonic
   # mvn clean install
 ```
 * Resolve any problems found by building process
@@ -31,7 +31,7 @@ submit your code/comments and document changes.
 Note: Please make sure enough available space for test data generation (>30G)
 ```bash
   ## for Docker container
-  # cd /ws/incubator-mnemonic
+  # cd /ws/mnemonic
   # bin/runall.sh
 ```
 * Resolve any problems found by test cases and then **amend** your previous commit in IDE<br/>

@@ -3,7 +3,7 @@ highlighter: rouge
 permalink: /news/:year/:month/:day/:title/
 excerpt_separator: ""
 
-repository: https://github.com/apache/incubator-mnemonic
+repository: https://github.com/apache/mnemonic
 destination: public
 source: src
 exclude: [docker, BUILD.md, Gemfile*]

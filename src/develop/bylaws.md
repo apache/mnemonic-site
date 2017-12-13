@@ -30,12 +30,6 @@ it expects its members to follow. In particular:
   efforts to work on this project. Please be respectful of everyone
   and their views.
 
-mnemonic is typical of Apache projects in that it operates under a set of
-principles, known collectively as the "Apache Way". If you are new to
-Apache development, please refer to the [Incubator
-project](http://incubator.apache.org/) for more
-information on how Apache projects operate.
-
 ## Roles and Responsibilities
 
 Apache projects define a set of roles with associated rights and

@@ -39,10 +39,10 @@ RUN yum -y update && yum -y groupinstall 'Development Tools' && \
 
 RUN gem install jekyll bundler nokogiri
 
-RUN mkdir -p /ws && cd /ws && git clone https://git-wip-us.apache.org/repos/asf/incubator-mnemonic-site.git && \
-    cd incubator-mnemonic-site && bundle install
+RUN mkdir -p /ws && cd /ws && git clone https://git-wip-us.apache.org/repos/asf/mnemonic-site.git && \
+    cd mnemonic-site && bundle install
 
-ENV MNEMONIC_SITE_HOME /ws/incubator-mnemonic-site
+ENV MNEMONIC_SITE_HOME /ws/mnemonic-site
 
 WORKDIR /ws
 CMD ["bash"]

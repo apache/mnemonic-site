@@ -1,14 +1,14 @@
 {
   "name": "mnemonic",
   "version": "1.0.0",
-  "description": "This branch contains the generated HTML for the [Mnemonic website](https://mnemonic.incubator.apache.org).",
+  "description": "This branch contains the generated HTML for the [Mnemonic website](https://mnemonic.apache.org).",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://garyw@git-wip-us.apache.org/repos/asf/incubator-mnemonic-site.git"
+    "url": "https://garyw@git-wip-us.apache.org/repos/asf/mnemonic-site.git"
   },
   "author": "Gang(Gary) Wang",
   "license": "LicenseRef-LICENSE",
