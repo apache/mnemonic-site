@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Submit Changes</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="generator" content="Jekyll v3.5.2">
+  <meta name="generator" content="Jekyll v3.1.6">
   <link rel="stylesheet" href="/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -1136,8 +1136,7 @@ submit your code/comments and document changes.</p>
     <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">## for Docker container</span>
 <span class="c"># cd /ws/mnemonic</span>
 <span class="c"># mvn clean install</span>
-</code></pre>
-    </div>
+</code></pre>    </div>
   </li>
   <li>Resolve any problems found by building process</li>
   <li>Run your test cases specific to your changes, please refer to bin/test.conf</li>
@@ -1149,23 +1148,20 @@ Please use JIRA id and title to fill up the comment of commit<br />
 for example
     <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">## for host</span>
 <span class="c"># git commit -m "MNEMONIC-301: Improve the documentation of architecture page"</span>
-</code></pre>
-    </div>
+</code></pre>    </div>
   </li>
   <li>Run all test cases if your changes could impact existing functionalities<br />
 Note: Please make sure enough available space for test data generation (&gt;30G)
     <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">## for Docker container</span>
 <span class="c"># cd /ws/mnemonic</span>
 <span class="c"># bin/runall.sh</span>
-</code></pre>
-    </div>
+</code></pre>    </div>
   </li>
   <li>Resolve any problems found by test cases and then <strong>amend</strong> your previous commit in IDE<br />
 for Intellij IDEA, please refer to <a href="https://www.jetbrains.com/help/idea/committing-changes-to-a-local-git-repository.html" target="_blank">Committing Changes to a Local Git Repository</a>
     <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">## for host</span>
 <span class="c"># git commit --amend</span>
-</code></pre>
-    </div>
+</code></pre>    </div>
   </li>
   <li>Make sure there is only 1 local commit for each JIRA ticket, otherwise please squash them into one</li>
   <li>Rebase your codebase before pushing local commits to your remote repository
@@ -1173,14 +1169,12 @@ for Intellij IDEA, please refer to <a href="https://www.jetbrains.com/help/idea/
       <li>fetch update from remote <a href="https://www.jetbrains.com/help/idea/fetching-changes-from-a-remote-git-repository.html" target="_blank">Fetching Changes</a>
         <div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="c">## for host</span>
   <span class="c"># git fetch -a</span>
-</code></pre>
-        </div>
+</code></pre>        </div>
       </li>
       <li>Rebase your changes onto upstream/master <a href="https://www.jetbrains.com/help/idea/rebasing-branches.html" target="_blank">Rebasing Branches</a>
         <div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="c">## for host</span>
   <span class="c"># git rebase upstream/master</span>
-</code></pre>
-        </div>
+</code></pre>        </div>
       </li>
     </ol>
   </li>
@@ -1188,8 +1182,7 @@ for Intellij IDEA, please refer to <a href="https://www.jetbrains.com/help/idea/
     <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">## for host</span>
 <span class="c"># git push origin</span>
 <span class="c">## NOTE: use force push if your amended commit has already been pushed</span>
-</code></pre>
-    </div>
+</code></pre>    </div>
   </li>
   <li>Create a PR in Github <a href="https://help.github.com/articles/creating-a-pull-request/" target="_blank">Creating a pull request</a></li>
   <li>Fix any issues come from community review</li>
@@ -1935,7 +1928,7 @@ for Intellij IDEA, please refer to <a href="https://www.jetbrains.com/help/idea/
 
   <footer role="contentinfo">
     <p><div align="center">Apache Mnemonic, Mnemonic, Apache, and the Mnemonic logo are trademarks of The Apache Software Foundation.</div>
-<div align="center"> Copyright &copy;&nbsp;2017 <a href="https://www.apache.org/">The Apache Software Foundation</a></div></p>
+<div align="center"> Copyright &copy;&nbsp;2018 <a href="https://www.apache.org/">The Apache Software Foundation</a></div></p>
 </footer>
 
   <script>
