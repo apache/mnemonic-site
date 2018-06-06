@@ -16,10 +16,13 @@ You can preview your contributions before opening a pull request by running from
 
 1. `bundle exec jekyll serve`
 
-## Pushing to site
+## Preparing for publish
 
-1. `cd site/target`
-2. `git status`
-3. You'll need to `git add` any new files
-4. `git commit -a`
-5. `git push origin asf-site`
+1. `rm -rf public`
+2. `bundle exec jekyll build`
+
+## Publish to Apache website
+
+1. commit all changes
+2. `bin/uploadsite.sh`
+3. push commits to upstream
