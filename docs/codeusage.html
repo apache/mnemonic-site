@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Code Usage</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="generator" content="Jekyll v3.1.6">
+  <meta name="generator" content="Jekyll v3.7.3">
   <link rel="stylesheet" href="/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -54,6 +54,9 @@
         <a href="/">
           <span class="sr-only">Apache Mnemonic</span>
           <img src="/img/mnemonic_logo_v2.png" width="289" alt="Mnemonic Logo" class="logo">
+        </a>
+        <a  href="https://www.apache.org/events/current-event.html">
+          <img src="https://www.apache.org/events/current-event-234x60.png"/>
         </a>
       </h1>
     </div>
@@ -1131,7 +1134,7 @@
 
 <h4 id="define-a-non-volatile-class">Define a Non-Volatile class:</h4>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * a durable class should be abstract, implement Durable interface and marked with @DurableEntity annotation
  */</span>
 <span class="nd">@DurableEntity</span>
@@ -1199,13 +1202,13 @@
         <span class="kd">abstract</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setFather</span><span class="o">(</span><span class="n">Person</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">mother</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">destroy</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">RetrieveDurableEntityError</span><span class="o">;</span>
 <span class="o">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
 
 <h4 id="use-a-non-volatile-class">Use a non-volatile class:</h4>
 
 <h5 id="setup-an-allocator-for-non-volatile-object-graphs">Setup an allocator for non-volatile object graphs.</h5>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code>        <span class="c1">// create an allocator instance</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="c1">// create an allocator instance</span>
         <span class="n">NonVolatileMemAllocator</span> <span class="n">act</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NonVolatileMemAllocator</span><span class="o">(</span><span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">8</span><span class="o">,</span> <span class="s">"./pobj_person.dat"</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
         
         <span class="c1">// fetch handler store capacity from this non-volatile storage managed by this allocator</span>
@@ -1213,10 +1216,10 @@
         <span class="o">....</span>
         <span class="c1">// close it after use</span>
         <span class="n">act</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-</code></pre></div>
+</code></pre></div></div>
 
 <h5 id="generate-structured-non-volatile-objects">Generate structured non-volatile objects.</h5>
-<div class="language-java highlighter-rouge"><pre class="highlight"><code>        <span class="c1">// create a new non-volatile person object from this specific allocator</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="c1">// create a new non-volatile person object from this specific allocator</span>
         <span class="n">person</span> <span class="o">=</span> <span class="n">PersonFactory</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">act</span><span class="o">);</span>
         
         <span class="c1">// set attributes</span>
@@ -1239,11 +1242,11 @@
                 <span class="n">person</span> <span class="o">=</span> <span class="n">mother</span><span class="o">;</span>
         <span class="o">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
 
 <h5 id="use-the-non-volatile-objects">Use the non-volatile objects</h5>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code>        <span class="k">for</span> <span class="o">(</span><span class="kt">long</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">KEYCAPACITY</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="k">for</span> <span class="o">(</span><span class="kt">long</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">KEYCAPACITY</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
         
                 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"----------Key %d--------------\n"</span><span class="o">,</span> <span class="n">i</span><span class="o">);</span>
                 <span class="c1">// iterate non-volatile handlers from handler store of this specific allocator</span>
@@ -1262,11 +1265,11 @@
                 <span class="o">}</span>
         <span class="o">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
 
 <h5 id="perform-the-durable-native-computing-eg-printing-wo-packingunpacking-massive-object-graphs">Perform the durable native computing (e.g. printing) w/o packing/unpacking massive object graphs</h5>
 
-<div class="language-java highlighter-rouge"><pre class="highlight"><code>         <span class="c1">// fetch print service</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>         <span class="c1">// fetch print service</span>
          <span class="n">GeneralComputingService</span> <span class="n">gcsvr</span> <span class="o">=</span> <span class="n">Utils</span><span class="o">.</span><span class="na">getGeneralComputingService</span><span class="o">(</span><span class="s">"print"</span><span class="o">);</span>
          <span class="c1">// instantiate a value info for a value matrix</span>
          <span class="n">ValueInfo</span> <span class="n">vinfo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ValueInfo</span><span class="o">();</span>
@@ -1289,7 +1292,7 @@
          <span class="n">ValueInfo</span><span class="o">[]</span> <span class="n">vinfos</span> <span class="o">=</span> <span class="o">{</span><span class="n">vinfo</span><span class="o">};</span>
          <span class="c1">// perform the print operation</span>
          <span class="n">gcsvr</span><span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">vinfos</span><span class="o">);</span>
-</code></pre></div>
+</code></pre></div></div>
 
 
           

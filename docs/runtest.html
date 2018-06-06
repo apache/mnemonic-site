@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Run tests</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="generator" content="Jekyll v3.1.6">
+  <meta name="generator" content="Jekyll v3.7.3">
   <link rel="stylesheet" href="/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -54,6 +54,9 @@
         <a href="/">
           <span class="sr-only">Apache Mnemonic</span>
           <img src="/img/mnemonic_logo_v2.png" width="289" alt="Mnemonic Logo" class="logo">
+        </a>
+        <a  href="https://www.apache.org/events/current-event.html">
+          <img src="https://www.apache.org/events/current-event-234x60.png"/>
         </a>
       </h1>
     </div>
@@ -1127,33 +1130,33 @@
         <article>
           <h1>Run tests</h1>
           <p>To run several test cases:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-core" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn -Dtest<span class="o">=</span>DurablePersonNGTest <span class="nb">test</span> -pl mnemonic-core -DskipTests<span class="o">=</span><span class="nb">false</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-core" that requires 'pmalloc' memory service to pass</span>
+  <span class="nv">$ </span>mvn <span class="nt">-Dtest</span><span class="o">=</span>DurablePersonNGTest <span class="nb">test</span> <span class="nt">-pl</span> mnemonic-core <span class="nt">-DskipTests</span><span class="o">=</span><span class="nb">false</span>
   
   <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-core" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn -Dtest<span class="o">=</span>NonVolatileMemAllocatorNGTest <span class="nb">test</span> -pl mnemonic-core -DskipTests<span class="o">=</span><span class="nb">false</span>
+  <span class="nv">$ </span>mvn <span class="nt">-Dtest</span><span class="o">=</span>NonVolatileMemAllocatorNGTest <span class="nb">test</span> <span class="nt">-pl</span> mnemonic-core <span class="nt">-DskipTests</span><span class="o">=</span><span class="nb">false</span>
   
   <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-core" that requires 'vmem' memory service to pass</span>
-  <span class="nv">$ </span>mvn -Dtest<span class="o">=</span>VolatileMemAllocatorNGTest <span class="nb">test</span> -pl mnemonic-core -DskipTests<span class="o">=</span><span class="nb">false</span>
+  <span class="nv">$ </span>mvn <span class="nt">-Dtest</span><span class="o">=</span>VolatileMemAllocatorNGTest <span class="nb">test</span> <span class="nt">-pl</span> mnemonic-core <span class="nt">-DskipTests</span><span class="o">=</span><span class="nb">false</span>
   
   <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-core" that requires 'vmem memory service to pass</span>
-  <span class="nv">$ </span>mvn -Dtest<span class="o">=</span>MemClusteringNGTest <span class="nb">test</span> -pl mnemonic-core -DskipTests<span class="o">=</span><span class="nb">false</span>
+  <span class="nv">$ </span>mvn <span class="nt">-Dtest</span><span class="o">=</span>MemClusteringNGTest <span class="nb">test</span> <span class="nt">-pl</span> mnemonic-core <span class="nt">-DskipTests</span><span class="o">=</span><span class="nb">false</span>
   
   <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-collection" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn -Dtest<span class="o">=</span>DurableSinglyLinkedListNGTest  <span class="nb">test</span> -pl mnemonic-collections -DskipTests<span class="o">=</span><span class="nb">false</span>
+  <span class="nv">$ </span>mvn <span class="nt">-Dtest</span><span class="o">=</span>DurableSinglyLinkedListNGTest  <span class="nb">test</span> <span class="nt">-pl</span> mnemonic-collections <span class="nt">-DskipTests</span><span class="o">=</span><span class="nb">false</span>
   
   <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-collection" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn -Dtest<span class="o">=</span>DurablePersonNGTest  <span class="nb">test</span> -pl mnemonic-collections -DskipTests<span class="o">=</span><span class="nb">false</span>
+  <span class="nv">$ </span>mvn <span class="nt">-Dtest</span><span class="o">=</span>DurablePersonNGTest  <span class="nb">test</span> <span class="nt">-pl</span> mnemonic-collections <span class="nt">-DskipTests</span><span class="o">=</span><span class="nb">false</span>
   
   <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-computing-services/mnemonic-utilities-service" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn -Dtest<span class="o">=</span>DurableSinglyLinkedListNGPrintTest <span class="nb">test</span> -pl mnemonic-computing-services/mnemonic-utilities-service -DskipTests<span class="o">=</span><span class="nb">false</span>
+  <span class="nv">$ </span>mvn <span class="nt">-Dtest</span><span class="o">=</span>DurableSinglyLinkedListNGPrintTest <span class="nb">test</span> <span class="nt">-pl</span> mnemonic-computing-services/mnemonic-utilities-service <span class="nt">-DskipTests</span><span class="o">=</span><span class="nb">false</span>
   
   <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-computing-services/mnemonic-utilities-service" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn -Dtest<span class="o">=</span>DurableSinglyLinkedListNGSortTest <span class="nb">test</span> -pl mnemonic-computing-services/mnemonic-utilities-service -DskipTests<span class="o">=</span><span class="nb">false</span>
+  <span class="nv">$ </span>mvn <span class="nt">-Dtest</span><span class="o">=</span>DurableSinglyLinkedListNGSortTest <span class="nb">test</span> <span class="nt">-pl</span> mnemonic-computing-services/mnemonic-utilities-service <span class="nt">-DskipTests</span><span class="o">=</span><span class="nb">false</span>
   
   <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-hadoop/mnemonic-hadoop-mapreduce" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn -Dtest<span class="o">=</span>MneMapreducePersonDataTest <span class="nb">test</span> -pl mnemonic-hadoop/mnemonic-hadoop-mapreduce -DskipTests<span class="o">=</span><span class="nb">false</span>
-</code></pre></div>
+  <span class="nv">$ </span>mvn <span class="nt">-Dtest</span><span class="o">=</span>MneMapreducePersonDataTest <span class="nb">test</span> <span class="nt">-pl</span> mnemonic-hadoop/mnemonic-hadoop-mapreduce <span class="nt">-DskipTests</span><span class="o">=</span><span class="nb">false</span>
+</code></pre></div></div>
 
 
           

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Docker usage</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="generator" content="Jekyll v3.1.6">
+  <meta name="generator" content="Jekyll v3.7.3">
   <link rel="stylesheet" href="/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -54,6 +54,9 @@
         <a href="/">
           <span class="sr-only">Apache Mnemonic</span>
           <img src="/img/mnemonic_logo_v2.png" width="289" alt="Mnemonic Logo" class="logo">
+        </a>
+        <a  href="https://www.apache.org/events/current-event.html">
+          <img src="https://www.apache.org/events/current-event-234x60.png"/>
         </a>
       </h1>
     </div>
@@ -1149,24 +1152,24 @@
 <h4 id="how-to-set-up-proxy">How to set up proxy?</h4>
 
 <p>Set the argument “http_proxy” for the docker option “–build-arg” as follows</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span>docker build -t NAME[:TAG] --build-arg <span class="nv">proxy_host</span><span class="o">=</span><span class="s2">"&lt;proxy_host&gt;"</span> <span class="nv">proxy_port</span><span class="o">=</span><span class="s2">"&lt;proxy_port&gt;"</span> .
-</code></pre></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>docker build <span class="nt">-t</span> NAME[:TAG] <span class="nt">--build-arg</span> <span class="nv">proxy_host</span><span class="o">=</span><span class="s2">"&lt;proxy_host&gt;"</span> <span class="nv">proxy_port</span><span class="o">=</span><span class="s2">"&lt;proxy_port&gt;"</span> <span class="nb">.</span>
+</code></pre></div></div>
 
 <p>For old version docker v1.10 below, Please replace ARG with ENV and set its value as proxy strings in Dockerfile instead</p>
 
 <h3 id="how-to-build-the-docker-image-from-dockerfile-in-host-os">How to build the docker image from Dockerfile in host OS?</h3>
 <p>Build from git repository</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span>docker build -t NAME[:TAG] https://github.com/apache/mnemonic.git#:docker/docker-CentOS
-  <span class="nv">$ </span>docker build -t NAME[:TAG] https://github.com/apache/mnemonic.git#:docker/docker-Ubuntu
-</code></pre></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>docker build <span class="nt">-t</span> NAME[:TAG] https://github.com/apache/mnemonic.git#:docker/docker-CentOS
+  <span class="nv">$ </span>docker build <span class="nt">-t</span> NAME[:TAG] https://github.com/apache/mnemonic.git#:docker/docker-Ubuntu
+</code></pre></div></div>
 
 <p>– OR –</p>
 
 <p>In the folder of Dockerfile, run:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span>docker build -t NAME[:TAG] .
-</code></pre></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>docker build <span class="nt">-t</span> NAME[:TAG] <span class="nb">.</span>
+</code></pre></div></div>
 
 <ul>
   <li>More detials please refer to <a href="https://docs.docker.com/engine/reference/commandline/build/">Docker build reference</a></li>
@@ -1174,9 +1177,9 @@
 
 <h4 id="optional-after-build-push-image-to-dockerhub">Optional: After build, push image to dockerhub:</h4>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span>docker login <span class="o">[</span>OPTIONS] <span class="o">[</span>SERVER]  
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>docker login <span class="o">[</span>OPTIONS] <span class="o">[</span>SERVER]  
   <span class="nv">$ </span>docker push <span class="o">[</span>OPTIONS] NAME[:TAG]
-</code></pre></div>
+</code></pre></div></div>
 
 <ul>
   <li>More detials please refer to <a href="https://docs.docker.com/engine/reference/commandline/login/">Docker login reference</a>
@@ -1187,13 +1190,13 @@
 
 <p>Run image:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span>docker run --name CONTAINER_NAME -it NAME[:TAG]
-</code></pre></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>docker run <span class="nt">--name</span> CONTAINER_NAME <span class="nt">-it</span> NAME[:TAG]
+</code></pre></div></div>
 
 <h3 id="sharing-host-project-folder-to-dock-container-for-ides-eg-eclipse-intellij-idea">Sharing host project folder to Dock container for IDEs e.g. Eclipse, Intellij IDEA</h3>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>  <span class="nv">$ </span>docker run -v &lt;hostdir&gt;/mnemonic:/ws/mnemonic -it NAME[:TAG]
-</code></pre></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>docker run <span class="nt">-v</span> &lt;hostdir&gt;/mnemonic:/ws/mnemonic <span class="nt">-it</span> NAME[:TAG]
+</code></pre></div></div>
 <p>Note: this command will override the container’s project folder, you can use another name to avoid it.</p>
 
 <ul>
