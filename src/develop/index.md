@@ -25,7 +25,7 @@ developers working on the project. The project has created
       <td style="text-align: left">phunt</td>
     </tr>
     <tr>
-      <td rowspan="11" style="text-align: center; font-weight:700">PMC</td>
+      <td rowspan="12" style="text-align: center; font-weight:700">PMC</td>
       <td style="text-align: left">Patrick Hunt</td>
       <td style="text-align: left">phunt</td>
     </tr>
@@ -68,6 +68,10 @@ developers working on the project. The project has created
     <tr>
       <td style="text-align: left">Johnu George</td>
       <td style="text-align: left">johnu</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Yanhui Zhao</td>
+      <td style="text-align: left">yzhao</td>
     </tr>
     <tr>
       <td rowspan="3" style="text-align: center; font-weight:700">Release Mngr.</td>
