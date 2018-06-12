@@ -5,7 +5,6 @@ target/
 _site/
 .idea/
 *.lock
-src/assets/javascripts/bundle.js
 public/
 node_modules/
 site/
