@@ -172,13 +172,13 @@ There are several development mailing lists for mnemonic
 
 mnemonic uses git for version control. Get the source code:
 
-`% git clone https://git-wip-us.apache.org/repos/asf/mnemonic.git`
+`% git clone https://gitbox.apache.org/repos/asf/mnemonic.git`
 
 The important branches are:
 
-* [master](https://git-wip-us.apache.org/repos/asf/mnemonic.git){:target="_blank"} -
+* [master](https://gitbox.apache.org/repos/asf/mnemonic.git){:target="_blank"} -
   The trunk for all development, please find master branch marked in light green.
-* [asf-site](https://git-wip-us.apache.org/repos/asf/mnemonic-site.git){:target="_blank"} -
+* [asf-site](https://gitbox.apache.org/repos/asf/mnemonic-site.git){:target="_blank"} -
   The pages that are deployed to https://mnemonic.apache.org/
 
 Please check our [coding guidelines](coding).
