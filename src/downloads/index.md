@@ -4,11 +4,17 @@ title: Downloads
 ---
 
 ### Download the latest version
-* [Apache Mnemonic 0.10.0-incubating](http://apache.org/dyn/closer.cgi/mnemonic){:target="_blank"} <br/>
-  November 2017 [What's New](http://www.apache.org/dyn/closer.cgi?action=download&filename=mnemonic/0.10.0-incubating/CHANGES.txt){:target="_blank"}
+* [Apache Mnemonic 0.12.0](https://archive.apache.org/dist/mnemonic/0.12.0/src/){:target="_blank"} <br/>
+  September 2018 [What's New](https://archive.apache.org/dist/mnemonic/0.12.0/CHANGES.txt){:target="_blank"}
 
 
 ### Archived Project Releases
+* [Apache Mnemonic 0.11.0](https://archive.apache.org/dist/mnemonic/0.11.0/src/){:target="_blank"} <br/>
+  April 2018 [What's New](https://archive.apache.org/dist/mnemonic/0.11.0/CHANGES.txt){:target="_blank"}
+
+* [Apache Mnemonic 0.10.0-incubating](https://archive.apache.org/dist/incubator/mnemonic/0.10.0-incubating/src/){:target="_blank"} <br/>
+  November 2017 [What's New](https://archive.apache.org/dist/incubator/mnemonic/0.10.0-incubating/CHANGES.txt){:target="_blank"}
+
 * [Apache Mnemonic 0.9.0-incubating](https://archive.apache.org/dist/incubator/mnemonic/0.9.0-incubating/src/){:target="_blank"} <br/>
   September 2017 [What's New](https://archive.apache.org/dist/incubator/mnemonic/0.9.0-incubating/CHANGES.txt){:target="_blank"}
 
