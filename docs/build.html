@@ -2,10 +2,10 @@
 <html lang="en-US">
 <head>
   <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
-  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Project Build</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="generator" content="Jekyll v3.7.3">
+  <meta name="generator" content="Jekyll v4.1.1">
   <link rel="stylesheet" href="/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -1160,16 +1160,16 @@
 
 <p>Once the build system is setup, this Library is built using this command at the top level:</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>git clean <span class="nt">-xdf</span> <span class="c"># if pull from a git repo.</span>
-  <span class="nv">$ </span>mvn clean package install
+  <span class="nv">$ </span>mvn clean package <span class="nb">install</span>
 </code></pre></div></div>
 
 <p>To exclude a customized memory service for your platform e.g. OSX, note that if you excluded one or both memory services, some or all testcases/examples will fail since their dependent memory services are unavailable.</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>git clean <span class="nt">-xdf</span> <span class="c"># if pull from a git repo.</span>
-  <span class="nv">$ </span>mvn <span class="nt">-pl</span> <span class="s1">'!mnemonic-memory-services/mnemonic-nvml-vmem-service'</span> clean package install
+  <span class="nv">$ </span>mvn <span class="nt">-pl</span> <span class="s1">'!mnemonic-memory-services/mnemonic-nvml-vmem-service'</span> clean package <span class="nb">install</span>
 </code></pre></div></div>
 
 <p>To install this package to local repository (required to run examples and testcases):</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>mvn clean install
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span>mvn clean <span class="nb">install</span>
 </code></pre></div></div>
 
 <p>To run an example:</p>
@@ -1949,7 +1949,7 @@
 
   <footer role="contentinfo">
     <p><div align="center">Apache Mnemonic, Mnemonic, Apache, and the Mnemonic logo are trademarks of The Apache Software Foundation.</div>
-<div align="center"> Copyright &copy;&nbsp;2019 <a href="https://www.apache.org/">The Apache Software Foundation</a></div></p>
+<div align="center"> Copyright &copy;&nbsp;2020 <a href="https://www.apache.org/">The Apache Software Foundation</a></div></p>
 </footer>
 
   <script>
