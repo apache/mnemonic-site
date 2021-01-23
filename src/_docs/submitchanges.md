@@ -20,7 +20,7 @@ submit your code/comments and document changes.
 * Resolve any problems found by your test cases
 * Add your test cases to *bin/test.conf*
 * Commit the changes to your local repository in IDE<br/>
-  for Intellij IDEA, please refer to [Committing Changes to a Local Git Repository](https://www.jetbrains.com/help/idea/committing-changes-to-a-local-git-repository.html){:target="_blank"}<br/>
+  for Intellij IDEA, please refer to [Committing Changes to a Local Git Repository](https://www.jetbrains.com/help/idea/commit-and-push-changes.html#commit){:target="_blank"}<br/>
   Please use JIRA id and title to fill up the comment of commit<br/>
   for example
 ```bash
@@ -35,24 +35,24 @@ Note: Please make sure enough available space for test data generation (>30G)
   # bin/runall.sh
 ```
 * Resolve any problems found by test cases and then **amend** your previous commit in IDE<br/>
-  for Intellij IDEA, please refer to [Committing Changes to a Local Git Repository](https://www.jetbrains.com/help/idea/committing-changes-to-a-local-git-repository.html){:target="_blank"}
+  for Intellij IDEA, please refer to [Committing Changes to a Local Git Repository](https://www.jetbrains.com/help/idea/commit-and-push-changes.html#commit){:target="_blank"}
 ```bash
   ## for host
   # git commit --amend
 ```
 * Make sure there is only 1 local commit for each JIRA ticket, otherwise please squash them into one
 * Rebase your codebase before pushing local commits to your remote repository
-  1. fetch update from remote [Fetching Changes](https://www.jetbrains.com/help/idea/fetching-changes-from-a-remote-git-repository.html){:target="_blank"}
+  1. fetch update from remote [Fetching Changes](https://www.jetbrains.com/help/idea/sync-with-a-remote-repository.html#fetch){:target="_blank"}
   ```bash
     ## for host
     # git fetch -a
   ```
-  2. Rebase your changes onto upstream/master [Rebasing Branches](https://www.jetbrains.com/help/idea/rebasing-branches.html){:target="_blank"}
+  2. Rebase your changes onto upstream/master [Rebasing Branches](https://www.jetbrains.com/help/idea/apply-changes-from-one-branch-to-another.html#rebase-branch){:target="_blank"}
   ```bash
     ## for host
     # git rebase upstream/master
   ```
-* Push local commits to your remote repository [Pushing Changes](https://www.jetbrains.com/help/idea/pushing-changes-to-the-upstream-git-push.html){:target="_blank"}
+* Push local commits to your remote repository [Pushing Changes](https://www.jetbrains.com/help/idea/commit-and-push-changes.html#push){:target="_blank"}
 ```bash
   ## for host
   # git push origin
