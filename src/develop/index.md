@@ -5,10 +5,9 @@ title: Developing
 
 Information about the Mnemonic project that is most important for
 developers working on the project. The project has created
-[bylaws](bylaws) for itself.
+[bylaws](bylaws.html) for itself.
 
 ## Project Members
-
 
 <table>
   <thead>
@@ -20,12 +19,7 @@ developers working on the project. The project has created
   </thead>
   <tbody>
     <tr>
-      <td rowspan="1" style="text-align: center; font-weight:700">Champion</td>
-      <td style="text-align: left">Patrick Hunt</td>
-      <td style="text-align: left">phunt</td>
-    </tr>
-    <tr>
-      <td rowspan="12" style="text-align: center; font-weight:700">PMC</td>
+      <td rowspan="14" style="text-align: center; font-weight:700">PMC</td>
       <td style="text-align: left">Patrick Hunt</td>
       <td style="text-align: left">phunt</td>
     </tr>
@@ -38,11 +32,7 @@ developers working on the project. The project has created
       <td style="text-align: left">jamestaylor</td>
     </tr>
     <tr>
-      <td style="text-align: left">Yanping Wang</td>
-      <td style="text-align: left">yanpingw</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Gang(Gary)Wang</td>
+      <td style="text-align: left">Gang(Gary) Wang</td>
       <td style="text-align: left">garyw</td>
     </tr>
     <tr>
@@ -73,9 +63,21 @@ developers working on the project. The project has created
       <td style="text-align: left">Yanhui Zhao</td>
       <td style="text-align: left">yzhao</td>
     </tr>
+        <tr>
+      <td style="text-align: left">Chenyang Li</td>
+      <td style="text-align: left">lcy0816</td>
+    </tr>
     <tr>
-      <td rowspan="3" style="text-align: center; font-weight:700">Release Mngr.</td>
-      <td style="text-align: left">Gang(Gary)Wang</td>
+      <td style="text-align: left">Li Shen</td>
+      <td style="text-align: left">lishen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kevin Ratnasekera</td>
+      <td style="text-align: left">djkevincr</td>
+    </tr>
+    <tr>
+      <td rowspan="4" style="text-align: center; font-weight:700">Release Manager</td>
+      <td style="text-align: left">Gang(Gary) Wang</td>
       <td style="text-align: left">garyw</td>
     </tr>
     <tr>
@@ -84,19 +86,19 @@ developers working on the project. The project has created
     </tr>
     <tr>
       <td style="text-align: left">Johnu George</td>
-      <td style="text-align: left">johnu*</td>
+      <td style="text-align: left">johnu</td>
     </tr>
     <tr>
-      <td rowspan="14" style="text-align: center; font-weight:700">Committer</td>
+      <td style="text-align: left">Yanhui Zhao*</td>
+      <td style="text-align: left">yzhao</td>
+    </tr>
+    <tr>
+      <td rowspan="13" style="text-align: center; font-weight:700">Committer</td>
       <td style="text-align: left">Henry Saputra</td>
       <td style="text-align: left">hsaputra</td>
     </tr>
     <tr>
-      <td style="text-align: left">Yanping Wang</td>
-      <td style="text-align: left">yanpingw</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Gang(Gary)Wang</td>
+      <td style="text-align: left">Gang(Gary) Wang</td>
       <td style="text-align: left">garyw</td>
     </tr>
     <tr>
@@ -146,7 +148,7 @@ developers working on the project. The project has created
   </tbody>
 </table>
 
-*Current release manager
+<I>Note - current Release Manager is highlighted with *</I>
 
 
 ## Mailing Lists
@@ -170,7 +172,7 @@ There are several development mailing lists for mnemonic
 
 ## Source code
 
-mnemonic uses git for version control. Get the source code:
+Mnemonic uses git for version control. Get the source code:
 
 `% git clone https://gitbox.apache.org/repos/asf/mnemonic.git`
 
