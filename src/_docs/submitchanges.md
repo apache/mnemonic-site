@@ -4,60 +4,70 @@ title: Submit Changes
 permalink: /docs/submitchanges.html
 ---
 
-After [Development Setup](devsetup.html), you can follow the steps below to
-submit your code/comments and document changes.
 
-* Make sure the changes are linked to your [Apache JIRA](https://issues.apache.org/jira/projects/MNEMONIC){:target="_blank"} ticket
-* Review your changes according to the JIRA ticket in question
-* Building project in the Docker container
+After [Development Setup](devsetup.html), you can follow the steps below to submit your code/comments and document changes.
+
+***
+
+* Step 1 - Sync your forked Mnemonic project from upstream. <I>[Show Me How](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/syncing-a-fork){:target="_blank"}</I>
+
+  **<I> Please keep the master branch untouched, otherwise we can't keep it exactly synced. </I>**
+
 ```bash
-  ## for Docker container
-  # cd /ws/mnemonic
-  # mvn clean install
+  $ git fetch upstream
+  $ git checkout master
+  $ git merge upstream/master
+  $ git push
 ```
-* Resolve any problems found by building process
-* Run your test cases specific to your changes, please refer to bin/test.conf
-* Resolve any problems found by your test cases
-* Add your test cases to *bin/test.conf*
-* Commit the changes to your local repository in IDE<br/>
-  for Intellij IDEA, please refer to [Committing Changes to a Local Git Repository](https://www.jetbrains.com/help/idea/commit-and-push-changes.html#commit){:target="_blank"}<br/>
-  Please use JIRA id and title to fill up the comment of commit<br/>
-  for example
+
+* Step 2 - Take over an interested issue/task by clicking the “Start Progress” button in the Apache issue web portal. <I>[Project Issue Portal](https://issues.apache.org/jira/projects/MNEMONIC/){:target="_blank"}</I>
+
+* Step 3 - Create a new branch for your selected issue/task.
+
 ```bash
-  ## for host
-  # git commit -m "MNEMONIC-301: Improve the documentation of architecture page"
+  $ git checkout master
+  $ git checkout -b issue-[issue id]
 ```
-* Run all test cases if your changes could impact existing functionalities<br/>
-Note: Please make sure enough available space for test data generation (>30G)
+
+* Step 4 - Apply patch files if any.
+
 ```bash
-  ## for Docker container
-  # cd /ws/mnemonic
-  # bin/runall.sh
+  $ git apply [patch file]
 ```
-* Resolve any problems found by test cases and then **amend** your previous commit in IDE<br/>
-  for Intellij IDEA, please refer to [Committing Changes to a Local Git Repository](https://www.jetbrains.com/help/idea/commit-and-push-changes.html#commit){:target="_blank"}
+
+* Step 5 - Fix/implement the selected issue/task on the specific branch.Please ensure you are working on the create branch, e.g. issue-548, using the following command to confirm it
+
 ```bash
-  ## for host
-  # git commit --amend
+  $ git status
 ```
-* Make sure there is only 1 local commit for each JIRA ticket, otherwise please squash them into one
-* Rebase your codebase before pushing local commits to your remote repository
-  1. fetch update from remote [Fetching Changes](https://www.jetbrains.com/help/idea/sync-with-a-remote-repository.html#fetch){:target="_blank"}
-  ```bash
-    ## for host
-    # git fetch -a
-  ```
-  2. Rebase your changes onto upstream/master [Rebasing Branches](https://www.jetbrains.com/help/idea/apply-changes-from-one-branch-to-another.html#rebase-branch){:target="_blank"}
-  ```bash
-    ## for host
-    # git rebase upstream/master
-  ```
-* Push local commits to your remote repository [Pushing Changes](https://www.jetbrains.com/help/idea/commit-and-push-changes.html#push){:target="_blank"}
+
+* Step 6 - Stage your new code or code changes before stopping work on it.
+
 ```bash
-  ## for host
-  # git push origin
-  ## NOTE: use force push if your amended commit has already been pushed
-``` 
-* Create a PR in Github [Creating a pull request](https://help.github.com/articles/creating-a-pull-request/){:target="_blank"}
-* Fix any issues come from community review
-* Change the JIRA ticket status to RESOLVED if the button exists
+  $ git add [your changed/new files]
+```
+
+* Step 7 - Rebase your local works from upstream if it takes a long time. Commit your bugfix or feature code once the issue/task got addressed. Stage all your changed/new files first, please refer to step 6 above. If any conflict occurred, please refer to the <I>[following way to resolve it.](https://docs.github.com/en/free-pro-team@latest/github/using-git/resolving-merge-conflicts-after-a-git-rebase){:target="_blank"}</I>
+
+```bash
+  $ git commit -s -m “MNEMONIC-[issue id]: [issue description]”
+  $ git rebase upstream/master
+```
+
+* Step 8 - Verify your code changes again
+
+```bash
+  $ git diff HEAD^…
+```
+
+* Step 9 - Push your new branch and commit to your own github repo.
+
+```bash
+  $ git push --set-upstream origin issue-XXX
+```
+
+* Step 10 - Submit a PR. Visit the Mnemonic repo. in your own Github account, you can see a message about the new/changed branch, you can submit the PR via click the link in the message. <I>[Show Me How](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request){:target="_blank"}</I> 
+
+* Step 11 - Once PR got submitted, Please click “Resolve Issue” button in <I>[Apache issue web portal.](https://confluence.atlassian.com/adminjiraserver/working-with-workflows-938847362.html){:target="_blank"}</I>.
+
+* Step 12 - Normally, wait for 2-5 calendar days for reviewers to take comments on the PR. Address all comments as possible. Once the PR got verified by reviewers, Please click “Close Issue” button in Apache issue web portal.
