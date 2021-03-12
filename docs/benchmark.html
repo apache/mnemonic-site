@@ -2,10 +2,10 @@
 <html lang="en-US">
 <head>
   <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta charset="UTF-8">
   <title>Run Benchmark</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="generator" content="Jekyll v4.1.1">
+  <meta name="generator" content="Jekyll v2.4.0">
   <link rel="stylesheet" href="/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -1130,15 +1130,16 @@
         <article>
           <h1>Run Benchmark</h1>
           <h3 id="how-to-benchmark-">How to benchmark ?</h3>
-<p>To run sort bench workloads.</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span><span class="c"># generate some input data files with a count parameter that indicates how many random numbers to be generated</span>
-  <span class="nv">$ </span>mnemonic-benches/mnemonic-sort-bench/bin/gen_data.py 20000
-  <span class="nv">$ </span><span class="c"># create a configure file that contains all the absolute paths of generated input data files to work on in a batch</span>
-  <span class="nv">$ </span><span class="c"># call the run.py to run the bench workloads with the configure file</span>
-  <span class="nv">$ </span>mnemonic-benches/mnemonic-sort-bench/bin/run.py ./sort-files.conf
-  <span class="nv">$ </span><span class="c"># after finished, you can find the result data from the sort_bench_result.log</span>
-  <span class="nv">$ </span>less mnemonic-benches/mnemonic-sort-bench/sort_bench_result.log
-</code></pre></div></div>
+<p>To run sort bench workloads.
+<code>bash
+  $ # generate some input data files with a count parameter that indicates how many random numbers to be generated
+  $ mnemonic-benches/mnemonic-sort-bench/bin/gen_data.py 20000
+  $ # create a configure file that contains all the absolute paths of generated input data files to work on in a batch
+  $ # call the run.py to run the bench workloads with the configure file
+  $ mnemonic-benches/mnemonic-sort-bench/bin/run.py ./sort-files.conf
+  $ # after finished, you can find the result data from the sort_bench_result.log
+  $ less mnemonic-benches/mnemonic-sort-bench/sort_bench_result.log
+</code></p>
 
           
 
@@ -1215,6 +1216,8 @@
   
 
   
+    
+  
 
   
     
@@ -1224,6 +1227,8 @@
 
   
 
+  
+    
   
 
   
@@ -1252,6 +1257,8 @@
 
   
 
+  
+    
   
 
   
@@ -1299,6 +1306,8 @@
   
 
   
+    
+  
 
   
     
@@ -1343,6 +1352,8 @@
   
 
   
+    
+  
 
   
     
@@ -1385,6 +1396,8 @@
   
 
   
+    
+  
 
   
     
@@ -1411,6 +1424,8 @@
   
 
   
+    
+  
 
   
     
@@ -1428,6 +1443,8 @@
 
   
 
+  
+    
   
 
   
@@ -1476,6 +1493,8 @@
 
   
 
+  
+    
   
 
   
@@ -1531,6 +1550,8 @@
   
 
   
+    
+  
 
   
     
@@ -1567,6 +1588,8 @@
   
 
   
+    
+  
 
   
     
@@ -1598,6 +1621,8 @@
 
   
 
+  
+    
   
 
   
@@ -1659,6 +1684,8 @@
   
 
   
+    
+  
 
   
     
@@ -1693,6 +1720,8 @@
   
 
   
+    
+  
 
   
     
@@ -1714,6 +1743,8 @@
 
   
 
+  
+    
   
 
   
@@ -1771,6 +1802,8 @@
   
 
   
+    
+  
 
   
     
@@ -1784,6 +1817,8 @@
 
   
 
+  
+    
   
 
   
@@ -1835,6 +1870,8 @@
   
 
   
+    
+  
 
   
     
@@ -1871,7 +1908,7 @@
 
   <footer role="contentinfo">
     <p><div align="center">Apache Mnemonic, Mnemonic, Apache, and the Mnemonic logo are trademarks of The Apache Software Foundation.</div>
-<div align="center"> Copyright &copy;&nbsp;2020 <a href="https://www.apache.org/">The Apache Software Foundation</a></div></p>
+<div align="center"> Copyright &copy;&nbsp;2021 <a href="https://www.apache.org/">The Apache Software Foundation</a></div></p>
 </footer>
 
   <script>

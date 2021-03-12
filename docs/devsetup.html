@@ -2,10 +2,10 @@
 <html lang="en-US">
 <head>
   <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta charset="UTF-8">
   <title>Development Setup</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="generator" content="Jekyll v4.1.1">
+  <meta name="generator" content="Jekyll v2.4.0">
   <link rel="stylesheet" href="/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -1137,30 +1137,30 @@ we suggest to use this practice on your first try for code contribution.</p>
 <ul>
   <li>Install Git on your system <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">Git-scm</a></li>
   <li><a href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup" target="_blank">First-Time Git Setup</a>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git config <span class="nt">--global</span> user.name <span class="s2">"&lt;Your Name&gt;"</span>
-<span class="nv">$ </span>git config <span class="nt">--global</span> user.email <span class="s2">"&lt;Your Email Address&gt;"</span>
-</code></pre></div>    </div>
-  </li>
+<code>bash
+$ git config --global user.name "&lt;Your Name&gt;"
+$ git config --global user.email "&lt;Your Email Address&gt;"
+</code></li>
   <li>Install Docker on your system <a href="https://www.docker.com/" target="_blank">Docker Official Website</a></li>
   <li>Install IDE on your Linux/MacOS/Windows box <a href="https://www.jetbrains.com/idea/" target="_blank">IntelliJ IDEA Official Website</a></li>
   <li>Register an account on Github for yourself if not yet have one</li>
   <li>Log into Github and fork <a href="https://github.com/apache/mnemonic" target="_blank">Apache Mnemonic repository</a>.
 <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">Fork and Set up Git</a></li>
   <li>Configure Apache Mnemonic repo. as upstream remote in your local repository
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> &lt;your_project_folder&gt;
-<span class="nv">$ </span>git remote add upstream https://github.com/apache/mnemonic.git
-</code></pre></div>    </div>
-  </li>
+<code>bash
+$ cd &lt;your_project_folder&gt;
+$ git remote add upstream https://github.com/apache/mnemonic.git
+</code></li>
   <li>Prepare Mnemonic Docker image on you system
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker build <span class="nt">-t</span> mnedev https://github.com/apache/mnemonic.git#:docker/docker-CentOS
-<span class="nv">$ </span><span class="c"># --------- OR --------- </span>
-<span class="nv">$ </span>docker build <span class="nt">-t</span> mnedev https://github.com/apache/mnemonic.git#:docker/docker-Ubuntu
-</code></pre></div>    </div>
-  </li>
-  <li>Mount your host repo. to Docker container, this following command would hide the original Mnemonic project folder in container
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">-it</span> <span class="nt">-v</span> &lt;mnemonic_project_folder&gt;:/ws/mnemonic mnedev
-</code></pre></div>    </div>
-  </li>
+<code>bash
+$ docker build -t mnedev https://github.com/apache/mnemonic.git#:docker/docker-CentOS
+$ # --------- OR --------- 
+$ docker build -t mnedev https://github.com/apache/mnemonic.git#:docker/docker-Ubuntu
+</code></li>
+  <li>Mount your host repo. to Docker container, this following command would hide the original Mnemonic project folder in container 
+<code>bash
+$ docker run -it -v &lt;mnemonic_project_folder&gt;:/ws/mnemonic mnedev
+</code></li>
   <li>Open Mnemonic project in the IDE</li>
 </ul>
 
@@ -1247,6 +1247,8 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
   
 
   
+    
+  
 
   
     
@@ -1256,6 +1258,8 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
 
   
 
+  
+    
   
 
   
@@ -1284,6 +1288,8 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
 
   
 
+  
+    
   
 
   
@@ -1331,6 +1337,8 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
   
 
   
+    
+  
 
   
     
@@ -1375,6 +1383,8 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
   
 
   
+    
+  
 
   
     
@@ -1417,6 +1427,8 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
   
 
   
+    
+  
 
   
     
@@ -1443,6 +1455,8 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
   
 
   
+    
+  
 
   
     
@@ -1460,6 +1474,8 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
 
   
 
+  
+    
   
 
   
@@ -1508,6 +1524,8 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
 
   
 
+  
+    
   
 
   
@@ -1563,6 +1581,8 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
   
 
   
+    
+  
 
   
     
@@ -1599,6 +1619,8 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
   
 
   
+    
+  
 
   
     
@@ -1630,6 +1652,8 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
 
   
 
+  
+    
   
 
   
@@ -1691,6 +1715,8 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
   
 
   
+    
+  
 
   
     
@@ -1725,6 +1751,8 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
   
 
   
+    
+  
 
   
     
@@ -1746,6 +1774,8 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
 
   
 
+  
+    
   
 
   
@@ -1803,6 +1833,8 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
   
 
   
+    
+  
 
   
     
@@ -1816,6 +1848,8 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
 
   
 
+  
+    
   
 
   
@@ -1867,6 +1901,8 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
   
 
   
+    
+  
 
   
     
@@ -1903,7 +1939,7 @@ Please leave enough space for docker based compiling and testing (&gt;30G for te
 
   <footer role="contentinfo">
     <p><div align="center">Apache Mnemonic, Mnemonic, Apache, and the Mnemonic logo are trademarks of The Apache Software Foundation.</div>
-<div align="center"> Copyright &copy;&nbsp;2020 <a href="https://www.apache.org/">The Apache Software Foundation</a></div></p>
+<div align="center"> Copyright &copy;&nbsp;2021 <a href="https://www.apache.org/">The Apache Software Foundation</a></div></p>
 </footer>
 
   <script>

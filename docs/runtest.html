@@ -2,10 +2,10 @@
 <html lang="en-US">
 <head>
   <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta charset="UTF-8">
   <title>Run tests</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="generator" content="Jekyll v4.1.1">
+  <meta name="generator" content="Jekyll v2.4.0">
   <link rel="stylesheet" href="/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -1129,34 +1129,35 @@
       <div class="unit four-fifths">
         <article>
           <h1>Run tests</h1>
-          <p>To run several test cases:</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-core" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn <span class="nt">-Dtest</span><span class="o">=</span>DurablePersonNGTest <span class="nb">test</span> <span class="nt">-pl</span> mnemonic-core <span class="nt">-DskipTests</span><span class="o">=</span><span class="nb">false</span>
-  
-  <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-core" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn <span class="nt">-Dtest</span><span class="o">=</span>NonVolatileMemAllocatorNGTest <span class="nb">test</span> <span class="nt">-pl</span> mnemonic-core <span class="nt">-DskipTests</span><span class="o">=</span><span class="nb">false</span>
-  
-  <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-core" that requires 'vmem' memory service to pass</span>
-  <span class="nv">$ </span>mvn <span class="nt">-Dtest</span><span class="o">=</span>VolatileMemAllocatorNGTest <span class="nb">test</span> <span class="nt">-pl</span> mnemonic-core <span class="nt">-DskipTests</span><span class="o">=</span><span class="nb">false</span>
-  
-  <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-core" that requires 'vmem memory service to pass</span>
-  <span class="nv">$ </span>mvn <span class="nt">-Dtest</span><span class="o">=</span>MemClusteringNGTest <span class="nb">test</span> <span class="nt">-pl</span> mnemonic-core <span class="nt">-DskipTests</span><span class="o">=</span><span class="nb">false</span>
-  
-  <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-collection" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn <span class="nt">-Dtest</span><span class="o">=</span>DurableSinglyLinkedListNGTest  <span class="nb">test</span> <span class="nt">-pl</span> mnemonic-collections <span class="nt">-DskipTests</span><span class="o">=</span><span class="nb">false</span>
-  
-  <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-collection" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn <span class="nt">-Dtest</span><span class="o">=</span>DurablePersonNGTest  <span class="nb">test</span> <span class="nt">-pl</span> mnemonic-collections <span class="nt">-DskipTests</span><span class="o">=</span><span class="nb">false</span>
-  
-  <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-computing-services/mnemonic-utilities-service" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn <span class="nt">-Dtest</span><span class="o">=</span>DurableSinglyLinkedListNGPrintTest <span class="nb">test</span> <span class="nt">-pl</span> mnemonic-computing-services/mnemonic-utilities-service <span class="nt">-DskipTests</span><span class="o">=</span><span class="nb">false</span>
-  
-  <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-computing-services/mnemonic-utilities-service" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn <span class="nt">-Dtest</span><span class="o">=</span>DurableSinglyLinkedListNGSortTest <span class="nb">test</span> <span class="nt">-pl</span> mnemonic-computing-services/mnemonic-utilities-service <span class="nt">-DskipTests</span><span class="o">=</span><span class="nb">false</span>
-  
-  <span class="nv">$ </span><span class="c"># a testcase for module "mnemonic-hadoop/mnemonic-hadoop-mapreduce" that requires 'pmalloc' memory service to pass</span>
-  <span class="nv">$ </span>mvn <span class="nt">-Dtest</span><span class="o">=</span>MneMapreducePersonDataTest <span class="nb">test</span> <span class="nt">-pl</span> mnemonic-hadoop/mnemonic-hadoop-mapreduce <span class="nt">-DskipTests</span><span class="o">=</span><span class="nb">false</span>
-</code></pre></div></div>
+          <p>To run several test cases:
+```bash
+  $ # a testcase for module “mnemonic-core” that requires ‘pmalloc’ memory service to pass
+  $ mvn -Dtest=DurablePersonNGTest test -pl mnemonic-core -DskipTests=false</p>
+
+<p>$ # a testcase for module “mnemonic-core” that requires ‘pmalloc’ memory service to pass
+  $ mvn -Dtest=NonVolatileMemAllocatorNGTest test -pl mnemonic-core -DskipTests=false</p>
+
+<p>$ # a testcase for module “mnemonic-core” that requires ‘vmem’ memory service to pass
+  $ mvn -Dtest=VolatileMemAllocatorNGTest test -pl mnemonic-core -DskipTests=false</p>
+
+<p>$ # a testcase for module “mnemonic-core” that requires ‘vmem memory service to pass
+  $ mvn -Dtest=MemClusteringNGTest test -pl mnemonic-core -DskipTests=false</p>
+
+<p>$ # a testcase for module “mnemonic-collection” that requires ‘pmalloc’ memory service to pass
+  $ mvn -Dtest=DurableSinglyLinkedListNGTest  test -pl mnemonic-collections -DskipTests=false</p>
+
+<p>$ # a testcase for module “mnemonic-collection” that requires ‘pmalloc’ memory service to pass
+  $ mvn -Dtest=DurablePersonNGTest  test -pl mnemonic-collections -DskipTests=false</p>
+
+<p>$ # a testcase for module “mnemonic-computing-services/mnemonic-utilities-service” that requires ‘pmalloc’ memory service to pass
+  $ mvn -Dtest=DurableSinglyLinkedListNGPrintTest test -pl mnemonic-computing-services/mnemonic-utilities-service -DskipTests=false</p>
+
+<p>$ # a testcase for module “mnemonic-computing-services/mnemonic-utilities-service” that requires ‘pmalloc’ memory service to pass
+  $ mvn -Dtest=DurableSinglyLinkedListNGSortTest test -pl mnemonic-computing-services/mnemonic-utilities-service -DskipTests=false</p>
+
+<p>$ # a testcase for module “mnemonic-hadoop/mnemonic-hadoop-mapreduce” that requires ‘pmalloc’ memory service to pass
+  $ mvn -Dtest=MneMapreducePersonDataTest test -pl mnemonic-hadoop/mnemonic-hadoop-mapreduce -DskipTests=false
+```</p>
 
 
           
@@ -1248,6 +1249,8 @@
   
 
   
+    
+  
 
   
     
@@ -1257,6 +1260,8 @@
 
   
 
+  
+    
   
 
   
@@ -1285,6 +1290,8 @@
 
   
 
+  
+    
   
 
   
@@ -1332,6 +1339,8 @@
   
 
   
+    
+  
 
   
     
@@ -1376,6 +1385,8 @@
   
 
   
+    
+  
 
   
     
@@ -1418,6 +1429,8 @@
   
 
   
+    
+  
 
   
     
@@ -1444,6 +1457,8 @@
   
 
   
+    
+  
 
   
     
@@ -1461,6 +1476,8 @@
 
   
 
+  
+    
   
 
   
@@ -1509,6 +1526,8 @@
 
   
 
+  
+    
   
 
   
@@ -1564,6 +1583,8 @@
   
 
   
+    
+  
 
   
     
@@ -1600,6 +1621,8 @@
   
 
   
+    
+  
 
   
     
@@ -1631,6 +1654,8 @@
 
   
 
+  
+    
   
 
   
@@ -1692,6 +1717,8 @@
   
 
   
+    
+  
 
   
     
@@ -1726,6 +1753,8 @@
   
 
   
+    
+  
 
   
     
@@ -1747,6 +1776,8 @@
 
   
 
+  
+    
   
 
   
@@ -1804,6 +1835,8 @@
   
 
   
+    
+  
 
   
     
@@ -1817,6 +1850,8 @@
 
   
 
+  
+    
   
 
   
@@ -1868,6 +1903,8 @@
   
 
   
+    
+  
 
   
     
@@ -1904,7 +1941,7 @@
 
   <footer role="contentinfo">
     <p><div align="center">Apache Mnemonic, Mnemonic, Apache, and the Mnemonic logo are trademarks of The Apache Software Foundation.</div>
-<div align="center"> Copyright &copy;&nbsp;2020 <a href="https://www.apache.org/">The Apache Software Foundation</a></div></p>
+<div align="center"> Copyright &copy;&nbsp;2021 <a href="https://www.apache.org/">The Apache Software Foundation</a></div></p>
 </footer>
 
   <script>

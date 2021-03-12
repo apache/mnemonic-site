@@ -2,10 +2,10 @@
 <html lang="en-US">
 <head>
   <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta charset="UTF-8">
   <title>Code Usage</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="generator" content="Jekyll v4.1.1">
+  <meta name="generator" content="Jekyll v2.4.0">
   <link rel="stylesheet" href="/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/screen.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -1134,165 +1134,172 @@
 
 <h4 id="define-a-non-volatile-class">Define a Non-Volatile class:</h4>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+<p>```java
+/**
  * a durable class should be abstract, implement Durable interface and marked with @DurableEntity annotation
- */</span>
-<span class="nd">@DurableEntity</span>
-<span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Person</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="nc">Durable</span><span class="o">,</span> <span class="nc">Comparable</span><span class="o">&lt;</span><span class="nc">Person</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;&gt;</span> <span class="o">{</span>
-        <span class="no">E</span> <span class="n">element</span><span class="o">;</span> <span class="c1">// Generic Type</span>
+ */
+@DurableEntity
+public abstract class Person<e> implements Durable, Comparable&lt;Person<e>&gt; {
+        E element; // Generic Type</e></e></p>
 
-        <span class="cm">/**
-         * callback for this durable object creation
-         */</span>
-        <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initializeAfterCreate</span><span class="o">()</span> <span class="o">{</span> 
-                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Initializing After Created"</span><span class="o">);</span>
-        <span class="o">}</span>
-        
-        <span class="cm">/**
-         * callback for this durable object recovery
-         */</span>
-        <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initializeAfterRestore</span><span class="o">()</span> <span class="o">{</span> 
-                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Initializing After Restored"</span><span class="o">);</span>
-        <span class="o">}</span>
+<pre><code>    /**
+     * callback for this durable object creation
+     */
+    @Override
+    public void initializeAfterCreate() { 
+            System.out.println("Initializing After Created");
+    }
+    
+    /**
+     * callback for this durable object recovery
+     */
+    @Override
+    public void initializeAfterRestore() { 
+            System.out.println("Initializing After Restored");
+    }
 
-        <span class="cm">/**
-         * setup generic info manually to avoid performance penalty
-         */</span>
-        <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setupGenericInfo</span><span class="o">(</span><span class="nc">EntityFactoryProxy</span><span class="o">[]</span> <span class="n">efproxies</span><span class="o">,</span> <span class="nc">GenericField</span><span class="o">.</span><span class="na">GType</span><span class="o">[]</span> <span class="n">gftypes</span><span class="o">)</span> <span class="o">{</span>
+    /**
+     * setup generic info manually to avoid performance penalty
+     */
+    @Override
+    public void setupGenericInfo(EntityFactoryProxy[] efproxies, GenericField.GType[] gftypes) {
 
-        <span class="o">}</span>
+    }
 
-        <span class="nd">@Test</span>
-        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testOutput</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">RetrieveDurableEntityError</span> <span class="o">{</span>
-                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"Person %s, Age: %d ( %s ) \n"</span><span class="o">,</span> <span class="n">getName</span><span class="o">(),</span> <span class="n">getAge</span><span class="o">(),</span>
-                                <span class="kc">null</span> <span class="o">==</span> <span class="n">getMother</span><span class="o">()?</span> <span class="s">"No Recorded Mother"</span> <span class="o">:</span> <span class="s">"Has Recorded Mother"</span><span class="o">);</span>
-        <span class="o">}</span>
+    @Test
+    public void testOutput() throws RetrieveDurableEntityError {
+            System.out.printf("Person %s, Age: %d ( %s ) \n", getName(), getAge(),
+                            null == getMother()? "No Recorded Mother" : "Has Recorded Mother");
+    }
 
-        <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="nc">Person</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">anotherPerson</span><span class="o">)</span> <span class="o">{</span>
-                <span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-                <span class="k">if</span> <span class="o">(</span><span class="mi">0</span> <span class="o">==</span> <span class="n">ret</span><span class="o">)</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">getAge</span><span class="o">().</span><span class="na">compareTo</span><span class="o">(</span><span class="n">anotherPerson</span><span class="o">.</span><span class="na">getAge</span><span class="o">());</span>
-                <span class="k">if</span> <span class="o">(</span><span class="mi">0</span> <span class="o">==</span> <span class="n">ret</span><span class="o">)</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">getName</span><span class="o">().</span><span class="na">compareTo</span><span class="o">(</span><span class="n">anotherPerson</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
-                <span class="k">return</span> <span class="n">ret</span><span class="o">;</span>
-        <span class="o">}</span>
+    public int compareTo(Person&lt;E&gt; anotherPerson) {
+            int ret = 0;
+            if (0 == ret) ret = getAge().compareTo(anotherPerson.getAge());
+            if (0 == ret) ret = getName().compareTo(anotherPerson.getName());
+            return ret;
+    }
 
-        <span class="cm">/**
-         * Getters and Setters for non-volatile fields marked with @DurableGetter and @DurableSetter
-         */</span>
-        <span class="nd">@DurableGetter</span><span class="o">(</span><span class="nc">Id</span> <span class="o">=</span> <span class="mi">1L</span><span class="o">)</span>
-        <span class="kd">abstract</span> <span class="kd">public</span> <span class="nc">Short</span> <span class="nf">getAge</span><span class="o">();</span>
-        <span class="nd">@DurableSetter</span>
-        <span class="kd">abstract</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAge</span><span class="o">(</span><span class="nc">Short</span> <span class="n">age</span><span class="o">);</span>
+    /**
+     * Getters and Setters for non-volatile fields marked with @DurableGetter and @DurableSetter
+     */
+    @DurableGetter(Id = 1L)
+    abstract public Short getAge();
+    @DurableSetter
+    abstract public void setAge(Short age);
 
-        <span class="nd">@DurableGetter</span><span class="o">(</span><span class="nc">Id</span> <span class="o">=</span> <span class="mi">2L</span><span class="o">)</span>
-        <span class="kd">abstract</span> <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">RetrieveDurableEntityError</span><span class="o">;</span>
-        <span class="nd">@DurableSetter</span>
-        <span class="kd">abstract</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">destroy</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">OutOfPersistentMemory</span><span class="o">,</span> <span class="nc">RetrieveDurableEntityError</span><span class="o">;</span>
+    @DurableGetter(Id = 2L)
+    abstract public String getName() throws RetrieveDurableEntityError;
+    @DurableSetter
+    abstract public void setName(String name, boolean destroy) throws OutOfPersistentMemory, RetrieveDurableEntityError;
 
-        <span class="nd">@DurableGetter</span><span class="o">(</span><span class="nc">Id</span> <span class="o">=</span> <span class="mi">3L</span><span class="o">)</span>
-        <span class="kd">abstract</span> <span class="kd">public</span> <span class="nc">Person</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="nf">getMother</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">RetrieveDurableEntityError</span><span class="o">;</span>
-        <span class="nd">@DurableSetter</span>
-        <span class="kd">abstract</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setMother</span><span class="o">(</span><span class="nc">Person</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">mother</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">destroy</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">RetrieveDurableEntityError</span><span class="o">;</span>
+    @DurableGetter(Id = 3L)
+    abstract public Person&lt;E&gt; getMother() throws RetrieveDurableEntityError;
+    @DurableSetter
+    abstract public void setMother(Person&lt;E&gt; mother, boolean destroy) throws RetrieveDurableEntityError;
 
-        <span class="nd">@DurableGetter</span><span class="o">(</span><span class="nc">Id</span> <span class="o">=</span> <span class="mi">4L</span><span class="o">)</span>
-        <span class="kd">abstract</span> <span class="kd">public</span> <span class="nc">Person</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="nf">getFather</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">RetrieveDurableEntityError</span><span class="o">;</span>
-        <span class="nd">@DurableSetter</span>
-        <span class="kd">abstract</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setFather</span><span class="o">(</span><span class="nc">Person</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="n">mother</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">destroy</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">RetrieveDurableEntityError</span><span class="o">;</span>
-<span class="o">}</span>
+    @DurableGetter(Id = 4L)
+    abstract public Person&lt;E&gt; getFather() throws RetrieveDurableEntityError;
+    @DurableSetter
+    abstract public void setFather(Person&lt;E&gt; mother, boolean destroy) throws RetrieveDurableEntityError; }
+</code></pre>
 
-</code></pre></div></div>
+<p>```</p>
 
 <h4 id="use-a-non-volatile-class">Use a non-volatile class:</h4>
 
 <h5 id="setup-an-allocator-for-non-volatile-object-graphs">Setup an allocator for non-volatile object graphs.</h5>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="c1">// create an allocator instance</span>
-        <span class="nc">NonVolatileMemAllocator</span> <span class="n">act</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">NonVolatileMemAllocator</span><span class="o">(</span><span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">8</span><span class="o">,</span> <span class="s">"./pobj_person.dat"</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
-        
-        <span class="c1">// fetch handler store capacity from this non-volatile storage managed by this allocator</span>
-        <span class="no">KEYCAPACITY</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="na">handlerCapacity</span><span class="o">();</span>
-        <span class="o">....</span>
-        <span class="c1">// close it after use</span>
-        <span class="n">act</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
-</code></pre></div></div>
+<p>```java
+        // create an allocator instance
+        NonVolatileMemAllocator act = new NonVolatileMemAllocator(1024 * 1024 * 8, “./pobj_person.dat”, true);</p>
+
+<pre><code>    // fetch handler store capacity from this non-volatile storage managed by this allocator
+    KEYCAPACITY = act.handlerCapacity();
+    ....
+    // close it after use
+    act.close(); ```
+</code></pre>
 
 <h5 id="generate-structured-non-volatile-objects">Generate structured non-volatile objects.</h5>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="c1">// create a new non-volatile person object from this specific allocator</span>
-        <span class="n">person</span> <span class="o">=</span> <span class="nc">PersonFactory</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">act</span><span class="o">);</span>
-        
-        <span class="c1">// set attributes</span>
-        <span class="n">person</span><span class="o">.</span><span class="na">setAge</span><span class="o">((</span><span class="kt">short</span><span class="o">)</span><span class="n">rand</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">50</span><span class="o">));</span>
-        <span class="n">person</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"Name: [%s]"</span><span class="o">,</span> <span class="no">UUID</span><span class="o">.</span><span class="na">randomUUID</span><span class="o">().</span><span class="na">toString</span><span class="o">()),</span> <span class="kc">true</span><span class="o">);</span>
+<p>```java
+        // create a new non-volatile person object from this specific allocator
+        person = PersonFactory.create(act);</p>
 
-        <span class="c1">// keep this person on non-volatile handler store</span>
-        <span class="n">act</span><span class="o">.</span><span class="na">setHandler</span><span class="o">(</span><span class="n">keyidx</span><span class="o">,</span> <span class="n">person</span><span class="o">.</span><span class="na">getHandler</span><span class="o">());</span>
+<pre><code>    // set attributes
+    person.setAge((short)rand.nextInt(50));
+    person.setName(String.format("Name: [%s]", UUID.randomUUID().toString()), true);
 
-        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">deep</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">deep</span> <span class="o">&lt;</span> <span class="n">rand</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span> <span class="o">++</span><span class="n">deep</span><span class="o">)</span> <span class="o">{</span>
-        
-                <span class="c1">// create another person as mother</span>
-                <span class="n">mother</span> <span class="o">=</span> <span class="nc">PersonFactory</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">act</span><span class="o">);</span>
-                <span class="n">mother</span><span class="o">.</span><span class="na">setAge</span><span class="o">((</span><span class="kt">short</span><span class="o">)(</span><span class="mi">50</span> <span class="o">+</span> <span class="n">rand</span><span class="o">.</span><span class="na">nextInt</span><span class="o">(</span><span class="mi">50</span><span class="o">)));</span>
-                <span class="n">mother</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"Name: [%s]"</span><span class="o">,</span> <span class="no">UUID</span><span class="o">.</span><span class="na">randomUUID</span><span class="o">().</span><span class="na">toString</span><span class="o">()),</span> <span class="kc">true</span><span class="o">);</span>
-                
-                <span class="c1">// set the person's mother</span>
-                <span class="n">person</span><span class="o">.</span><span class="na">setMother</span><span class="o">(</span><span class="n">mother</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+    // keep this person on non-volatile handler store
+    act.setHandler(keyidx, person.getHandler());
 
-                <span class="n">person</span> <span class="o">=</span> <span class="n">mother</span><span class="o">;</span>
-        <span class="o">}</span>
+    for (int deep = 0; deep &lt; rand.nextInt(100); ++deep) {
+    
+            // create another person as mother
+            mother = PersonFactory.create(act);
+            mother.setAge((short)(50 + rand.nextInt(50)));
+            mother.setName(String.format("Name: [%s]", UUID.randomUUID().toString()), true);
+            
+            // set the person's mother
+            person.setMother(mother, true);
 
-</code></pre></div></div>
+            person = mother;
+    }
+</code></pre>
+
+<p>```</p>
 
 <h5 id="use-the-non-volatile-objects">Use the non-volatile objects</h5>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        <span class="k">for</span> <span class="o">(</span><span class="kt">long</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">KEYCAPACITY</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
-        
-                <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">"----------Key %d--------------\n"</span><span class="o">,</span> <span class="n">i</span><span class="o">);</span>
-                <span class="c1">// iterate non-volatile handlers from handler store of this specific allocator</span>
-                <span class="n">val</span> <span class="o">=</span> <span class="n">act</span><span class="o">.</span><span class="na">getHandler</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-                <span class="k">if</span> <span class="o">(</span><span class="mi">0L</span> <span class="o">==</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
-                        <span class="k">break</span><span class="o">;</span>
-                <span class="o">}</span>
-                
-                <span class="c1">// restore person objects from this specific allocator</span>
-                <span class="nc">Person</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">person</span> <span class="o">=</span> <span class="nc">PersonFactory</span><span class="o">.</span><span class="na">restore</span><span class="o">(</span><span class="n">act</span><span class="o">,</span> <span class="n">val</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
-                
-                <span class="k">while</span> <span class="o">(</span><span class="kc">null</span> <span class="o">!=</span> <span class="n">person</span><span class="o">)</span> <span class="o">{</span>
-                        <span class="n">person</span><span class="o">.</span><span class="na">testOutput</span><span class="o">();</span>
-                        <span class="c1">// iterate all mother's ancestors</span>
-                        <span class="n">person</span> <span class="o">=</span> <span class="n">person</span><span class="o">.</span><span class="na">getMother</span><span class="o">();</span>
-                <span class="o">}</span>
-        <span class="o">}</span>
+<p>```java
+        for (long i = 0; i &lt; KEYCAPACITY; ++i) {</p>
 
-</code></pre></div></div>
+<pre><code>            System.out.printf("----------Key %d--------------\n", i);
+            // iterate non-volatile handlers from handler store of this specific allocator
+            val = act.getHandler(i);
+            if (0L == val) {
+                    break;
+            }
+            
+            // restore person objects from this specific allocator
+            Person&lt;Integer&gt; person = PersonFactory.restore(act, val, true);
+            
+            while (null != person) {
+                    person.testOutput();
+                    // iterate all mother's ancestors
+                    person = person.getMother();
+            }
+    }
+</code></pre>
+
+<p>```</p>
 
 <h5 id="perform-the-durable-native-computing-eg-printing-wo-packingunpacking-massive-object-graphs">Perform the durable native computing (e.g. printing) w/o packing/unpacking massive object graphs</h5>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>         <span class="c1">// fetch print service</span>
-         <span class="nc">GeneralComputingService</span> <span class="n">gcsvr</span> <span class="o">=</span> <span class="nc">Utils</span><span class="o">.</span><span class="na">getGeneralComputingService</span><span class="o">(</span><span class="s">"print"</span><span class="o">);</span>
-         <span class="c1">// instantiate a value info for a value matrix</span>
-         <span class="nc">ValueInfo</span> <span class="n">vinfo</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ValueInfo</span><span class="o">();</span>
-         <span class="c1">// instantiate a object stack</span>
-         <span class="nc">List</span><span class="o">&lt;</span><span class="kt">long</span><span class="o">[][]&gt;</span> <span class="n">objstack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="kt">long</span><span class="o">[][]&gt;();</span>
-         <span class="c1">// fill up with all durable object info in order</span>
-         <span class="n">objstack</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">firstnv</span><span class="o">.</span><span class="na">getNativeFieldInfo</span><span class="o">());</span>
-         <span class="n">objstack</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">person</span><span class="o">.</span><span class="na">getNativeFieldInfo</span><span class="o">());</span>
-         <span class="c1">// configure the Id stack for each level of durable objects</span>
-         <span class="kt">long</span><span class="o">[][]</span> <span class="n">fidinfostack</span> <span class="o">=</span> <span class="o">{{</span><span class="mi">2L</span><span class="o">,</span> <span class="mi">1L</span><span class="o">},</span> <span class="o">{</span><span class="mi">0L</span><span class="o">,</span> <span class="mi">1L</span><span class="o">}};</span>
-         <span class="c1">// configure the handler of a value matrix</span>
-         <span class="n">vinfo</span><span class="o">.</span><span class="na">handler</span> <span class="o">=</span> <span class="n">handler</span><span class="o">;</span>
-         <span class="c1">// set translate table from handler's allocator</span>
-         <span class="n">vinfo</span><span class="o">.</span><span class="na">transtable</span> <span class="o">=</span> <span class="n">m_act</span><span class="o">.</span><span class="na">getTranslateTable</span><span class="o">();</span>
-         <span class="c1">// specify the durable type of value</span>
-         <span class="n">vinfo</span><span class="o">.</span><span class="na">dtype</span> <span class="o">=</span> <span class="nc">DurableType</span><span class="o">.</span><span class="na">SHORT</span><span class="o">;</span>
-         <span class="c1">// generate frames for this value matri from both stacks</span>
-         <span class="n">vinfo</span><span class="o">.</span><span class="na">frames</span> <span class="o">=</span> <span class="nc">Utils</span><span class="o">.</span><span class="na">genNativeParamForm</span><span class="o">(</span><span class="n">objstack</span><span class="o">,</span> <span class="n">fidinfostack</span><span class="o">);</span>
-         <span class="c1">// form an array of value infos</span>
-         <span class="nc">ValueInfo</span><span class="o">[]</span> <span class="n">vinfos</span> <span class="o">=</span> <span class="o">{</span><span class="n">vinfo</span><span class="o">};</span>
-         <span class="c1">// perform the print operation</span>
-         <span class="n">gcsvr</span><span class="o">.</span><span class="na">perform</span><span class="o">(</span><span class="n">vinfos</span><span class="o">);</span>
-</code></pre></div></div>
+<p><code>java
+         // fetch print service
+         GeneralComputingService gcsvr = Utils.getGeneralComputingService("print");
+         // instantiate a value info for a value matrix
+         ValueInfo vinfo = new ValueInfo();
+         // instantiate a object stack
+         List&lt;long[][]&gt; objstack = new ArrayList&lt;long[][]&gt;();
+         // fill up with all durable object info in order
+         objstack.add(firstnv.getNativeFieldInfo());
+         objstack.add(person.getNativeFieldInfo());
+         // configure the Id stack for each level of durable objects
+         long[][] fidinfostack = {{2L, 1L}, {0L, 1L}};
+         // configure the handler of a value matrix
+         vinfo.handler = handler;
+         // set translate table from handler's allocator
+         vinfo.transtable = m_act.getTranslateTable();
+         // specify the durable type of value
+         vinfo.dtype = DurableType.SHORT;
+         // generate frames for this value matri from both stacks
+         vinfo.frames = Utils.genNativeParamForm(objstack, fidinfostack);
+         // form an array of value infos
+         ValueInfo[] vinfos = {vinfo};
+         // perform the print operation
+         gcsvr.perform(vinfos);
+</code></p>
 
 
           
@@ -1370,6 +1377,8 @@
   
 
   
+    
+  
 
   
     
@@ -1379,6 +1388,8 @@
 
   
 
+  
+    
   
 
   
@@ -1407,6 +1418,8 @@
 
   
 
+  
+    
   
 
   
@@ -1454,6 +1467,8 @@
   
 
   
+    
+  
 
   
     
@@ -1498,6 +1513,8 @@
   
 
   
+    
+  
 
   
     
@@ -1540,6 +1557,8 @@
   
 
   
+    
+  
 
   
     
@@ -1566,6 +1585,8 @@
   
 
   
+    
+  
 
   
     
@@ -1583,6 +1604,8 @@
 
   
 
+  
+    
   
 
   
@@ -1631,6 +1654,8 @@
 
   
 
+  
+    
   
 
   
@@ -1686,6 +1711,8 @@
   
 
   
+    
+  
 
   
     
@@ -1722,6 +1749,8 @@
   
 
   
+    
+  
 
   
     
@@ -1753,6 +1782,8 @@
 
   
 
+  
+    
   
 
   
@@ -1814,6 +1845,8 @@
   
 
   
+    
+  
 
   
     
@@ -1848,6 +1881,8 @@
   
 
   
+    
+  
 
   
     
@@ -1869,6 +1904,8 @@
 
   
 
+  
+    
   
 
   
@@ -1926,6 +1963,8 @@
   
 
   
+    
+  
 
   
     
@@ -1939,6 +1978,8 @@
 
   
 
+  
+    
   
 
   
@@ -1990,6 +2031,8 @@
   
 
   
+    
+  
 
   
     
@@ -2026,7 +2069,7 @@
 
   <footer role="contentinfo">
     <p><div align="center">Apache Mnemonic, Mnemonic, Apache, and the Mnemonic logo are trademarks of The Apache Software Foundation.</div>
-<div align="center"> Copyright &copy;&nbsp;2020 <a href="https://www.apache.org/">The Apache Software Foundation</a></div></p>
+<div align="center"> Copyright &copy;&nbsp;2021 <a href="https://www.apache.org/">The Apache Software Foundation</a></div></p>
 </footer>
 
   <script>
