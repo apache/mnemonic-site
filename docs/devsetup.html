@@ -1129,43 +1129,85 @@
       <div class="unit four-fifths">
         <article>
           <h1>Development Setup</h1>
-          <p>This document provides a best practice for general development setup, 
-we suggest to use this practice on your first try for code contribution.</p>
+          <p>This document provides a best practice for general development setup and code distribution. Please practice on your computer before trying for code contribution.</p>
 
-<p>It is based on Docker and simple for preparation, no root privilege needed except for Docker and Git installation.</p>
+<hr />
+
+<p>Pre-requisites:</p>
 
 <ul>
-  <li>Install Git on your system <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">Git-scm</a></li>
-  <li><a href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup" target="_blank">First-Time Git Setup</a>
-<code>bash
-$ git config --global user.name "&lt;Your Name&gt;"
-$ git config --global user.email "&lt;Your Email Address&gt;"
-</code></li>
-  <li>Install Docker on your system <a href="https://www.docker.com/" target="_blank">Docker Official Website</a></li>
-  <li>Install IDE on your Linux/MacOS/Windows box <a href="https://www.jetbrains.com/idea/" target="_blank">IntelliJ IDEA Official Website</a></li>
-  <li>Register an account on Github for yourself if not yet have one</li>
-  <li>Log into Github and fork <a href="https://github.com/apache/mnemonic" target="_blank">Apache Mnemonic repository</a>.
-<a href="https://help.github.com/articles/fork-a-repo/" target="_blank">Fork and Set up Git</a></li>
-  <li>Configure Apache Mnemonic repo. as upstream remote in your local repository
-<code>bash
-$ cd &lt;your_project_folder&gt;
-$ git remote add upstream https://github.com/apache/mnemonic.git
-</code></li>
-  <li>Prepare Mnemonic Docker image on you system
-<code>bash
-$ docker build -t mnedev https://github.com/apache/mnemonic.git#:docker/docker-CentOS
-$ # --------- OR --------- 
-$ docker build -t mnedev https://github.com/apache/mnemonic.git#:docker/docker-Ubuntu
-</code></li>
-  <li>Mount your host repo. to Docker container, this following command would hide the original Mnemonic project folder in container 
-<code>bash
-$ docker run -it -v &lt;mnemonic_project_folder&gt;:/ws/mnemonic mnedev
-</code></li>
-  <li>Open Mnemonic project in the IDE</li>
+  <li>
+    <p>Install Git on your system - <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">Git-scm.</a></p>
+  </li>
+  <li>
+    <p>Register Github Account if you dont have one already. You can register your Github acocunt <a href="http://github.com" target="_blank">here.</a></p>
+  </li>
+  <li>
+    <p>Obtain Docker on your system. You can get docker from <a href="https://www.docker.com/" target="_blank">here.</a></p>
+  </li>
+  <li>
+    <p>(Optional) Install IDE on your operating system. e.g. <a href="https://code.visualstudio.com/download" target="_blank">Visual Studio Code</a> or <a href="https://www.jetbrains.com/idea/" target="_blank">IntelliJ</a></p>
+  </li>
 </ul>
 
-<p>After setup, you are able to edit project code on your host while compiling and test your code in isolated Docker environment.
-Please leave enough space for docker based compiling and testing (&gt;30G for test running)</p>
+<hr />
+
+<ul>
+  <li>
+    <p>Step 1 - Configure Git tool if you are behind the firewall. <i><a href="https://gist.github.com/evantoli/f8c23a37eb3558ab8765" target="_blank">Show Me How</a></i></p>
+  </li>
+  <li>
+    <p>Step 2 - Fork the following Mnemonic project to your own Github account. <i><a href="https://github.com/apache/mnemonic" target="_blank">Project Link</a></i></p>
+  </li>
+  <li>
+    <p>Step 3 - Clone the forked Mnemonic project from your own Github account by running the command below. <i><a href="https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository" target="_blank">Show Me How</a></i></p>
+  </li>
+</ul>
+
+<p><code>bash
+  $ git clone git@github.com:[your account id]/mnemonic.git
+</code></p>
+
+<ul>
+  <li>Step 4 - Configure a remote upstream from Github for upstream sync by running the command below. <i><a href="https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork" target="_blank">Show Me How</a></i></li>
+</ul>
+
+<p><code>bash
+  $ git remote add upstream https://github.com/apache/mnemonic.git
+</code></p>
+
+<ul>
+  <li>Step 5 - Setting your commit email address and name for local Mnemonic repo by running the command below. <i><a href="https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address" target="_blank">Show Me How</a></i></li>
+</ul>
+
+<p><code>bash
+  $ cd mnemonic
+  $ git config user.email “[your apache id]@ email@example.comapache.org”
+  $ git config user.name “[your name]”
+</code></p>
+
+<ul>
+  <li>Step 6 - Prepare Mnemonic Docker image on your own system by running one of following command below.</li>
+</ul>
+
+<p><code>bash
+  $ # --------- For CentOS ---------
+  $ docker build -t mnedev https://github.com/apache/mnemonic.git#:docker/docker-CentOS
+  $ # --------- For Ubuntu --------- 
+  $ docker build -t mnedev https://github.com/apache/mnemonic.git#:docker/docker-Ubuntu
+</code></p>
+
+<ul>
+  <li>Step 7 - Mount your host repository to Docker container, this following command would hide the original Mnemonic project folder in container.</li>
+</ul>
+
+<p><code>bash
+  $ docker run -it -v &lt;mnemonic_project_folder&gt;:/ws/mnemonic mnedev
+</code></p>
+
+<p><b>Congratulation!</b> You have successfully completed the development setup. You are now ready to edit the project code on your host while compiling and test in isolated Docker envinroment. Please make sure you have enough space for docker based compiling and testing (&gt;30G for test running).</p>
+
+<p>Please refer to <a href="submitchanges.html" target="_blank">Submit Changes</a> page if you would like to contribute to this project!</p>
 
           
 

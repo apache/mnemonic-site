@@ -1129,9 +1129,9 @@
       <div class="unit four-fifths">
         <article>
           <h1>Project Build</h1>
-          <h3 id="how-to-build-it-">How to build it ?</h3>
+          <h3 id="how-to-build-it">How to build it?</h3>
 
-<p>Please see the file LICENSE for information on how this library is licensed.</p>
+<p>Please see the file LICENSE for information on how this library is licensed. Below you will find descriptions for each module.</p>
 
 <ul>
   <li><strong>mnemonic-core</strong> – the submodule project for core</li>
@@ -1148,68 +1148,58 @@
   <li><strong>mnemonic-spark/mnemonic-spark-core</strong> – the submodule project for Apache Spark durable computing</li>
 </ul>
 
-<p>To build this library, you may need to install some required packages on the build system:</p>
+<p>To build this library without Docker image, you will need to install some required packages on the build system. Otherwise, you can build the project with Docker image generated <a href="devsetup.html" target="_blank">previously.</a></p>
 
 <ul>
-  <li><strong>Maven</strong> – the building tool v3.2.1 or above [Required]</li>
-  <li><strong>NVML</strong> – the NVM library (Please compile this library that was revised with 630862e82f) (http://pmem.io) [Optional if mnemonic-nvml-vmem-service/mnemonic-nvml-pmem-service are excluded, e.g. on MacOSX]</li>
-  <li><strong>JDK</strong> – the Java Develop Kit 7-8 (please properly configure JAVA_HOME) [Required]</li>
-  <li><strong>PMFS</strong> – the PMFS should be properly installed and configured on Linux system if you want to simulate read latency [Optional]</li>
-  <li><strong>PMalloc</strong> – a supported durable memory native library(Latest) at https://github.com/NonVolatileComputing/pmalloc.git [Optional if mnemonic-pmalloc-service is excluded]</li>
+  <li><strong>Maven</strong> – the building tool v3.2.1 or above. <i>Optional if you choose to use Gradle.</i></li>
+  <li><strong>Gradle</strong> –  the building tool v6.7.1 or above. <i>Optional if you choose to use Maven.</i></li>
+  <li><strong>NVML</strong> – the <a href="http://pmem.io" target="_blank">NVM library.</a> Please compile this library that was revised with 630862e82f.</li>
+  <li><strong>JDK</strong> – the Java Develop Kit 7-8. Please properly configure JAVA_HOME in environment variables.</li>
+  <li><strong>PMFS</strong> – the PMFS should be properly installed and configured on Linux system if you want to simulate read latency. <i>Optional if you choose to use it for simulation purpose.</i></li>
+  <li><strong>PMalloc</strong> – a supported durable memory native library <a href="https://github.com/NonVolatileComputing/pmalloc.git" target="_blank">here.</a></li>
 </ul>
 
-<p>Once the build system is setup, this Library is built using this command at the top level:
-<code>bash
-  $ git clean -xdf # if pull from a git repo.
-  $ mvn clean package install
+<hr />
+
+<p>You can use following commmand lines to install build tools for this project.</p>
+
+<p><code>bash
+  # ---- install build tools ----
+  $ sudo apt-get -y update &amp;&amp; \
+    apt-get install -y default-jdk cmake check git pkg-config autoconf man build-essential gcc g++ uuid-dev pandoc devscripts flex doxygen maven
+  $ sudo apt-get install -y libndctl-dev libpmem-dev libvmem-dev libpmemobj-dev
+  $ sudo apt-get clean
+  # ---- update environment variables ----
+  $ export JAVA_HOME=/usr/lib/jvm/default-java
+  $ export PATH=$JAVA_HOME/bin:$PATH
+  $ source ~/.profile
+  # ---- install pmalloc ----
+  $ git clone https://github.com/NonVolatileComputing/pmalloc.git &amp;&amp; \
+    cd pmalloc &amp;&amp; mkdir build &amp;&amp; cd build &amp;&amp; cmake .. &amp;&amp; make &amp;&amp; make install
+  # ---- clone Mnemonic ----
+  $ git clone https://github.com/apache/mnemonic.git &amp;&amp; \
+    cd mnemonic &amp;&amp; mvn clean package install
 </code></p>
 
-<p>To exclude a customized memory service for your platform e.g. OSX, note that if you excluded one or both memory services, some or all testcases/examples will fail since their dependent memory services are unavailable.
-<code>bash
+<hr />
+
+<p>Once the build system is setup, this Library is built using this command at the top level:</p>
+
+<p><code>bash
+  $ git clean -xdf # if pull from a git repo.
+  # ------ For Maven ---------
+  $ mvn clean install
+  # ------ For Gradle --------
+  $ ./gradlew clean
+  $ ./gradlew build -x test
+</code></p>
+
+<p>To exclude a customized memory service for your platform e.g. OSX, note that if you excluded one or both memory services, some or all testcases/examples will fail since their dependent memory services are unavailable.</p>
+
+<p><code>bash
   $ git clean -xdf # if pull from a git repo.
   $ mvn -pl '!mnemonic-memory-services/mnemonic-nvml-vmem-service' clean package install
 </code></p>
-
-<p>To install this package to local repository (required to run examples and testcases):
-<code>bash
-  $ mvn clean install
-</code></p>
-
-<p>To run an example:
-<code>bash
-  $ # requires 'vmem' memory service to run, please refer to the code of test cases for more examples.
-  $ mvn exec:exec -Pexample -pl mnemonic-examples
-</code></p>
-
-<p>To run several test cases:
-```bash
-  $ # a testcase for module “mnemonic-core” that requires ‘pmalloc’ memory service to pass
-  $ mvn -Dtest=DurablePersonNGTest test -pl mnemonic-core -DskipTests=false</p>
-
-<p>$ # a testcase for module “mnemonic-core” that requires ‘pmalloc’ memory service to pass
-  $ mvn -Dtest=NonVolatileMemAllocatorNGTest test -pl mnemonic-core -DskipTests=false</p>
-
-<p>$ # a testcase for module “mnemonic-core” that requires ‘vmem’ memory service to pass
-  $ mvn -Dtest=VolatileMemAllocatorNGTest test -pl mnemonic-core -DskipTests=false</p>
-
-<p>$ # a testcase for module “mnemonic-core” that requires ‘vmem memory service to pass
-  $ mvn -Dtest=MemClusteringNGTest test -pl mnemonic-core -DskipTests=false</p>
-
-<p>$ # a testcase for module “mnemonic-collection” that requires ‘pmalloc’ memory service to pass
-  $ mvn -Dtest=DurableSinglyLinkedListNGTest  test -pl mnemonic-collections -DskipTests=false</p>
-
-<p>$ # a testcase for module “mnemonic-collection” that requires ‘pmalloc’ memory service to pass
-  $ mvn -Dtest=DurablePersonNGTest  test -pl mnemonic-collections -DskipTests=false</p>
-
-<p>$ # a testcase for module “mnemonic-computing-services/mnemonic-utilities-service” that requires ‘pmalloc’ memory service to pass
-  $ mvn -Dtest=DurableSinglyLinkedListNGPrintTest test -pl mnemonic-computing-services/mnemonic-utilities-service -DskipTests=false</p>
-
-<p>$ # a testcase for module “mnemonic-computing-services/mnemonic-utilities-service” that requires ‘pmalloc’ memory service to pass
-  $ mvn -Dtest=DurableSinglyLinkedListNGSortTest test -pl mnemonic-computing-services/mnemonic-utilities-service -DskipTests=false</p>
-
-<p>$ # a testcase for module “mnemonic-hadoop/mnemonic-hadoop-mapreduce” that requires ‘pmalloc’ memory service to pass
-  $ mvn -Dtest=MneMapreducePersonDataTest test -pl mnemonic-hadoop/mnemonic-hadoop-mapreduce -DskipTests=false
-```</p>
 
 
           
