@@ -145,6 +145,10 @@ developers working on the project. The project has created
       <td style="text-align: left">Lan Lin</td>
       <td style="text-align: left">lqlpsu</td>
     </tr>
+    <tr>
+      <td style="text-align: left">Xiaojin Jiao</td>
+      <td style="text-align: left">Xjiao</td>
+    </tr>
   </tbody>
 </table>
 
