@@ -147,7 +147,7 @@ developers working on the project. The project has created
     </tr>
     <tr>
       <td style="text-align: left">Xiaojin Jiao</td>
-      <td style="text-align: left">Xjiao</td>
+      <td style="text-align: left">xjiao</td>
     </tr>
   </tbody>
 </table>
