@@ -195,3 +195,8 @@ You can also find the mirrored repo. on [Github](https://github.com/apache/mnemo
 
 All code must be +1'ed by a committer other than the author prior to its
 commit.
+
+
+## Release Flow
+
+For releasing a new version, please refer to [Release Flow](releaseflow.html) page.
