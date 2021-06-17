@@ -93,7 +93,7 @@ developers working on the project. The project has created
       <td style="text-align: left">yzhao</td>
     </tr>
     <tr>
-      <td rowspan="13" style="text-align: center; font-weight:700">Committer</td>
+      <td rowspan="14" style="text-align: center; font-weight:700">Committer</td>
       <td style="text-align: left">Henry Saputra</td>
       <td style="text-align: left">hsaputra</td>
     </tr>
