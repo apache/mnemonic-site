@@ -3,7 +3,7 @@
 <head>
   <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
   <meta charset="UTF-8">
-  <title>Mnemonic News</title>
+  <title>Mnemonic Release Workflow</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="generator" content="Jekyll v2.4.0">
   <link rel="stylesheet" href="/css/font-awesome.min.css">
@@ -36,10 +36,10 @@
   <li class="">
     <a href="/talks/">Talks</a>
   </li>
-  <li class="current">
+  <li class="">
     <a href="/news/">News</a>
   </li>
-  <li class="">
+  <li class="current">
     <a href="/develop/">Develop</a>
   </li>
   <li class="">
@@ -75,10 +75,10 @@
   <li class="">
     <a href="/talks/">Talks</a>
   </li>
-  <li class="current">
+  <li class="">
     <a href="/news/">News</a>
   </li>
-  <li class="">
+  <li class="current">
     <a href="/develop/">Develop</a>
   </li>
   <li class="">
@@ -98,21 +98,86 @@
 
     <div class="unit whole">
       <article>
-        <h1>Mnemonic News</h1>
-        <h3 id="features">Features</h3>
+        <h1>Mnemonic Release Workflow</h1>
+        <p>To release a new version of Mnemonic, please refer to following steps.</p>
 
 <ul>
-  <li>Pure Java memory service</li>
-  <li>Durable object vectorization</li>
-  <li>Durable query service</li>
-  <li>Initial version released in September 2017</li>
-  <li>The latest version (<a href="https://archive.apache.org/dist/mnemonic/0.14.0/src/">0.14</a>) was released in March, 2021</li>
-</ul>
+  <li>
+    <p>1.Get familiar with Apache <a href="https://infra.apache.org/release-publishing.html" target="_blank">releasing process</a></p>
+  </li>
+  <li>
+    <p>2.Verify the whole project.</p>
+  </li>
+  <li>
+    <p>3.Vote on preparing a release candidate.</p>
+  </li>
+  <li>
+    <p>4.(One time setup) Generate a <a href="https://infra.apache.org/openpgp.html#generate-key" target="_blank">OpenPGP key</a> if the release manager has not yet got one.</p>
+  </li>
+  <li>
+    <p>5.(One time setup) Configure the deployment repositories of Maven and copy the following snippet to settings.xml under &lt;home folder&gt;/.m2/</p>
 
-<h3 id="next-version">Next version</h3>
+    <p><code class="xml">
+      &lt;settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd"&gt;
+          &lt;profiles&gt;
+              &lt;profile&gt;
+                  &lt;id&gt;apache-release&lt;/id&gt;
+                  &lt;properties&gt;
+                      &lt;altSnapshotDeploymentRepository&gt;snapshots::default::file:///${env.HOME}/ws/maven-repository/snapshots&lt;/altSnapshotDeploymentRepository&gt;
+                      &lt;altReleaseDeploymentRepository&gt;releases::default::file:///${env.HOME}/ws/maven-repository/releases&lt;/altReleaseDeploymentRepository&gt;
+                  &lt;/properties&gt;
+              &lt;/profile&gt;
+          &lt;/profiles&gt;
+      &lt;/settings&gt;
+  </code></p>
+  </li>
+  <li>
+    <p>6.Make sure the OpenJDK has been deployed in release machine.</p>
+  </li>
+  <li>
+    <p>7.Configure the signing key in git toolchain (see example below).</p>
 
-<ul>
-  <li>Plan to release 0.15 version by the end of May, 2021</li>
+    <p><code>
+  $ git config --global user.signingkey &lt;your gpg key id&gt;
+ </code></p>
+  </li>
+  <li>
+    <p>8.Use release.sh script to prepare a release candidate (see example below).</p>
+
+    <p><code>
+  $ tools/release.sh candidate 0.14.0 rc1 no
+ </code></p>
+  </li>
+  <li>
+    <p>9.Make sure the tickets belong to current release that got marked in the field of fixed version.</p>
+  </li>
+  <li>
+    <p>11.Collect the change log of current version from <a href="https://issues.apache.org/jira/projects/MNEMONIC/versions/">Apache JIRA</a></p>
+  </li>
+  <li>
+    <p>12.Check in the generated release candidate artifacts to Apache stage repository, add to change log file, and update the key file with new generated key if not included.</p>
+  </li>
+  <li>
+    <p>13.Vote on the release candidate.</p>
+  </li>
+  <li>
+    <p>14.Check the latest candidate to Apache release repository as formal new version release.</p>
+  </li>
+  <li>
+    <p>15.Perform formal release in git (see example below).</p>
+
+    <p><code>
+  $ tools/release.sh bump 1.14.0 rc1 0.15.0
+ </code></p>
+  </li>
+  <li>
+    <p>16.Announce the new release version with the link of release repository.</p>
+  </li>
+  <li>
+    <p>17.Update the download page in project website.</p>
+  </li>
 </ul>
 
       </article>
