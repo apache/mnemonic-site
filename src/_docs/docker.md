@@ -25,6 +25,7 @@ This is the "Dockerfiles" that will automatically build the CentOS/Ubuntu enviro
 #### How to set up proxy? 
 
 Set the argument "http_proxy" for the docker option "--build-arg" as follows
+
 ```bash
   $ docker build -t NAME[:TAG] --build-arg proxy_host="<proxy_host>" proxy_port="<proxy_port>" .
 ```
@@ -72,6 +73,7 @@ Run image:
 ```bash
   $ docker run -v <hostdir>/mnemonic:/ws/mnemonic -it NAME[:TAG]
 ```
+
 Note: this command will override the container's project folder, you can use another name to avoid it.
 
  * More details please refer to [Docker run reference](https://docs.docker.com/engine/reference/run/)
