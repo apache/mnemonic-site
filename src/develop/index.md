@@ -76,7 +76,7 @@ developers working on the project. The project has created
       <td style="text-align: left">djkevincr</td>
     </tr>
     <tr>
-      <td rowspan="4" style="text-align: center; font-weight:700">Release Manager</td>
+      <td rowspan="5" style="text-align: center; font-weight:700">Release Manager</td>
       <td style="text-align: left">Gang(Gary) Wang</td>
       <td style="text-align: left">garyw</td>
     </tr>
@@ -89,11 +89,15 @@ developers working on the project. The project has created
       <td style="text-align: left">johnu</td>
     </tr>
     <tr>
-      <td style="text-align: left">Yanhui Zhao*</td>
+      <td style="text-align: left">Yanhui Zhao</td>
       <td style="text-align: left">yzhao</td>
     </tr>
     <tr>
-      <td rowspan="15" style="text-align: center; font-weight:700">Committer</td>
+      <td style="text-align: left">Xiaojin Jiao*</td>
+      <td style="text-align: left">xjiao</td>
+    </tr>
+    <tr>
+      <td rowspan="16" style="text-align: center; font-weight:700">Committer</td>
       <td style="text-align: left">Henry Saputra</td>
       <td style="text-align: left">hsaputra</td>
     </tr>
@@ -152,6 +156,10 @@ developers working on the project. The project has created
     <tr>
       <td style="text-align: left">Zhen Li</td>
       <td style="text-align: left">zanelee</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Chunyong He</td>
+      <td style="text-align: left">chunyong</td>
     </tr>
   </tbody>
 </table>
