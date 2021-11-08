@@ -9,8 +9,8 @@ title: Mnemonic News
 * Durable object vectorization
 * Durable query service
 * Initial version released in September 2017
-* The latest version ([0.14](https://archive.apache.org/dist/mnemonic/0.14.0/src/)) was released in March, 2021
+* The latest version ([0.16](https://archive.apache.org/dist/mnemonic/0.16.0/src/)) was released in October, 2021
+
 
 ### Next version
-
-* Plan to release 0.15 version by the end of May, 2021
+* Plan to release 0.17 version in early 2022.
