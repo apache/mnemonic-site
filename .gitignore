@@ -9,3 +9,4 @@ public/
 node_modules/
 site/
 /src/.jekyll-metadata
+.DS_Store
