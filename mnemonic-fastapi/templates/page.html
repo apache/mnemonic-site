@@ -1,5 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome to Apache Mnemonic{% endblock %}
+{% block head %}
+{{ super() }}
+
+{% endblock %}
+
+{% block page_content %}
+{% include 'include/sidebar.html' %}
+
 <h1>
     Welcome to Apache Mnemonic!
 </h1>
 
-{{data.page}}
+<main role="main" class="container">
+    <div class="row">
+        <div class="col">
+            {{data.text|safe}}
+        </div>
+    </div>
+</main><!-- /.container -->
+
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+
+
+{% endblock %}
