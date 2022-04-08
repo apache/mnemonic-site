@@ -31,3 +31,14 @@ async def mnemonic_docs(request: Request):
         "page": "docs"
     }
     return templates.TemplateResponse("page.html", {"request": request, "data": data})
+
+if __name__ == "__main__":
+    from uvicorn import Config, Server
+    server = Server(
+        Config(
+            app,
+            host="0.0.0.0",
+            port=443,
+        )
+    )
+    server.run()
