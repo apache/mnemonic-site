@@ -1,0 +1,2 @@
+# Information
+Apache Mnemonic is a non-volatile hybrid memory storage oriented library, it proposed a non-volatile/durable Java object model and durable computing service that bring several advantages to significantly improve the performance of massive real-time data processing/analytics. developers are able to use this library to design their cache-less and SerDe-less high performance applications.
