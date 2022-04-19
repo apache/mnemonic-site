@@ -4,10 +4,17 @@ title: Downloads
 ---
 
 ### Download the latest version
+* [Apache Mnemonic 0.16.0](https://archive.apache.org/dist/mnemonic/0.16.0/src/){:target="_blank"} <br/>
+  October 2021 [What's New](https://archive.apache.org/dist/mnemonic/0.16.0/CHANGES.txt){:target="_blank"}
+
+### Archived Project Releases
+
+* [Apache Mnemonic 0.15.0](https://archive.apache.org/dist/mnemonic/0.15.0/src/){:target="_blank"} <br/>
+  July 2021 [What's New](https://archive.apache.org/dist/mnemonic/0.15.0/CHANGES.txt){:target="_blank"}
+
 * [Apache Mnemonic 0.14.0](https://archive.apache.org/dist/mnemonic/0.14.0/src/){:target="_blank"} <br/>
   March 2021 [What's New](https://archive.apache.org/dist/mnemonic/0.14.0/CHANGES.txt){:target="_blank"}
 
-### Archived Project Releases
 * [Apache Mnemonic 0.13.0](https://archive.apache.org/dist/mnemonic/0.13.0/src/){:target="_blank"} <br/>
   January 2021 [What's New](https://archive.apache.org/dist/mnemonic/0.13.0/CHANGES.txt){:target="_blank"}
 
